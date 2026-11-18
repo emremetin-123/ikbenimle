@@ -1,16 +1,43 @@
 # İKBenimle Çalışan Portalı
 
-İKBenimle; çalışan iletişimi, eğitim, belge talepleri, geri bildirim,
-duygu durumu, yemek değerlendirmeleri, bildirimler, servis güzergahları ve
-polivalans süreçlerini tek uygulamada yöneten kurumsal çalışan portalıdır.
+İKBenimle, çalışanların iş yerindeki günlük bilgilere tek yerden ulaşmasını
+ve taleplerini takip etmesini sağlayan açık kaynaklı bir çalışan portalıdır.
+Çalışanlar duyuruları telefonlarından okuyabilir, eğitimlerini takip edebilir
+ve izin ya da belge talebi gönderebilir. İK ekipleri ve yöneticiler de yetkileri
+dahilinde duyuru yayınlayabilir, eğitim atayabilir, talepleri yanıtlayabilir ve
+sonuçları raporlayabilir.
 
-Bu depo şu bileşenleri içerir:
+![İKBenimle mobil önizlemesi. Ana sayfa, profil, çalışan rehberi, servis güzergahları, eğitimler ve modül menüsü altı telefon çerçevesinde gösteriliyor.](docs/images/mobil-portal.png)
+
+*Mobil önizlemede örnek veriler kullanılmıştır.*
+
+## Portalda neler yapılabilir?
+
+- **Güncel bilgilere ulaşın.** Duyuruları, haberleri ve günlük yemek menüsünü
+  görün. Servis hattınızı ve durakları haritadan inceleyin.
+- **İşlerinizi takip edin.** Çalışan rehberinde ekip arkadaşlarınızı bulun.
+  İzin ve belge taleplerinizi gönderin, durumlarını görün ve bildirim alın.
+- **Eğitimlerinizi tamamlayın.** Atanan eğitimleri izleyin, sınavlara katılın
+  ve kazandığınız rozetleri ve sertifikaları görüntüleyin.
+- **Görüşünüzü paylaşın.** Anketleri yanıtlayın, öneri veya şikayet gönderin
+  ve talebinizle ilgili gelişmeleri takip edin. Günlük ruh halinizi paylaşabilir
+  ve yemek menüsünü değerlendirebilirsiniz.
+- **Fırsatları keşfedin.** Şirket içi kariyer ilanlarını inceleyip başvurun,
+  sık sorulan konulara Bilgi Portalı'ndan ulaşın.
+- **Ekip becerilerini değerlendirin.** Yetkili kullanıcılar pozisyonlara göre
+  beceri hedefleri belirleyebilir, dönemsel değerlendirme yapabilir ve sonuçları
+  raporlayabilir. Bu süreç Polivalans modülünde yürütülür.
+
+Projeyi denemek için [Docker ile ilk kurulum adımlarını](#ilk-kurulum-docker-ile-çalıştırma)
+izleyebilirsiniz.
+
+## Teknik yapı
 
 - React 19, TypeScript ve Vite tabanlı web arayüzü
 - Express 5 tabanlı Node.js API ve arka plan worker'ı
 - PostgreSQL 17 üretim adaptörü ve izole otomatik testler için SQLite adaptörü
 - Docker Compose, Caddy ve Nginx tabanlı dağıtım yapısı
-- GitHub Actions ile test, güvenlik taraması, image üretimi ve VPS dağıtımı
+- Test, güvenlik taraması, image üretimi ve VPS dağıtımı için GitHub Actions iş akışları
 - Restic ve S3 uyumlu depolama ile şifreli uygulama yedekleri
 
 ## İlk Kurulum: Docker ile Çalıştırma
@@ -23,8 +50,8 @@ ayrıca kurmanız gerekmez. 80 ve 443 portları boş olmalıdır.
 ### 1. Projeyi indirin
 
 ```sh
-git clone https://github.com/emremetin-123/calisanportal.git
-cd calisanportal
+git clone https://github.com/emremetin-123/ikbenimle.git
+cd ikbenimle
 ```
 
 Sonraki bütün Docker komutlarını bu klasörde (`docker-compose.yml` yanında)
