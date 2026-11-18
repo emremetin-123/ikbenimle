@@ -154,3 +154,10 @@ npm run check:bundle
   içinde güncellenir.
 - AI kod asistanları için bağlayıcı çalışma talimatları
   [AGENTS.md](AGENTS.md) içindedir.
+
+## Lisans
+
+İKBenimle kaynak kodu [GNU Affero Genel Kamu Lisansı 3.0](LICENSE)
+(AGPL-3.0-only) kapsamında lisanslanmıştır.
+[Günün sözü içeriğinin](backend/content/README.md) kaynak ve lisans bilgileri
+kendi belgesinde yer alır.
