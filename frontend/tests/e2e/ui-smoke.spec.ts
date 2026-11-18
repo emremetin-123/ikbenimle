@@ -21,6 +21,7 @@ test('login is usable and accessible', async ({ page }) => {
 
   await expect(page.locator('.login-product-name')).toHaveText('İKBenimle');
   await expect(page.getByRole('button', { name: 'Giriş Yap' })).toBeVisible();
+  await expect(page.getByRole('contentinfo')).toHaveCount(0);
   await page.getByLabel('Şifre', { exact: true }).fill('preview-password');
   await page.getByRole('button', { name: 'Şifreyi göster' }).click();
   await expect(page.getByLabel('Şifre', { exact: true })).toHaveAttribute('type', 'text');

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from 'react';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Navigate, useLocation, useParams, useNavigate } from './router';
 import { AuthProvider, useAuth } from './AuthContext';
 import { Login } from './Login';
@@ -8,7 +8,6 @@ import { LoadingIndicator } from './components/LoadingIndicator';
 
 const AdminDashboard = lazy(() => import('./AdminDashboard').then(module => ({ default: module.AdminDashboard })));
 const VideoPlayer = lazy(() => import('./VideoPlayer').then(module => ({ default: module.VideoPlayer })));
-const LegalInfo = lazy(() => import('./LegalInfo').then(module => ({ default: module.LegalInfo })));
 const Home = lazy(() => import('./pages/Home').then(module => ({ default: module.Home })));
 const Trainings = lazy(() => import('./pages/Trainings').then(module => ({ default: module.Trainings })));
 const PersonalInfo = lazy(() => import('./pages/PersonalInfo').then(module => ({ default: module.PersonalInfo })));
@@ -99,6 +98,8 @@ const EmployeeRoutes = () => {
 const AppRoutes = () => {
   const { pathname } = useLocation();
 
+  if (pathname === '/login') return <Login />;
+
   if (pathname === '/' || pathname === '/admin' || pathname === '/employee') {
     return (
       <ProtectedRoute>
@@ -118,8 +119,6 @@ const AppRoutes = () => {
 };
 
 function App() {
-  const [legalType, setLegalType] = useState<'tos' | 'privacy' | 'kvkk' | null>(null);
-
   return (
     <Router>
       <AuthProvider>
@@ -127,24 +126,13 @@ function App() {
         <div className="app-root">
           <div className="app-route-frame">
             <Suspense fallback={<RouteLoading />}>
-              <AppRoutesWithLegal onShowLegal={setLegalType} />
+              <AppRoutes />
             </Suspense>
           </div>
-          {legalType && (
-            <Suspense fallback={null}>
-              <LegalInfo type={legalType} onClose={() => setLegalType(null)} />
-            </Suspense>
-          )}
         </div>
       </AuthProvider>
     </Router>
   );
 }
-
-const AppRoutesWithLegal = ({ onShowLegal }: { onShowLegal: (type: 'tos' | 'privacy' | 'kvkk') => void }) => {
-  const { pathname } = useLocation();
-  if (pathname === '/login') return <Login onShowLegal={onShowLegal} />;
-  return <AppRoutes />;
-};
 
 export default App;

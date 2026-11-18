@@ -200,101 +200,6 @@
   cursor: wait;
   opacity: 0.75;
 }
-.app-footer {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 4rem 1rem;
-  border-top: 1px solid var(--border-light);
-  background: var(--bg);
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.login-footer {
-  border-top: 0;
-  opacity: 0.8;
-}
-
-.app-footer-content {
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  margin: 0 auto;
-  gap: 1.5rem;
-}
-
-.app-footer-owner {
-  margin: 0;
-  color: var(--text);
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-.app-footer-copyright {
-  margin: 0.25rem 0 0;
-  font-size: 0.8rem;
-  opacity: 0.7;
-}
-
-.app-footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  font-size: 0.85rem;
-}
-
-.app-footer-link {
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--primary);
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.app-footer-link:hover {
-  text-decoration: underline;
-  opacity: 0.8;
-}
-
-.login-card .login-footer {
-  margin-top: 1.5rem;
-  padding: 1rem 0 0;
-  border-top: 1px solid rgb(94 122 150 / 14%);
-  background: transparent;
-  color: #52677b;
-  opacity: 1;
-}
-
-.login-footer .app-footer-content {
-  gap: 0.75rem;
-}
-
-.login-footer .app-footer-owner {
-  color: #425a70;
-  font-size: 0.85rem;
-}
-
-.login-footer .app-footer-copyright {
-  max-width: 300px;
-  margin: 0.35rem auto 0;
-  color: #52677b;
-  font-size: 0.75rem;
-  opacity: 1;
-}
-
-.login-footer .app-footer-links {
-  gap: 0.25rem 1rem;
-  font-size: 0.75rem;
-}
-
-.login-footer .app-footer-link {
-  min-height: 44px;
-  color: #075eaf;
-}
 
 @media (max-width: 768px) {
   .login-page {
@@ -317,9 +222,5 @@
 
   .login-logo {
     width: 205px;
-  }
-
-  .app-footer {
-    padding: 2rem 0.75rem;
   }
 }

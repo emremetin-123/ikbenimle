@@ -23,7 +23,6 @@ const expectedImports = [
   './styles/module-service-routes.css',
   './styles/module-users.css',
   './styles/module-directory.css',
-  './styles/module-legal.css',
   './styles/module-surveys.css',
   './styles/module-feedback.css',
   './styles/module-training.css',
