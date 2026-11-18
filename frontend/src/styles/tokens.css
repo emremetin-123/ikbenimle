@@ -1,0 +1,94 @@
+/* ── DESIGN TOKENS ─────────────────────────────── */
+
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-dim: rgba(37, 99, 235, 0.1);
+  --success: #047857;
+  --error: #dc2626;
+  --error-hover: #b91c1c;
+  --error-pressed: #b91c1c;
+  --error-soft: rgba(239, 68, 68, 0.1);
+  --error-border: rgba(239, 68, 68, 0.42);
+  --warning: #f59e0b;
+  --status-neutral-text: #475569;
+  --status-neutral-bg: #eef2f7;
+  --status-success-text: #047857;
+  --status-success-bg: #ecfdf5;
+  --status-warning-text: #92400e;
+  --status-warning-bg: #fef3c7;
+  --status-info-text: #1e40af;
+  --status-info-bg: #dbeafe;
+  --status-danger-text: #991b1b;
+  --status-danger-bg: #fee2e2;
+
+  /* Theme Colors - Light Mode (Pure White) */
+  --bg: #ffffff;
+  --bg-card: #f8fafc;
+  --bg-input: #f1f5f9;
+  
+  /* Sidebar Colors - Antrasit (Anthracite) */
+  --sidebar-bg: #1e2128;
+  --sidebar-gradient: linear-gradient(180deg, #22262f 0%, #1a1d24 100%);
+  --sidebar-text: #eef0f5;
+  --sidebar-text-muted: #8892a4;
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-active-bg: #2563eb;
+
+  --text: #1e293b;
+  --text-muted: #58677a;
+  --border: #e2e8f0;
+  --border-light: #f1f5f9;
+  --text-main: var(--text);
+  --bg-hover: var(--bg-input);
+  --bg-subtle: var(--bg-card);
+
+  /* Typography Scale */
+  --text-xs: 0.8rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.625rem;
+  --text-3xl: 2rem;
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+
+  --radius-sm: 0.6rem;
+  --radius: 0.8rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  --shadow-premium: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  --transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+  --sidebar-width: 260px;
+  --header-height: 70px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto;
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
+  }
+}

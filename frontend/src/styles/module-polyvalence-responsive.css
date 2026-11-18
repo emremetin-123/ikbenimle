@@ -1,0 +1,737 @@
+.poly-member-card-score b {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #10b981;
+}
+
+.poly-member-card > svg { color: rgba(100, 116, 139, 0.58); }
+
+.poly-selected-member-hero {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.15rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 16px 38px rgba(15, 23, 42, 0.07);
+}
+
+.poly-selected-member-hero h1 {
+  margin: 0 0 0.2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #0f172a;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  font-weight: 950;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.poly-selected-member-hero p {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #64748b;
+  font-size: 0.98rem;
+  font-weight: 650;
+}
+
+.poly-selected-member-hero > strong {
+  color: #059669;
+  font-size: 1.4rem;
+  font-weight: 950;
+  white-space: nowrap;
+}
+
+.poly-skill-filter-tabs {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding-bottom: 0.2rem;
+  scrollbar-width: none;
+}
+
+.poly-skill-filter-tabs::-webkit-scrollbar { display: none; }
+
+.poly-skill-filter-tabs button {
+  min-height: 54px;
+  flex: 0 0 auto;
+  padding: 0 1.05rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #475569;
+  font: inherit;
+  font-size: 0.96rem;
+  font-weight: 850;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.05);
+  cursor: pointer;
+}
+
+.poly-skill-filter-tabs button.active {
+  border-color: rgba(37, 99, 235, 0.2);
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 16px 36px rgba(37, 99, 235, 0.26);
+}
+
+.poly-task-list > button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto minmax(180px, 1.4fr) minmax(130px, 0.7fr) minmax(160px, 0.9fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-card);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.poly-task-list > button:hover { border-color: rgba(37, 99, 235, 0.4); box-shadow: 0 5px 16px rgba(15, 23, 42, 0.06); }
+
+.poly-task-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 7px; background: #e0e7ff; color: #3730a3; }
+
+.poly-task-name,
+.poly-task-due,
+.poly-task-progress { display: flex; min-width: 0; flex-direction: column; gap: 0.25rem; }
+
+.poly-task-name strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.poly-task-name small,
+.poly-task-due small,
+.poly-task-progress small { color: var(--text-muted); font-size: 0.7rem; }
+
+.poly-task-due { flex-direction: row; align-items: center; color: var(--text-muted); }
+
+.poly-task-due > span { display: flex; flex-direction: column; gap: 0.15rem; color: var(--text); }
+
+.poly-task-detail-header { display: grid; grid-template-columns: auto minmax(220px, 1fr) minmax(160px, 0.65fr) auto; }
+
+.poly-detail-progress { display: flex; flex-direction: column; gap: 0.3rem; }
+
+.poly-detail-progress strong { color: #15803d; }
+
+.poly-detail-progress small { color: var(--text-muted); font-size: 0.67rem; }
+
+.poly-task-filters { display: flex; align-items: center; gap: 0.65rem; }
+
+.poly-task-filters label { flex: 1; display: flex; align-items: center; gap: 0.5rem; min-height: 42px; padding: 0 0.75rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-card); color: var(--text-muted); }
+
+.poly-task-filters input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); font: inherit; }
+
+.poly-task-filters select { min-height: 42px; padding: 0 0.75rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-card); color: var(--text); }
+
+.poly-task-mobile-flow { display: none; }
+
+.poly-assessment-modal { max-width: 590px; }
+
+.poly-assessment-context { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1rem; }
+
+.poly-assessment-context span { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.3rem 0.5rem; border: 1px solid var(--border); border-radius: 4px; color: var(--text-muted); font-size: 0.7rem; }
+
+.poly-level-picker { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.45rem; margin: 0; padding: 0; border: 0; }
+
+.poly-level-picker legend { margin-bottom: 0.55rem; font-size: 0.76rem; font-weight: 800; }
+
+.poly-level-picker button { min-height: 68px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.25rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-card); color: var(--text); font-size: 1rem; font-weight: 900; cursor: pointer; }
+
+.poly-level-picker button small { color: var(--text-muted); font-size: 0.58rem; font-weight: 600; }
+
+.poly-level-picker button.active { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12); }
+
+.poly-level-picker button.active.level-0 { background: #fee2e2; color: #b91c1c; }
+
+.poly-level-picker button.active.level-1 { background: #fef3c7; color: #a16207; }
+
+.poly-level-picker button.active.level-2 { background: #dbeafe; color: #1d4ed8; }
+
+.poly-level-picker button.active.level-3 { background: #dcfce7; color: #15803d; }
+
+.poly-trainer-toggle { display: flex; align-items: center; gap: 0.7rem; margin: 1rem 0; padding: 0.8rem; border: 1px solid #c7d2fe; border-radius: 7px; background: #eef2ff; cursor: pointer; }
+
+.poly-trainer-toggle.disabled { opacity: 0.55; cursor: not-allowed; }
+
+.poly-trainer-toggle input { accent-color: #172554; }
+
+.poly-trainer-toggle > span { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 0 0.55rem; }
+
+.poly-trainer-toggle svg { grid-row: 1 / span 2; color: #172554; }
+
+.poly-trainer-toggle strong { font-size: 0.78rem; }
+
+.poly-trainer-toggle small { color: var(--text-muted); font-size: 0.67rem; }
+
+.poly-inline-error { margin-top: 0.7rem; padding: 0.65rem; border-radius: 5px; background: #fee2e2; color: #991b1b; font-size: 0.74rem; }
+
+@media (max-width: 1050px) {
+  .poly-definition-grid { grid-template-columns: 1fr 1fr; }
+  .poly-skill-grid { grid-template-columns: 1fr 1fr; }
+  .poly-member-list article { grid-template-columns: auto minmax(170px, 1fr) minmax(120px, 0.8fr) minmax(120px, 0.8fr) auto; }
+  .poly-member-list article > div:nth-of-type(4) { display: none; }
+  .poly-period-main { grid-template-columns: 76px minmax(160px, 1.3fr) minmax(120px, 0.8fr); }
+  .poly-period-progress { display: none; }
+}
+
+@media (min-width: 901px) {
+  .poly-admin-page,
+  .poly-task-page {
+    gap: 1rem;
+  }
+
+  .poly-tabs {
+    height: 58px;
+  }
+
+  .poly-tabs button {
+    min-height: 58px;
+  }
+
+  .poly-section-stack {
+    gap: 0.95rem;
+  }
+
+  .poly-toolbar {
+    min-height: 52px;
+    padding: 0.2rem 0;
+  }
+
+  .poly-context-filter {
+    grid-template-columns: minmax(260px, 420px) repeat(2, auto) minmax(0, 1fr);
+    padding: 0.75rem 0.85rem;
+  }
+
+  .poly-context-filter span:last-child {
+    justify-self: start;
+  }
+
+  .poly-kpi-grid {
+    gap: 0.65rem;
+  }
+
+  .poly-kpi-grid > div {
+    min-height: 84px;
+    padding: 0.8rem 0.9rem;
+  }
+
+  .poly-period-row {
+    padding: 0.55rem 0.65rem;
+  }
+
+  .poly-definition-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .poly-panel > header {
+    min-height: 56px;
+    padding: 0.75rem 0.9rem;
+  }
+
+  .poly-skill-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.65rem;
+    padding: 0.75rem;
+  }
+
+  .poly-skill-grid article {
+    min-height: 142px;
+    padding: 0.8rem;
+    border-radius: 12px;
+  }
+
+  .poly-member-list article {
+    min-height: 76px;
+    gap: 0.75rem;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .poly-target-list article {
+    min-height: 64px;
+  }
+
+  .poly-report-dashboard {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 0.85rem;
+    padding: 0.75rem 0 0;
+  }
+
+  .poly-report-dashboard-head,
+  .poly-report-scope-tabs,
+  .poly-report-actions,
+  .poly-report-kpis,
+  .poly-operation-risk-card {
+    grid-column: 1 / -1;
+  }
+
+  .poly-report-dashboard-head {
+    min-height: 48px;
+  }
+
+  .poly-report-dashboard-head h2 {
+    font-size: 1.85rem;
+  }
+
+  .poly-report-dashboard-head p {
+    font-size: 0.88rem;
+  }
+
+  .poly-report-scope-tabs button {
+    min-height: 40px;
+    padding: 0 0.9rem;
+    font-size: 0.84rem;
+    box-shadow: 0 7px 18px rgba(15, 23, 42, 0.045);
+  }
+
+  .poly-report-actions {
+    justify-content: flex-start;
+  }
+
+  .poly-report-actions .export-excel-button,
+  .poly-report-actions button {
+    min-height: 42px;
+  }
+
+  .poly-report-kpis {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+
+  .poly-report-kpis article {
+    min-height: 96px;
+    padding: 0.85rem;
+    border-radius: 15px;
+  }
+
+  .poly-report-kpis strong {
+    font-size: 1.85rem;
+  }
+
+  .poly-operation-risk-card {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr) auto;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.9rem;
+    border-radius: 16px;
+  }
+
+  .poly-operation-risk-card header strong {
+    font-size: 1rem;
+  }
+
+  .poly-operation-risk-card header p {
+    font-size: 0.85rem;
+  }
+
+  .poly-operation-risk-card > div {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .poly-operation-risk-card article {
+    min-height: 48px;
+    padding: 0.55rem 0.65rem;
+  }
+
+  .poly-operation-risk-card button {
+    min-width: 190px;
+    min-height: 44px;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+  }
+
+  .poly-report-card {
+    grid-column: span 6;
+    padding: 0.9rem;
+    border-radius: 16px;
+  }
+
+  .poly-report-card h3 {
+    font-size: 1.08rem;
+  }
+
+  .poly-report-card > p {
+    margin-bottom: 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  .poly-heatmap-grid {
+    gap: 0.32rem;
+  }
+
+  .poly-heatmap-grid > span:not(:empty) {
+    min-height: 36px;
+  }
+
+  .poly-department-bars,
+  .poly-top-employee-list,
+  .poly-development-card {
+    gap: 0.65rem;
+  }
+
+  .poly-development-card {
+    grid-column: 1 / -1;
+  }
+
+  .poly-development-card article {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.2fr) auto;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .poly-development-card article header {
+    min-width: 0;
+  }
+
+  .poly-development-card article > span {
+    height: 12px;
+  }
+
+  .poly-development-card button {
+    min-height: 44px;
+    align-self: start;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+  }
+
+  .poly-task-home,
+  .poly-member-overview-page,
+  .poly-member-evaluation-page {
+    padding: 0.75rem 0 0;
+  }
+
+  .poly-task-home-head h1 {
+    font-size: 2.15rem;
+  }
+
+  .poly-task-search,
+  .poly-member-search {
+    min-height: 54px;
+    border-radius: 16px;
+    padding: 0 1rem;
+  }
+
+  .poly-task-search input {
+    font-size: 1rem;
+  }
+
+  .poly-task-card {
+    min-height: 104px;
+    padding: 0.95rem 1rem;
+    border-radius: 18px;
+  }
+
+  .poly-task-card-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
+  }
+
+  .poly-task-card strong {
+    font-size: 1.28rem;
+  }
+
+  .poly-task-card small {
+    font-size: 0.92rem;
+  }
+
+  .poly-detail-overview {
+    padding: 1.15rem 1.25rem;
+    border-radius: 18px;
+  }
+
+  .poly-detail-overview h1 {
+    font-size: 2rem;
+  }
+
+  .poly-detail-overview p {
+    font-size: 1rem;
+  }
+
+  .poly-member-filter-tabs button,
+  .poly-skill-filter-tabs button {
+    min-height: 42px;
+    padding: 0 0.9rem;
+    font-size: 0.84rem;
+    box-shadow: 0 7px 18px rgba(15, 23, 42, 0.045);
+  }
+
+  .poly-member-card {
+    min-height: 78px;
+    padding: 0.75rem 0.85rem;
+    border-radius: 16px;
+  }
+
+  .poly-member-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+  }
+
+  .poly-member-card-body strong {
+    font-size: 1rem;
+  }
+
+  .poly-member-card-body small {
+    font-size: 0.8rem;
+  }
+
+  .poly-selected-member-hero {
+    padding: 0.85rem 0.95rem;
+    border-radius: 17px;
+  }
+
+  .poly-selected-member-hero h1 {
+    font-size: 1.3rem;
+  }
+
+  .poly-quick-hint {
+    font-size: 0.82rem;
+  }
+
+  .poly-quick-category {
+    border-radius: 16px;
+  }
+
+  .poly-quick-category > header {
+    min-height: 50px;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .poly-quick-row {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .poly-quick-controls button {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 768px) {
+  .poly-admin-page,
+  .poly-task-page { gap: 0.85rem; }
+  .poly-page-header,
+  .poly-task-detail-header { padding: 1rem; align-items: flex-start; }
+  .poly-page-header h2,
+  .poly-task-detail-header h2 { font-size: 1.18rem; }
+  .poly-page-header p { font-size: 0.78rem; line-height: 1.45; }
+  .poly-tabs { grid-template-columns: repeat(4, minmax(70px, 1fr)); overflow-x: auto; }
+  .poly-tabs button { min-height: 58px; flex-direction: column; gap: 0.25rem; padding: 0.4rem; font-size: 0.62rem; }
+  .poly-toolbar { align-items: flex-start; flex-direction: column; }
+  .poly-toolbar > .poly-command,
+  .poly-toolbar-actions,
+  .poly-toolbar-actions > button { width: 100%; }
+  .poly-schedule-check { width: 100%; min-height: 48px; }
+  .poly-schedule-check > span { width: 31px; height: 31px; border-radius: 10px; }
+  .poly-archive-filter { width: fit-content; min-height: 35px; }
+  .poly-context-filter {
+    grid-template-columns: 1fr;
+    padding: 0.75rem;
+  }
+  .poly-context-filter.embedded { margin: 0.75rem; }
+  .poly-context-filter span { width: fit-content; }
+  .poly-kpi-grid,
+  .poly-task-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .poly-kpi-grid > div,
+  .poly-task-summary > div { padding: 0.8rem; }
+  .poly-kpi-grid strong,
+  .poly-task-summary strong { font-size: 1.1rem; }
+  .poly-period-row { align-items: stretch; flex-direction: column; }
+  .poly-period-main { grid-template-columns: auto 1fr auto; }
+  .poly-period-date { text-align: right; }
+  .poly-period-actions { justify-content: flex-end; }
+  .poly-definition-grid,
+  .poly-skill-grid { grid-template-columns: 1fr; }
+  .poly-skill-grid { padding: 0.65rem; }
+  .poly-skill-grid article { min-height: 150px; }
+  .poly-member-list article { grid-template-columns: auto 1fr auto; gap: 0.65rem; }
+  .poly-member-list article > div:nth-of-type(n+3) { display: none; }
+  .poly-member-actions { grid-column: 1 / -1; justify-content: flex-start; }
+  .poly-target-list article { grid-template-columns: 62px 1fr auto; }
+  .poly-target-list article > div:nth-of-type(n+2) { display: none; }
+  .poly-form-grid { grid-template-columns: 1fr; }
+  .poly-modal { width: calc(100vw - 1rem); max-height: calc(100dvh - 1rem); padding: 1rem; }
+  .poly-modal-actions { position: sticky; bottom: -1rem; margin: 0 -1rem -1rem; padding: 0.8rem 1rem; background: var(--bg-card); }
+  .poly-matrix-shell { display: none; }
+  .poly-report-filters { grid-template-columns: 1fr 1fr; }
+  .poly-report-filters label { grid-column: 1 / -1; }
+  .poly-report-filters > span { grid-column: 1 / -1; text-align: left; }
+  .poly-mobile-report-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .poly-mobile-report-list article { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; padding: 0.75rem; border: 1px solid var(--border); border-radius: 7px; background: var(--bg-card); }
+  .poly-mobile-report-list article > div { display: flex; flex-direction: column; gap: 0.2rem; }
+  .poly-mobile-report-list small { color: var(--text-muted); font-size: 0.68rem; }
+  .poly-risk-band { align-items: stretch; flex-direction: column; }
+  .poly-risk-band > div { justify-content: flex-start; }
+  .poly-report-dashboard { padding: 0.8rem; gap: 0.85rem; }
+  .poly-report-dashboard-head { align-items: flex-start; }
+  .poly-report-dashboard-head h2 { font-size: 1.55rem; }
+  .poly-report-period-strip,
+  .poly-report-scope-tabs {
+    margin-right: -1rem;
+    padding-right: 1rem;
+  }
+  .poly-report-period-strip button { min-height: 44px; font-size: 0.82rem; }
+  .poly-report-scope-tabs button { min-height: 44px; padding: 0 0.9rem; }
+  .poly-report-actions { justify-content: flex-start; flex-wrap: wrap; }
+  .poly-report-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem; }
+  .poly-report-kpis article { min-height: 108px; padding: 0.85rem; border-radius: 16px; }
+  .poly-report-kpis strong { font-size: 1.75rem; }
+  .poly-operation-risk-card,
+  .poly-report-card { padding: 0.9rem; border-radius: 18px; }
+  .poly-operation-risk-card header strong { font-size: 1rem; }
+  .poly-operation-risk-card article {
+    grid-template-columns: auto minmax(0, 1fr);
+    min-height: 54px;
+  }
+  .poly-operation-risk-card article small {
+    grid-column: 2;
+    font-size: 0.78rem;
+  }
+  .poly-heatmap-grid {
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+  .poly-heatmap-grid > b,
+  .poly-heatmap-grid > strong { font-size: 0.76rem; }
+  .poly-heatmap-grid > span:not(:empty) { min-width: 56px; min-height: 44px; border-radius: 10px; }
+  .poly-department-bars article { grid-template-columns: minmax(72px, 0.45fr) minmax(0, 1fr) auto; gap: 0.55rem; }
+  .poly-top-employee-list article { grid-template-columns: auto auto minmax(0, 1fr) auto; gap: 0.55rem; }
+  .poly-top-employee-list article > span { width: 42px; height: 42px; border-radius: 14px; }
+  .poly-development-card article header { align-items: flex-start; flex-direction: column; gap: 0.25rem; }
+  .poly-task-admin-panel article { grid-template-columns: 1fr auto; }
+  .poly-task-admin-panel article .btn-secondary { grid-column: 1 / -1; width: 100%; }
+  .poly-task-home { padding: 1rem; }
+  .poly-task-home-head .btn-icon-round { width: 40px; height: 40px; flex: 0 0 40px; }
+  .poly-task-search { min-height: 62px; border-radius: 18px; padding: 0 1rem; }
+  .poly-task-card { min-height: 116px; grid-template-columns: auto 1fr auto; gap: 0.8rem; padding: 1rem; border-radius: 18px; }
+  .poly-task-card-icon { width: 58px; height: 58px; border-radius: 15px; }
+  .poly-task-card-icon svg { width: 27px; height: 27px; }
+  .poly-task-card-status { min-height: 26px; padding: 0.22rem 0.58rem; font-size: 0.74rem; }
+  .poly-task-card-progress { width: 100%; }
+  .poly-detail-overview {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+    padding: 1.15rem;
+    border-radius: 20px;
+  }
+  .poly-detail-overview-progress {
+    min-width: 0;
+    width: 100%;
+  }
+  .poly-detail-overview-progress footer {
+    align-items: flex-start;
+  }
+  .poly-detail-overview-progress strong {
+    font-size: 0.9rem;
+  }
+  .poly-member-filter-tabs {
+    gap: 0.55rem;
+    margin-right: -1rem;
+    padding-right: 1rem;
+  }
+  .poly-member-filter-tabs button {
+    min-height: 48px;
+    padding: 0 0.85rem;
+    font-size: 0.86rem;
+  }
+  .poly-member-card {
+    min-height: 86px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.72rem;
+    padding: 0.82rem;
+    border-radius: 17px;
+  }
+  .poly-member-card-score {
+    grid-column: 2 / 3;
+    align-items: flex-start;
+    min-width: 0;
+    width: 100%;
+  }
+  .poly-member-card-score i {
+    width: min(155px, 100%);
+  }
+  .poly-member-card > svg {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+  .poly-member-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+  }
+  .poly-member-overview-page,
+  .poly-member-evaluation-page {
+    padding: 1rem;
+  }
+  .poly-selected-member-hero {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.95rem;
+    border-radius: 18px;
+  }
+  .poly-selected-member-hero > strong {
+    grid-column: 2 / 3;
+    font-size: 1.1rem;
+  }
+  .poly-skill-filter-tabs {
+    gap: 0.55rem;
+    margin-right: -1rem;
+    padding-right: 1rem;
+  }
+  .poly-skill-filter-tabs button {
+    min-height: 48px;
+    padding: 0 0.85rem;
+    font-size: 0.86rem;
+  }
+  .poly-task-list > button { grid-template-columns: auto 1fr auto; gap: 0.7rem; }
+  .poly-task-due,
+  .poly-task-progress { display: none; }
+  .poly-task-detail-header { grid-template-columns: auto 1fr; }
+  .poly-task-detail-header > .poly-detail-progress { grid-column: 1 / -1; }
+  .poly-task-detail-header > .poly-command { grid-column: 1 / -1; width: 100%; }
+  .poly-task-filters { align-items: stretch; flex-direction: column; }
+  .poly-task-desktop-matrix { display: none; }
+  .poly-task-mobile-flow { display: flex; flex-direction: column; gap: 0.75rem; }
+  .poly-mobile-member-header { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 0.65rem; padding: 0.8rem; border: 1px solid var(--border); border-radius: 7px; background: var(--bg-card); }
+  .poly-mobile-member-header > div:not(.poly-avatar-letter) { display: flex; min-width: 0; flex-direction: column; gap: 0.15rem; }
+  .poly-mobile-member-header small { color: var(--text-muted); font-size: 0.68rem; }
+  .poly-mobile-member-header > span { color: var(--primary); font-size: 0.75rem; font-weight: 800; }
+  .poly-quick-hint { font-size: 0.86rem; }
+  .poly-quick-category { border-radius: 18px; }
+  .poly-quick-category > header { min-height: 58px; padding: 0.78rem 0.85rem; }
+  .poly-quick-row {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    padding: 0.82rem 0.85rem;
+  }
+  .poly-quick-controls {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .poly-quick-controls button {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+  .poly-mobile-skill-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .poly-mobile-skill-list > button { width: 100%; display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 0.65rem; min-height: 82px; padding: 0.75rem; border: 1px solid var(--border); border-radius: 7px; background: var(--bg-card); color: inherit; text-align: left; }
+  .poly-mobile-skill-list > button > div:first-child { display: flex; min-width: 0; flex-direction: column; gap: 0.2rem; }
+  .poly-mobile-skill-list > button > div:first-child span { color: var(--primary); font-size: 0.62rem; font-weight: 800; }
+  .poly-mobile-skill-list > button > div:first-child strong { overflow: hidden; text-overflow: ellipsis; white-space: normal; font-size: 0.82rem; }
+  .poly-mobile-skill-list > button > div:first-child small { color: var(--text-muted); font-size: 0.65rem; }
+  .poly-mobile-score { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; gap: 0.1rem; border-radius: 6px; }
+  .poly-level-picker { grid-template-columns: repeat(5, minmax(50px, 1fr)); overflow-x: auto; }
+  .poly-level-picker button { min-height: 64px; padding: 0.25rem; }
+  .poly-level-picker button small { font-size: 0.52rem; }
+}

@@ -1,0 +1,29 @@
+name: Production Health Monitor
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/15 * * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    env:
+      REQUIRE_OFFSITE_BACKUP: ${{ vars.REQUIRE_OFFSITE_BACKUP || 'false' }}
+    steps:
+      - name: Check readiness and backup freshness
+        run: |
+          curl --fail --silent --show-error --max-time 15 \
+            https://ikbenimle.com/health/ready >/dev/null
+          if [ "$REQUIRE_OFFSITE_BACKUP" = "true" ]; then
+            curl --fail --silent --show-error --max-time 15 \
+              https://ikbenimle.com/health/backup >/dev/null
+          fi
+      - name: Check browser security policy
+        run: |
+          curl --fail --silent --show-error --head --max-time 15 \
+            https://ikbenimle.com/ \
+            | grep -qi '^content-security-policy:'

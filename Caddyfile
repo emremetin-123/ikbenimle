@@ -1,0 +1,13 @@
+ikbenimle.com, www.ikbenimle.com {
+    encode gzip
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        -Server
+    }
+    reverse_proxy frontend:8080
+}
+
+:80 {
+    encode gzip
+    reverse_proxy frontend:8080
+}

@@ -1,0 +1,341 @@
+.admin-users-header-card {
+  margin-bottom: 1.25rem;
+}
+
+.admin-user-form-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.admin-users-create {
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-users-list-card {
+  padding: 0;
+}
+
+.admin-users-toolbar {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.admin-users-toolbar h3 {
+  margin: 0;
+}
+
+.admin-users-search {
+  width: 100%;
+  max-width: 300px;
+}
+
+.admin-users-error {
+  padding: 2rem;
+  text-align: center;
+}
+
+.admin-users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-users-table tr {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.admin-users-table th {
+  padding: 1.25rem 2rem;
+  text-align: left;
+}
+
+.admin-users-table td {
+  padding: 1rem 2rem;
+}
+
+.admin-users-table .admin-users-actions-cell {
+  text-align: right;
+}
+
+.admin-users-name {
+  font-weight: 600;
+}
+
+.admin-users-role {
+  margin-top: 0.2rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.admin-users-status {
+  margin-top: 0.45rem;
+  font-size: 0.72rem;
+}
+
+.admin-users-status.is-active {
+  color: #15803d;
+  background: rgba(34, 197, 94, 0.12);
+}
+
+.admin-users-status.is-passive {
+  color: #64748b;
+  background: rgba(100, 116, 139, 0.14);
+}
+
+.admin-users-employee-id {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.admin-users-divider {
+  margin: 0 0.5rem;
+  color: var(--border-light);
+}
+
+.admin-users-manager {
+  margin-top: 0.35rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.admin-users-row-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.admin-users-edit {
+  color: var(--primary);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.admin-users-power.is-deactivate {
+  color: #d97706;
+  background: rgba(245, 158, 11, 0.14);
+}
+
+.admin-users-power.is-activate {
+  color: #15803d;
+  background: rgba(34, 197, 94, 0.12);
+}
+
+.admin-users-table .admin-users-empty {
+  padding: 2rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.admin-user-form-title {
+  margin: 0;
+}
+
+.admin-user-field {
+  margin-bottom: 0;
+}
+
+.admin-user-permissions {
+  grid-column: 1 / -1;
+  margin-top: 0.5rem;
+}
+
+.admin-user-permissions-title {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.admin-user-permission-grid {
+  gap: 1.5rem;
+}
+
+.admin-user-permission-panel {
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+}
+
+.admin-user-permission-panel.is-accented {
+  border-color: rgba(59, 130, 246, 0.2);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.admin-user-permission-panel h4 {
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border-light);
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.admin-user-permission-panel.is-accented h4 {
+  color: var(--primary);
+}
+
+.admin-user-permission-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.admin-user-permission {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.admin-user-permission-checkbox {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--primary);
+}
+
+.admin-user-modal-secondary {
+  flex: 1;
+}
+
+.admin-user-modal-primary {
+  flex: 2;
+}
+
+.select-add-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 42px;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.btn-add-option {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  border-radius: var(--radius-md);
+  color: #fff;
+  background: var(--primary);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.18);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.btn-add-option:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.24);
+  filter: brightness(1.03);
+}
+
+.btn-add-option:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.18);
+  outline-offset: 2px;
+}
+
+.admin-option-modal {
+  max-width: 520px;
+}
+
+.admin-option-title {
+  margin: 0;
+}
+
+.admin-option-description {
+  margin: 0.25rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.admin-option-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0 0 var(--space-5);
+  padding: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.admin-option-list-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 0.2rem;
+}
+
+.admin-option-list-title strong {
+  color: var(--text);
+  font-size: 0.82rem;
+}
+
+.admin-option-list-title small,
+.admin-option-empty {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  line-height: 1.45;
+}
+
+.admin-option-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 36px;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+
+.admin-option-row span {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  overflow: hidden;
+  color: var(--text);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.admin-option-row span small {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .admin-users-toolbar {
+    padding: 1.25rem;
+  }
+
+  .admin-users-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .admin-users-create,
+  .admin-users-search {
+    width: 100%;
+    max-width: none;
+  }
+
+  .admin-users-table {
+    min-width: 680px;
+  }
+
+  .admin-user-permission-grid {
+    grid-template-columns: 1fr;
+  }
+}

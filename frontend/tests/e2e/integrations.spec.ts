@@ -1,0 +1,35 @@
+import { expect, test } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+import { expectModuleTitle, mockAuthenticatedApi } from './fixtures';
+test('integration setup presents business flows, preserves drafts and exposes API errors', async ({ page }) => {
+  await mockAuthenticatedApi(page);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.route('**/api/admin/integrations**', route => {
+    if (route.request().url().includes('/api-keys')) return route.fulfill({ status: 503, json: { message: 'Servis kullanılamıyor' } });
+    return route.fulfill({ json: { items: [{ id: 1, name: 'Mevcut Bordro', provider: 'logo_bridge', is_enabled: true, employee_sync_enabled: true, leave_balance_sync_enabled: true, leave_request_export_enabled: true, leave_export_trigger: 'created', active_key_count: 1, pending_job_count: 0, last_seen_at: '2026-11-03 09:00:00' }] } });
+  });
+  await page.goto('/employee/moduller/api-entegrasyonlari');
+  await expectModuleTitle(page, 'Entegrasyonlar');
+  await expect(page.getByLabel('Bağlantı adı', { exact: true })).toHaveValue('Mevcut Bordro');
+  await expect(page.getByRole('heading', { name: 'Çalışanlar', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Kalan izin bakiyesi', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'İzin talepleri', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Bordrolar', exact: true })).toBeVisible();
+  await expect(page.getByRole('switch', { name: 'Bağlantıyı etkinleştir' })).toBeChecked();
+  const accessibility = await new AxeBuilder({ page }).include('.integration-admin-page').withTags(['wcag2a', 'wcag2aa']).analyze();
+  expect(accessibility.violations).toEqual([]);
+  await page.getByRole('button', { name: 'Teknik Kurulum', exact: true }).click();
+  await expect(page.getByText('Anahtarlar alınamadı', { exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Yeni bağlantı', exact: true }).click();
+  await page.getByLabel('Bağlantı adı', { exact: true }).fill('Yeni Bordro');
+  await page.getByRole('button', { name: 'Durumu yenile', exact: true }).click();
+  await expect(page.getByLabel('Bağlantı adı', { exact: true })).toHaveValue('Yeni Bordro');
+  await expect(page.getByLabel('Ne zaman gönderilsin?')).toHaveValue('approved');
+  await page.getByRole('button', { name: 'Teknik Kurulum', exact: true }).click();
+  const downloading = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Postman dosyasını indir' }).click();
+  expect((await downloading).suggestedFilename()).toBe('ikbenimle-api.postman_collection.json');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+  await page.setViewportSize({ width: 812, height: 375 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+});

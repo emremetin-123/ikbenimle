@@ -1,0 +1,10 @@
+**/node_modules
+**/dist
+**/.env
+**/.env.*
+backend/uploads
+backend/database.sqlite
+.git
+.codex-remote-attachments
+sunum-gorselleri
+*.zip

@@ -1,0 +1,339 @@
+.directory-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+}
+
+.directory-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.directory-header h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.directory-header p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.directory-search {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+
+.directory-search > svg {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  z-index: 1;
+  color: var(--text-muted);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.directory-search-input {
+  height: 3.5rem;
+  padding-left: 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 4px 15px rgb(0 0 0 / 5%);
+  font-size: 1rem;
+}
+
+.directory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.directory-card {
+  display: flex;
+  width: 100%;
+  padding: 1.5rem;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid var(--border);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.directory-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.directory-card:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  outline-offset: 3px;
+}
+
+.directory-card-avatar {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--bg-input);
+}
+
+.directory-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.directory-card-content {
+  min-width: 0;
+}
+
+.directory-card-content h3 {
+  margin: 0 0 0.25rem;
+  overflow-wrap: anywhere;
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.directory-card-content p {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.directory-empty {
+  grid-column: 1 / -1;
+  padding: 3rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.directory-modal-overlay {
+  position: fixed;
+  z-index: 3000;
+  inset: 0;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  background: rgb(15 23 42 / 80%);
+  backdrop-filter: blur(8px);
+}
+
+.directory-modal {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 1.5rem;
+  background: var(--bg);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 50%);
+}
+
+.directory-modal-close {
+  position: absolute;
+  z-index: 10;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 10%);
+  color: inherit;
+  cursor: pointer;
+}
+
+.directory-profile-hero {
+  position: relative;
+  display: flex;
+  padding: 3rem 2rem;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+  text-align: center;
+}
+
+.directory-profile-avatar-frame {
+  position: relative;
+  z-index: 2;
+  width: 110px;
+  height: 110px;
+  margin-bottom: 1rem;
+  padding: 4px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 20%);
+}
+
+.directory-profile-avatar {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--bg-input);
+}
+
+.directory-profile-hero h2 {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 0.25rem;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.directory-profile-hero > p {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color: rgb(255 255 255 / 80%);
+  font-size: 0.95rem;
+}
+
+.directory-profile-call {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(245 158 11 / 35%);
+  border-radius: 50%;
+  background: rgb(245 158 11 / 16%);
+  box-shadow: 0 10px 20px rgb(245 158 11 / 18%);
+  color: #f59e0b;
+}
+
+.directory-profile-body {
+  padding: 2rem;
+}
+
+.directory-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.directory-profile-section {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--bg-card);
+}
+
+.directory-profile-section > h4 {
+  display: flex;
+  margin: 0 0 1rem;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.directory-profile-section > h4.is-contact {
+  color: var(--primary);
+}
+
+.directory-profile-section > h4.is-profile {
+  color: #10b981;
+}
+
+.directory-profile-section > h4.is-badges {
+  color: #f59e0b;
+}
+
+.directory-profile-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.directory-profile-lines > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.directory-profile-lines > .directory-profile-detail-line {
+  align-items: flex-start;
+}
+
+.directory-profile-detail-line > svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.directory-profile-lines > .directory-profile-muted {
+  display: block;
+  color: var(--text-muted);
+}
+
+.directory-badges-section {
+  margin-top: 1.5rem;
+}
+
+.directory-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.directory-badges-empty {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .directory-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .directory-modal-overlay {
+    padding: 0;
+  }
+
+  .directory-modal {
+    max-height: 100dvh;
+    border-radius: 0;
+  }
+
+  .directory-profile-hero {
+    padding: 2rem 1.25rem;
+  }
+
+  .directory-profile-body {
+    padding: 1.25rem;
+  }
+
+  .directory-profile-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,45 @@
+import { expect, test } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+import { mockAuthenticatedApi } from './fixtures';
+
+test('notification cards open safe searchable device lists and show daily delivery outcomes', async ({ page }, testInfo) => {
+  await mockAuthenticatedApi(page);
+  await page.route('**/api/notifications/admin/stats', route => route.fulfill({ json: { active: 21, total: 23, departments: [] } }));
+  await page.route('**/api/notifications/admin/event-templates?**', route => route.fulfill({ json: { items: [{ key: 'quote_daily', label: 'Günün Sözü', group: 'Günlük İçerikler', description: 'Günlük söz', enabled: true, scheduled_time: '17:34', title: 'Günün sözü', body: '{quote}', url: '/employee/anasayfa', variables: ['{quote}'], delivery: { last_processed_date: null, last_attempt: { status: 'failed', attempted_at: '2026-10-29T14:34:00.000Z', sent: 0, failed: 2, retry_at: '2026-10-29T14:49:00.000Z' } } }], pagination: { page: 1, pageSize: 10, total: 1, totalPages: 1 } } }));
+  let failed = true;
+  await page.route('**/api/notifications/admin/subscriptions?**', route => {
+    if (failed) return route.fulfill({ status: 503, json: { message: 'Geçici hata' } });
+    const params = new URL(route.request().url()).searchParams;
+    const empty = params.get('search') === 'bulunmayan';
+    return route.fulfill({ json: { items: empty ? [] : [{ id: 1, user_id: 10, name: 'Çağrı Işık', employee_id: '1042', department: 'Kalite', user_status: 'active', device_label: 'Mozilla/5.0 (Windows NT 10.0) Chrome/131.0', is_active: params.get('status') !== 'passive', created_at: '2026-10-28 08:00:00', updated_at: '2026-10-29T09:00:00Z' }], pagination: { page: Number(params.get('page')), pageSize: 20, total: empty ? 0 : params.get('status') === 'all' ? 23 : 21, totalPages: empty ? 0 : 2 } } });
+  });
+  await page.goto('/employee/moduller/bildirimler');
+  await expect(page.getByText(/Hiçbir cihaza gönderilemedi/)).toBeVisible();
+  await expect(page.getByText(/Yeniden deneme:.*17:49/)).toBeVisible();
+  await page.getByRole('button', { name: 'Aktif cihaz listesini gör' }).click();
+  const dialog = page.getByRole('dialog', { name: 'Bildirim abonelikleri' });
+  await expect(dialog.getByRole('alert')).toContainText('Abonelikler alınamadı');
+  failed = false;
+  await dialog.getByRole('button', { name: 'Yeniden Dene' }).click();
+  await expect(dialog.getByText('Çağrı Işık', { exact: true })).toBeVisible();
+  await expect(dialog.getByLabel('Abonelik durumu')).toHaveValue('active');
+  await expect(dialog.getByText('Windows · Chrome')).toBeVisible();
+  await expect(dialog.getByText(/cihazın şu anda çevrimiçi/)).toBeVisible();
+  await dialog.getByRole('button', { name: 'Sonraki sayfa', exact: true }).click();
+  await expect(dialog.getByText(/21 cihaz aboneliği/)).toBeVisible();
+  await dialog.getByLabel('Abonelerde kullanıcı, sicil veya bölüm ara').fill('bulunmayan');
+  await dialog.getByRole('button', { name: 'Ara', exact: true }).click();
+  await expect(dialog.getByText('Bu filtrede abonelik bulunamadı')).toBeVisible();
+  await dialog.getByLabel('Abonelerde kullanıcı, sicil veya bölüm ara').fill('');
+  await dialog.getByRole('button', { name: 'Ara', exact: true }).click();
+  await page.screenshot({ path: testInfo.outputPath('notification-subscribers.png') });
+  const a11y = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
+  expect(a11y.violations.filter(item => item.impact === 'serious' || item.impact === 'critical')).toEqual([]);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+  await dialog.press('Escape');
+  await expect(dialog).toHaveCount(0);
+  await page.getByRole('button', { name: 'Toplam abonelik listesini gör' }).click();
+  await expect(dialog.getByLabel('Abonelik durumu')).toHaveValue('all');
+  await dialog.getByLabel('Abonelik durumu').selectOption('passive');
+  await expect(dialog.getByText('Pasif', { exact: true })).toBeVisible();
+});

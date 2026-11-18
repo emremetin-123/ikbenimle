@@ -1,0 +1,147 @@
+.module-page-header {
+  --module-heading-bg: #17336f;
+  --module-heading-accent: #d9f4e8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  width: 100%;
+  margin: 0 0 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xl);
+  background: var(--module-heading-bg);
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+}
+
+.module-page-header--teal {
+  --module-heading-bg: #164e50;
+  --module-heading-accent: #d5f4eb;
+}
+
+.module-page-header--violet {
+  --module-heading-bg: #41366e;
+  --module-heading-accent: #eee7ff;
+}
+
+.module-page-header-main {
+  display: flex;
+  align-items: center;
+  flex: 1 1 18rem;
+  min-width: 0;
+  gap: 1rem;
+}
+
+.module-page-header-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  background: var(--module-heading-accent);
+  color: var(--module-heading-bg);
+}
+
+.module-page-header-icon svg { width: 24px; height: 24px; }
+.module-page-header-copy { min-width: 0; }
+
+.module-page-header .module-page-header-copy h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.module-page-header .module-page-header-copy p {
+  margin: 0.35rem 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: var(--text-sm);
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.module-page-header-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 0;
+  max-width: 100%;
+  gap: 0.75rem;
+}
+
+.module-page-header-actions > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.module-page-header .module-page-header-actions .btn-secondary {
+  background: #fff;
+  border-color: #fff;
+  color: #17336f;
+}
+
+.module-page-header .module-page-header-actions .btn-secondary:hover {
+  background: #eee7ff;
+  border-color: #eee7ff;
+}
+
+.poly-workspace > .module-page-header,
+.service-routes-page > .module-page-header,
+.survey-list-page > .module-page-header { margin-bottom: 0; }
+
+.service-routes-page,
+.survey-list-page { gap: 1.5rem; }
+
+.service-admin-page > .module-page-header,
+.admin-announcements-page > .module-page-header,
+.admin-news-page > .module-page-header,
+.admin-documents-page > .module-page-header,
+.admin-surveys-page > .module-page-header { margin-bottom: 0; }
+.training-admin-page > .module-page-header { margin-bottom: 0; }
+.training-admin-page { gap: 1.5rem; }
+
+.service-admin-page,
+.admin-announcements-page,
+.admin-news-page,
+.admin-surveys-page { gap: 1.5rem; }
+
+.module-page-notice { color: var(--text-muted); }
+
+.directory-toolbar,
+.knowledge-portal-toolbar { margin-bottom: 1.5rem; }
+.directory-toolbar .directory-search { margin-top: 0; }
+.employee-training-toolbar { margin-top: 0; }
+
+@media (width > 768px) {
+  .dashboard-content-frame .module-mobile-only { display: none; }
+  .service-admin-page .module-page-header:has(> .module-page-header-actions > .module-mobile-only:only-child) > .module-page-header-actions { display: none; }
+}
+
+@media (max-width: 350px) {
+  .dashboard-content-frame :is(.module-page-header-actions, .notify-page-head .notify-head-actions):has(> button:first-child:not(.module-desktop-only) + button:last-child:not(.module-desktop-only)) { flex-direction: column; }
+}
+
+@media (max-width: 640px) {
+  .module-page-header { padding: 1.125rem; gap: 1rem; border-radius: var(--radius-lg); }
+  .module-page-header-main { gap: 0.75rem; }
+  .module-page-header-icon { flex-basis: 40px; width: 40px; height: 40px; }
+  .module-page-header-icon svg { width: 22px; height: 22px; }
+  .module-page-header .module-page-header-copy h1 { font-size: 1.3rem; }
+  .module-page-header-actions { flex-basis: 100%; }
+  .module-page-header-actions > button { max-width: 100%; white-space: normal; }
+}

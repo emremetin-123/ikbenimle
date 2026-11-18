@@ -1,0 +1,162 @@
+name: ikbenimle
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: ikbenimle-postgres
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 1g
+    cpus: 1.0
+    shm_size: 256mb
+
+  backup:
+    profiles: ["backup"]
+    image: ghcr.io/emremetin-123/calisanportal-backup:${IMAGE_TAG:-latest}
+    env_file:
+      - ./ops/backup/.env.backup
+    volumes:
+      - backend_uploads:/uploads:ro
+      - backup_status:/status
+      - backup_work:/work
+      - ./secrets/restic_password:/run/secrets/restic_password:ro
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: "no"
+
+  migration:
+    image: ghcr.io/emremetin-123/calisanportal-backend:${IMAGE_TAG:-latest}
+    command: ["node", "scripts/migrate.js", "up"]
+    env_file:
+      - ./backend/.env
+    environment:
+      DB_TYPE: postgres
+      DB_SERVER: postgres
+      DB_PORT: 5432
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: "no"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  backend:
+    image: ghcr.io/emremetin-123/calisanportal-backend:${IMAGE_TAG:-latest}
+    container_name: ikbenimle-backend
+    restart: unless-stopped
+    stop_grace_period: 20s
+    env_file:
+      - ./backend/.env
+    environment:
+      PORT: 5000
+      TRUST_PROXY_HOPS: "2"
+      DB_TYPE: postgres
+      DB_SERVER: postgres
+      DB_PORT: 5432
+      SCHEDULER_ENABLED: "false"
+      X_ACCEL_REDIRECT_ENABLED: "true"
+    volumes:
+      - backend_uploads:/app/uploads
+      - backup_status:/var/run/ikbenimle-backup:ro
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    mem_limit: 1g
+    cpus: 1.5
+    expose:
+      - "5000"
+    depends_on:
+      migration:
+        condition: service_completed_successfully
+
+  worker:
+    image: ghcr.io/emremetin-123/calisanportal-backend:${IMAGE_TAG:-latest}
+    container_name: ikbenimle-worker
+    restart: unless-stopped
+    command: ["node", "worker.js"]
+    healthcheck:
+      disable: true
+    depends_on:
+      backend:
+        condition: service_healthy
+    env_file:
+      - ./backend/.env
+    volumes:
+      - backend_uploads:/app/uploads
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    mem_limit: 384m
+    cpus: 0.5
+
+  frontend:
+    image: ghcr.io/emremetin-123/calisanportal-frontend:${IMAGE_TAG:-latest}
+    container_name: ikbenimle-frontend
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    volumes:
+      - backend_uploads:/srv/uploads:ro
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    mem_limit: 256m
+    cpus: 0.5
+    expose:
+      - "8080"
+
+  caddy:
+    image: caddy:2.10-alpine
+    container_name: ikbenimle-caddy
+    restart: unless-stopped
+    depends_on:
+      frontend:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  backend_uploads:
+  postgres_data:
+  backup_status:
+  backup_work:
+  caddy_data:
+  caddy_config:

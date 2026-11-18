@@ -1,0 +1,341 @@
+name: Verify, Build and Deploy
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+  security-events: write
+
+concurrency:
+  group: production-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  REGISTRY: ghcr.io
+  BACKEND_IMAGE: ghcr.io/emremetin-123/calisanportal-backend
+  FRONTEND_IMAGE: ghcr.io/emremetin-123/calisanportal-frontend
+  BACKUP_IMAGE: ghcr.io/emremetin-123/calisanportal-backup
+  IMAGE_TAG: ${{ github.sha }}
+
+jobs:
+  classify-changes:
+    name: Classify Runtime Changes
+    runs-on: ubuntu-latest
+    outputs:
+      frontend_only: ${{ steps.classify.outputs.frontend_only }}
+      runtime_changed: ${{ steps.classify.outputs.runtime_changed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: classify
+        name: Detect frontend-only release
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          runtime_changed=false
+          frontend_only=false
+          frontend_changed=false
+          nonfrontend_runtime=false
+          if [ "${{ github.event_name }}" = "push" ] \
+            && [ -n "$BEFORE_SHA" ] \
+            && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
+            while IFS= read -r path; do
+              case "$path" in
+                backend/tests/*|backend/.env.example|frontend/README.md|docs/*|.github/*|*.md)
+                  ;;
+                frontend/*)
+                  runtime_changed=true
+                  frontend_changed=true
+                  ;;
+                *)
+                  runtime_changed=true
+                  nonfrontend_runtime=true
+                  ;;
+              esac
+            done < <(git diff --name-only "$BEFORE_SHA" "$GITHUB_SHA")
+            if [ "$frontend_changed" = "true" ] && [ "$nonfrontend_runtime" = "false" ]; then
+              frontend_only=true
+            fi
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            runtime_changed=true
+          fi
+          echo "runtime_changed=$runtime_changed" >> "$GITHUB_OUTPUT"
+          echo "frontend_only=$frontend_only" >> "$GITHUB_OUTPUT"
+
+  secret-scan:
+    name: Gitleaks Secret Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  verify-backend:
+    name: Backend Tests and Audit
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: ikbenimle_test
+          POSTGRES_PASSWORD: ikbenimle_test_password
+          POSTGRES_DB: ikbenimle_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ikbenimle_test -d ikbenimle_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      POSTGRES_TEST_URL: postgresql://ikbenimle_test:ikbenimle_test_password@127.0.0.1:5432/ikbenimle_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm audit --audit-level=high
+
+  verify-frontend:
+    name: Frontend Lint, Build and Audit
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run check:architecture
+      - run: npm run build
+      - run: npm run check:bundle
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - run: npm audit --audit-level=high
+
+  build-images:
+    name: Build, Scan and Publish Images
+    if: github.event_name != 'pull_request' && needs.classify-changes.outputs.runtime_changed == 'true'
+    needs: [classify-changes, secret-scan, verify-backend, verify-frontend]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build backend
+        run: docker build -t "${BACKEND_IMAGE}:${IMAGE_TAG}" ./backend
+      - name: Scan backend
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: ${{ env.BACKEND_IMAGE }}:${{ env.IMAGE_TAG }}
+          format: table
+          severity: CRITICAL,HIGH
+          ignore-unfixed: true
+          exit-code: "1"
+      - name: Build frontend
+        run: docker build --build-arg VITE_API_BASE= -t "${FRONTEND_IMAGE}:${IMAGE_TAG}" ./frontend
+      - name: Scan frontend
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: ${{ env.FRONTEND_IMAGE }}:${{ env.IMAGE_TAG }}
+          format: table
+          severity: CRITICAL,HIGH
+          ignore-unfixed: true
+          exit-code: "1"
+      - name: Build backup image
+        run: docker build -t "${BACKUP_IMAGE}:${IMAGE_TAG}" ./ops/backup
+      - name: Scan backup image
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: ${{ env.BACKUP_IMAGE }}:${{ env.IMAGE_TAG }}
+          format: table
+          severity: CRITICAL,HIGH
+          ignore-unfixed: true
+          exit-code: "1"
+      - name: Publish immutable images
+        run: |
+          docker push "${BACKEND_IMAGE}:${IMAGE_TAG}"
+          docker push "${FRONTEND_IMAGE}:${IMAGE_TAG}"
+          docker push "${BACKUP_IMAGE}:${IMAGE_TAG}"
+
+  deploy-production:
+    name: Deploy Production
+    if: >-
+      vars.ENABLE_VPS_DEPLOY == 'true'
+      && github.ref == 'refs/heads/main'
+      && needs.classify-changes.outputs.runtime_changed == 'true'
+    needs: [build-images, classify-changes]
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upload runtime definitions
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          source: docker-compose.prod.yml,Caddyfile,ops/production-preflight.sh,ops/systemd
+          target: /opt/ikbenimle
+          overwrite: true
+      - name: Deploy and verify
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          GHCR_TOKEN: ${{ github.token }}
+          GHCR_USER: ${{ github.actor }}
+          RELEASE_TAG: ${{ github.sha }}
+          FRONTEND_ONLY: ${{ needs.classify-changes.outputs.frontend_only }}
+          REQUIRE_OFFSITE_BACKUP: ${{ vars.REQUIRE_OFFSITE_BACKUP || 'false' }}
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          envs: GHCR_TOKEN,GHCR_USER,RELEASE_TAG,FRONTEND_ONLY,REQUIRE_OFFSITE_BACKUP
+          script: |
+            set -eu
+            cd /opt/ikbenimle
+            test -f backend/.env
+            chmod 0555 ops/production-preflight.sh
+            if [ "$FRONTEND_ONLY" = "true" ] || [ "$REQUIRE_OFFSITE_BACKUP" != "true" ]; then
+              REQUIRE_OFFSITE_BACKUP=false ops/production-preflight.sh
+            else
+              REQUIRE_OFFSITE_BACKUP=true ops/production-preflight.sh
+            fi
+            printf '%s' "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USER" --password-stdin
+
+            if [ "$FRONTEND_ONLY" = "true" ]; then
+              PREVIOUS_FRONTEND_TAG="$(cat .last-successful-frontend-release 2>/dev/null \
+                || cat .last-successful-release 2>/dev/null \
+                || true)"
+              IMAGE_TAG="$RELEASE_TAG" docker compose -f docker-compose.prod.yml pull frontend
+              IMAGE_TAG="$RELEASE_TAG" docker compose -f docker-compose.prod.yml \
+                up -d --no-deps frontend
+              docker restart ikbenimle-caddy
+
+              FRONTEND_READY=0
+              for attempt in $(seq 1 12); do
+                if curl --fail --silent --show-error https://ikbenimle.com/ >/dev/null \
+                  && curl --fail --silent --show-error https://ikbenimle.com/health/ready >/dev/null; then
+                  FRONTEND_READY=1
+                  break
+                fi
+                sleep 5
+              done
+
+              if [ "$FRONTEND_READY" -ne 1 ]; then
+                docker compose -f docker-compose.prod.yml logs --tail=150 frontend
+                if [ -n "$PREVIOUS_FRONTEND_TAG" ]; then
+                  IMAGE_TAG="$PREVIOUS_FRONTEND_TAG" docker compose -f docker-compose.prod.yml \
+                    up -d --no-deps frontend
+                  docker restart ikbenimle-caddy
+                fi
+                exit 1
+              fi
+
+              printf '%s' "$RELEASE_TAG" > .last-successful-frontend-release
+              docker image prune -f --filter "until=168h"
+              exit 0
+            fi
+
+            PREVIOUS_TAG="$(cat .last-successful-release 2>/dev/null || true)"
+            IMAGE_TAG="$RELEASE_TAG" docker compose -f docker-compose.prod.yml pull
+
+            SNAPSHOT_DIR="/opt/ikbenimle/predeploy-backups/$RELEASE_TAG"
+            mkdir -p "$SNAPSHOT_DIR"
+            chmod 0700 "$SNAPSHOT_DIR"
+            docker run --rm \
+              --user root \
+              -v ikbenimle_backend_uploads:/uploads:ro \
+              -v "$SNAPSHOT_DIR":/backup \
+              --entrypoint sh \
+              "ghcr.io/emremetin-123/calisanportal-backend:$RELEASE_TAG" \
+              -c "tar -czf /backup/uploads.tar.gz -C /uploads ."
+            find "$SNAPSHOT_DIR" -maxdepth 1 -type f ! -name SHA256SUMS \
+              -exec sha256sum {} + > "$SNAPSHOT_DIR/SHA256SUMS"
+            chmod 0600 "$SNAPSHOT_DIR"/*
+            find /opt/ikbenimle/predeploy-backups -mindepth 1 -maxdepth 1 -type d \
+              -printf '%T@ %p\n' | sort -nr | tail -n +4 | cut -d' ' -f2- \
+              | xargs -r rm -rf
+
+            if [ "$REQUIRE_OFFSITE_BACKUP" = "true" ]; then
+              IMAGE_TAG="$RELEASE_TAG" docker compose -f docker-compose.prod.yml --profile backup pull backup
+              IMAGE_TAG="$RELEASE_TAG" docker compose -f docker-compose.prod.yml --profile backup run --rm backup
+            fi
+
+            docker run --rm \
+              --user root \
+              -v ikbenimle_backend_uploads:/app/uploads \
+              --entrypoint sh \
+              "ghcr.io/emremetin-123/calisanportal-backend:$RELEASE_TAG" \
+              -c "chown -R node:node /app/uploads"
+            IMAGE_TAG="$RELEASE_TAG" docker compose -f docker-compose.prod.yml run --rm migration
+            IMAGE_TAG="$RELEASE_TAG" docker compose -f docker-compose.prod.yml up -d --remove-orphans
+            IMAGE_TAG="$RELEASE_TAG" docker compose -f docker-compose.prod.yml restart caddy
+            printf 'IMAGE_TAG=%s\n' "$RELEASE_TAG" > .release.env
+            chmod 0600 .release.env
+            if [ "$REQUIRE_OFFSITE_BACKUP" = "true" ]; then
+              install -m 0644 ops/systemd/ikbenimle-backup.service /etc/systemd/system/
+              install -m 0644 ops/systemd/ikbenimle-backup.timer /etc/systemd/system/
+              systemctl daemon-reload
+              systemctl enable --now ikbenimle-backup.timer
+            else
+              systemctl disable --now ikbenimle-backup.timer 2>/dev/null || true
+            fi
+
+            READY=0
+            for attempt in $(seq 1 24); do
+              if curl --fail --silent --show-error https://ikbenimle.com/health/ready >/dev/null; then
+                READY=1
+                break
+              fi
+              sleep 5
+            done
+
+            if [ "$READY" -eq 1 ]; then
+              if [ "$REQUIRE_OFFSITE_BACKUP" = "true" ]; then
+                curl --fail --silent --show-error https://ikbenimle.com/health/backup >/dev/null \
+                  || READY=0
+              fi
+              curl --fail --silent --show-error --head https://ikbenimle.com/ \
+                | grep -qi '^content-security-policy:' \
+                || READY=0
+            fi
+
+            if [ "$READY" -ne 1 ]; then
+              docker compose -f docker-compose.prod.yml logs --tail=150 backend frontend
+              if [ -n "$PREVIOUS_TAG" ]; then
+                IMAGE_TAG="$PREVIOUS_TAG" docker compose -f docker-compose.prod.yml up -d --remove-orphans
+              fi
+              exit 1
+            fi
+
+            printf '%s' "$RELEASE_TAG" > .last-successful-release
+            docker image prune -f --filter "until=168h"

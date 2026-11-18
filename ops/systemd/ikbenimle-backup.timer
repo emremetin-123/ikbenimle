@@ -1,0 +1,11 @@
+[Unit]
+Description=Run IkBenimle backup every day at 02:30
+
+[Timer]
+OnCalendar=*-*-* 02:30:00 Europe/Istanbul
+Persistent=true
+RandomizedDelaySec=300
+Unit=ikbenimle-backup.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,613 @@
+.training-admin-page {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.training-admin-page > .premium-card {
+  margin-bottom: 0;
+}
+
+.training-page-header {
+  padding: 1.2rem 1.35rem;
+}
+
+.training-page-header .ui-page-header-title {
+  font-size: 1.35rem;
+}
+
+.training-page-header .ui-page-header-actions {
+  flex-wrap: wrap;
+}
+
+.training-page-action {
+  width: auto;
+  min-height: 42px;
+  padding: 0.7rem 1rem;
+}
+
+.training-dashboard-stack {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.training-dashboard-overview {
+  min-width: 0;
+  padding: clamp(0.85rem, 2vw, 1.25rem);
+  border: 1px solid var(--employee-border);
+  border-radius: var(--radius-xl);
+  background: var(--employee-canvas);
+}
+
+.training-report-card,
+.training-catalog-card {
+  border: 1px solid var(--employee-border);
+  background: var(--employee-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.training-dashboard-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 0 0.35rem;
+}
+
+.training-dashboard-intro h3,
+.training-attention-header h3 {
+  margin: 0;
+  color: var(--text);
+}
+
+.training-dashboard-intro h3 {
+  font-size: 1.05rem;
+}
+
+.training-dashboard-intro p,
+.training-attention-header p {
+  margin: 0.28rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.training-dashboard-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.55rem;
+}
+
+.training-dashboard-metric {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 148px;
+  gap: 0.35rem;
+  padding: 1rem;
+  border: 0;
+  border-radius: var(--radius-lg);
+  color: var(--employee-text);
+  background: var(--employee-violet-soft);
+}
+
+.training-dashboard-metric-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+  font-size: 0.875rem;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.training-dashboard-metric strong {
+  font-size: clamp(1.7rem, 2.6vw, 2.4rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+}
+
+.training-dashboard-metric small {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.training-dashboard-detail-button {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.28rem;
+  min-height: 44px;
+  margin-top: auto;
+  padding: 0;
+  color: currentColor;
+  border: 0;
+  background: transparent;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.training-dashboard-detail-button:hover {
+  text-decoration: underline;
+}
+
+.training-dashboard-detail-button:focus-visible {
+  border-radius: 0.25rem;
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.training-dashboard-metric-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 34px;
+  height: 34px;
+  border-radius: 0.6rem;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.training-dashboard-metric.violet {
+  color: #fff;
+  background: var(--employee-violet-gradient);
+}
+
+.training-dashboard-metric.teal {
+  color: #084f49;
+  background: var(--employee-teal-gradient);
+}
+
+.training-dashboard-metric.coral {
+  color: #7c2d20;
+  background: var(--employee-coral-gradient);
+}
+
+.training-attention-panel {
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--employee-coral-accent) 25%, white);
+  border-radius: var(--radius-xl);
+  background: color-mix(in srgb, var(--employee-coral-accent) 6%, white);
+}
+
+.training-attention-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.training-attention-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #991b1b;
+  font-size: 0.95rem;
+}
+
+.training-attention-show-all {
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: 0.55rem 0.85rem;
+  color: #b91c1c;
+  border-color: #fecaca;
+  background: #fff;
+}
+
+.training-attention-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+}
+
+.training-attention-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid #fee2e2;
+  border-radius: 0.65rem;
+  background: #fff;
+}
+
+.training-attention-indicator {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: #dc2626;
+  border-radius: 0.55rem;
+  background: #fee2e2;
+}
+
+.training-attention-item > div {
+  min-width: 0;
+}
+
+.training-attention-item strong,
+.training-attention-item small {
+  display: block;
+}
+
+.training-attention-item strong {
+  overflow: hidden;
+  color: var(--text);
+  font-size: 0.84rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.training-attention-item small {
+  margin-top: 0.18rem;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+.training-attention-date {
+  text-align: right;
+}
+
+.training-attention-date span {
+  display: block;
+  color: #dc2626;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.training-attention-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 64px;
+  margin-top: 0.8rem;
+  color: var(--text-muted);
+  border: 1px dashed #fecaca;
+  border-radius: 0.65rem;
+  background: #fff;
+  font-size: 0.82rem;
+}
+
+.training-attention-state.success {
+  color: #15803d;
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+}
+
+.training-attention-state.error {
+  color: #b91c1c;
+}
+
+.training-report-header {
+  padding: 1rem 1.35rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.training-report-actions .btn-secondary.active {
+  color: var(--primary);
+  border-color: var(--employee-border);
+  background: var(--employee-violet-soft);
+}
+
+.training-report-filter-panel {
+  padding: 0.9rem 1.35rem;
+  border-bottom: 1px solid var(--border-light);
+  background: var(--bg-input);
+}
+
+.training-report-filter-grid {
+  grid-template-columns: minmax(240px, 1.6fr) repeat(2, minmax(170px, 0.7fr));
+  gap: 0.7rem;
+}
+
+.training-report-table th,
+.training-report-table td {
+  padding-top: 0.78rem;
+  padding-bottom: 0.78rem;
+  white-space: normal;
+}
+
+.training-report-table {
+  min-width: 2840px;
+}
+
+.training-report-table th[data-column="reference_id"] {
+  width: 13rem;
+}
+
+.training-report-table th[data-column="confirmed_at"] {
+  width: 8.75rem;
+}
+
+.training-report-table-wrap {
+  container: training-report / inline-size;
+}
+
+.training-report-table-wrap:focus-visible {
+  outline: 2px solid var(--employee-accent);
+  outline-offset: -2px;
+}
+
+.training-report-table th:last-child {
+  width: 11rem;
+}
+
+@container training-report (min-width: 46rem) {
+  .training-report-table :is(th, td):is(:first-child, :last-child):not([colspan]) {
+    position: sticky;
+    z-index: 2;
+    background: var(--employee-surface);
+  }
+
+  .training-report-table :is(th, td):first-child {
+    left: 0;
+  }
+
+  .training-report-table :is(th, td):last-child {
+    right: 0;
+    box-shadow: -8px 0 16px -16px rgba(15, 23, 42, 0.45);
+  }
+
+  .training-report-table th:is(:first-child, :last-child) {
+    background: var(--bg-card);
+  }
+}
+
+.training-report-table td strong,
+.training-report-table td small {
+  display: block;
+}
+
+.training-report-table td small {
+  margin-top: 0.18rem;
+  color: var(--text-muted);
+  font-size: 0.74rem;
+}
+
+.training-report-empty {
+  padding: 1.5rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.training-report-mobile-details {
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.training-report-mobile-details summary {
+  padding: 0.7rem 0;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.training-report-mobile-detail-list {
+  padding-bottom: 0.35rem;
+}
+
+.training-catalog-header {
+  padding: 1rem 1.35rem;
+}
+
+.training-catalog-actions {
+  margin-left: auto;
+}
+
+.training-catalog-search {
+  width: min(320px, 100%);
+}
+
+.training-catalog-table th,
+.training-catalog-table td {
+  padding: 0.78rem 1.35rem;
+}
+
+.training-catalog-mobile-list {
+  padding: 0.8rem;
+}
+
+.training-catalog-mobile-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem;
+  border: 1px solid var(--border-light);
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.training-catalog-mobile-card + .training-catalog-mobile-card {
+  margin-top: 0.65rem;
+}
+
+.training-catalog-mobile-copy {
+  min-width: 0;
+}
+
+.training-catalog-mobile-copy strong,
+.training-catalog-mobile-copy span {
+  display: block;
+}
+
+.training-catalog-mobile-copy strong {
+  overflow-wrap: anywhere;
+}
+
+.training-catalog-mobile-copy span {
+  margin-top: 0.2rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.training-catalog-mobile-meta {
+  display: grid;
+  gap: 0.3rem;
+  justify-items: end;
+}
+
+.training-catalog-mobile-meta span {
+  max-width: 130px;
+  overflow: hidden;
+  padding: 0.2rem 0.45rem;
+  color: var(--text-muted);
+  border-radius: 999px;
+  background: var(--bg-input);
+  font-size: 0.68rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.training-catalog-mobile-actions {
+  display: flex;
+  gap: 0.3rem;
+}
+
+@media (768px < width <= 1100px) {
+  .training-dashboard-summary-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .training-dashboard-metric { grid-column: span 2; }
+  .training-dashboard-metric:nth-last-child(-n+2) { grid-column: span 3; }
+}
+
+@media (max-width: 1100px) {
+  .training-attention-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .training-admin-page {
+    gap: 0.75rem;
+  }
+
+  .training-page-header {
+    padding: 1rem;
+  }
+
+  .training-page-header .ui-page-header-title {
+    font-size: 1.08rem;
+  }
+
+  .training-page-header .ui-page-header-description {
+    font-size: 0.78rem;
+  }
+
+  .training-page-header .ui-page-header-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    gap: 0.55rem;
+  }
+
+  .training-page-action {
+    width: 100%;
+    min-width: 0;
+    min-height: 42px;
+    padding: 0.6rem;
+    font-size: 0.78rem;
+  }
+
+  .training-dashboard-intro {
+    padding: 0 0 0.25rem;
+  }
+
+  .training-dashboard-intro h3 {
+    font-size: 0.98rem;
+  }
+
+  .training-dashboard-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+  }
+
+  .training-dashboard-metric { padding: 0.8rem; }
+  .training-dashboard-metric:last-child { grid-column: 1 / -1; }
+
+  .training-dashboard-metric-heading { font-size: 0.8rem; }
+
+  .training-dashboard-metric-icon {
+    flex-basis: 28px;
+    height: 28px;
+  }
+
+  .training-dashboard-metric-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .training-attention-panel {
+    padding: 0.8rem;
+  }
+
+  .training-attention-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .training-attention-show-all {
+    width: 100%;
+  }
+
+  .training-attention-item {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .training-attention-date {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .training-attention-date span,
+  .training-attention-date small {
+    display: inline;
+  }
+
+  .training-attention-date small::before {
+    content: " · ";
+  }
+
+  .training-report-filter-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .training-catalog-header {
+    padding: 1rem;
+  }
+
+  .training-catalog-actions,
+  .training-catalog-search {
+    width: 100%;
+  }
+
+  .training-catalog-mobile-card {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .training-catalog-mobile-meta {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    justify-items: start;
+  }
+
+  .training-catalog-mobile-actions {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+}
+
+@media (max-width: 380px) {
+  .training-page-header .ui-page-header-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

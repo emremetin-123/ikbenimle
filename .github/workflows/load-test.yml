@@ -1,0 +1,75 @@
+name: Staging Load Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      virtual_users:
+        description: Concurrent users
+        required: true
+        default: "100"
+      duration:
+        description: Routine scenario duration
+        required: true
+        default: "2m"
+      seed_data:
+        description: Refresh the isolated staging dataset before testing
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  k6:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+      - uses: grafana/setup-k6-action@v1
+      - uses: actions/setup-node@v4
+        if: inputs.seed_data
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - name: Prepare realistic staging data
+        if: inputs.seed_data
+        working-directory: backend
+        env:
+          NODE_ENV: staging
+          LOAD_TEST_CONFIRM: staging
+          LOAD_TEST_USER_COUNT: "500"
+          LOAD_TEST_USER_PREFIX: load
+          LOAD_TEST_PASSWORD: ${{ secrets.LOAD_TEST_PASSWORD }}
+          DB_TYPE: postgres
+          DB_SERVER: ${{ secrets.STAGING_DB_SERVER }}
+          DB_PORT: ${{ vars.STAGING_DB_PORT || '5432' }}
+          DB_NAME: ${{ secrets.STAGING_DB_NAME }}
+          DB_USER: ${{ secrets.STAGING_DB_USER }}
+          DB_PASSWORD: ${{ secrets.STAGING_DB_PASSWORD }}
+          DB_SSL: "true"
+          DB_SSL_REJECT_UNAUTHORIZED: "true"
+          DB_SSL_CA: ${{ secrets.STAGING_DB_SSL_CA }}
+        run: |
+          npm ci
+          npm run seed:load-test
+      - name: Verify staging configuration
+        env:
+          BASE_URL: ${{ vars.STAGING_BASE_URL }}
+          TEST_PASSWORD: ${{ secrets.LOAD_TEST_PASSWORD }}
+        run: |
+          test -n "$BASE_URL"
+          test -n "$TEST_PASSWORD"
+          case "$BASE_URL" in
+            *ikbenimle.com) echo "Refusing to run a load test against production."; exit 1 ;;
+          esac
+      - name: Run k6 acceptance profile
+        env:
+          BASE_URL: ${{ vars.STAGING_BASE_URL }}
+          TEST_PASSWORD: ${{ secrets.LOAD_TEST_PASSWORD }}
+          TEST_USER_PREFIX: load
+          TEST_USER_COUNT: "500"
+          ROUTINE_VUS: ${{ inputs.virtual_users }}
+          ROUTINE_DURATION: ${{ inputs.duration }}
+        run: k6 run performance/k6-smoke.js

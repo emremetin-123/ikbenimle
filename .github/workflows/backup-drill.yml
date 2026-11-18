@@ -1,0 +1,253 @@
+name: Backup Restore Drill
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 1 * * 0"
+
+permissions:
+  contents: read
+
+jobs:
+  sqlite-restic-drill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate isolated drill credentials
+        run: |
+          echo "DRILL_MINIO_PASSWORD=$(openssl rand -hex 24)" >> "$GITHUB_ENV"
+          echo "DRILL_RESTIC_PASSWORD=$(openssl rand -hex 32)" >> "$GITHUB_ENV"
+      - name: Start isolated MinIO
+        run: |
+          docker run -d --name backup-drill-minio \
+            -p 9000:9000 \
+            -e MINIO_ROOT_USER=minioadmin \
+            -e MINIO_ROOT_PASSWORD="$DRILL_MINIO_PASSWORD" \
+            minio/minio:RELEASE.2025-04-22T22-12-26Z server /data
+          for _ in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:9000/minio/health/live; then
+              exit 0
+            fi
+            sleep 2
+          done
+          docker logs backup-drill-minio
+          exit 1
+      - name: Build backup image
+        run: docker build -t ikbenimle-backup-drill ./ops/backup
+      - name: Create repository and source fixtures
+        run: |
+          docker run --rm --network host --entrypoint /bin/sh minio/mc -c \
+            "mc alias set local http://127.0.0.1:9000 minioadmin '$DRILL_MINIO_PASSWORD' &&
+             mc mb --ignore-existing local/ikbenimle-backups"
+          mkdir -p drill/database drill/uploads drill/status drill/work drill/restore
+          chmod 0777 drill/database drill/status drill/work drill/restore
+          printf '%s' "$DRILL_RESTIC_PASSWORD" > drill/restic_password
+          printf 'document fixture\n' > drill/uploads/document.txt
+          docker run --rm -v "$PWD/drill/database:/database" \
+            --entrypoint sqlite3 ikbenimle-backup-drill \
+            /database/database.sqlite \
+            "CREATE TABLE audit_fixture(id INTEGER PRIMARY KEY, value TEXT);
+             INSERT INTO audit_fixture(value) VALUES('restore-ok');"
+      - name: Start local healthcheck receiver
+        run: |
+          cat > /tmp/healthcheck.py <<'PY'
+          from http.server import BaseHTTPRequestHandler, HTTPServer
+          class Handler(BaseHTTPRequestHandler):
+              def do_POST(self):
+                  self.send_response(200)
+                  self.end_headers()
+              def log_message(self, *_args):
+                  pass
+          HTTPServer(("0.0.0.0", 18080), Handler).serve_forever()
+          PY
+          python3 /tmp/healthcheck.py &
+      - name: Run encrypted backup
+        run: |
+          docker run --rm --add-host=host.docker.internal:host-gateway \
+            -e RESTIC_REPOSITORY=s3:http://host.docker.internal:9000/ikbenimle-backups \
+            -e RESTIC_PASSWORD_FILE=/run/secrets/restic_password \
+            -e AWS_ACCESS_KEY_ID=minioadmin \
+            -e AWS_SECRET_ACCESS_KEY="$DRILL_MINIO_PASSWORD" \
+            -e S3_ENDPOINT=http://host.docker.internal:9000 \
+            -e DB_TYPE=sqlite \
+            -e SQLITE_FILENAME=/database/database.sqlite \
+            -e BACKUP_HEALTHCHECK_URL=http://host.docker.internal:18080 \
+            -e RESTIC_CHECK_SUBSET=100% \
+            -v "$PWD/drill/database:/database:ro" \
+            -v "$PWD/drill/uploads:/uploads:ro" \
+            -v "$PWD/drill/status:/status" \
+            -v "$PWD/drill/work:/work" \
+            -v "$PWD/drill/restic_password:/run/secrets/restic_password:ro" \
+            ikbenimle-backup-drill
+          jq -e '.status == "success"' drill/status/status.json
+      - name: Restore to an isolated target and verify
+        run: |
+          docker run --rm --add-host=host.docker.internal:host-gateway \
+            --entrypoint /usr/local/bin/restore.sh \
+            -e RESTIC_REPOSITORY=s3:http://host.docker.internal:9000/ikbenimle-backups \
+            -e RESTIC_PASSWORD_FILE=/run/secrets/restic_password \
+            -e AWS_ACCESS_KEY_ID=minioadmin \
+            -e AWS_SECRET_ACCESS_KEY="$DRILL_MINIO_PASSWORD" \
+            -e S3_ENDPOINT=http://host.docker.internal:9000 \
+            -e DB_TYPE=sqlite \
+            -e SQLITE_FILENAME=/database/database.sqlite \
+            -e RESTORE_SQLITE_PATH=/restore/database.sqlite \
+            -v "$PWD/drill/database:/database:ro" \
+            -v "$PWD/drill/work:/work" \
+            -v "$PWD/drill/restore:/restore" \
+            -v "$PWD/drill/restic_password:/run/secrets/restic_password:ro" \
+            ikbenimle-backup-drill
+          cmp drill/database/database.sqlite drill/restore/database.sqlite
+          test "$(sqlite3 drill/restore/database.sqlite \
+            'SELECT value FROM audit_fixture WHERE id = 1;')" = "restore-ok"
+          test "$(cat drill/work/restore/uploads/document.txt)" = "document fixture"
+      - name: Verify production-target protection
+        run: |
+          if docker run --rm --entrypoint /usr/local/bin/restore.sh \
+            -e RESTIC_REPOSITORY=s3:http://example.invalid/repository \
+            -e RESTIC_PASSWORD_FILE=/run/secrets/restic_password \
+            -e AWS_ACCESS_KEY_ID=test \
+            -e AWS_SECRET_ACCESS_KEY="$DRILL_MINIO_PASSWORD" \
+            -e S3_ENDPOINT=http://example.invalid \
+            -e DB_TYPE=sqlite \
+            -e SQLITE_FILENAME=/database/database.sqlite \
+            -e RESTORE_SQLITE_PATH=/database/database.sqlite \
+            -v "$PWD/drill/database:/database" \
+            -v "$PWD/drill/restic_password:/run/secrets/restic_password:ro" \
+            ikbenimle-backup-drill; then
+            echo "Restore unexpectedly accepted the production target."
+            exit 1
+          fi
+
+  postgres-restic-drill:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: drill_user
+          POSTGRES_PASSWORD: drill_password
+          POSTGRES_DB: drill_source
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U drill_user -d drill_source"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate isolated drill credentials
+        run: |
+          echo "DRILL_MINIO_PASSWORD=$(openssl rand -hex 24)" >> "$GITHUB_ENV"
+          echo "DRILL_RESTIC_PASSWORD=$(openssl rand -hex 32)" >> "$GITHUB_ENV"
+      - name: Start isolated MinIO
+        run: |
+          docker run -d --name postgres-backup-drill-minio \
+            -p 9000:9000 \
+            -e MINIO_ROOT_USER=minioadmin \
+            -e MINIO_ROOT_PASSWORD="$DRILL_MINIO_PASSWORD" \
+            minio/minio:RELEASE.2025-04-22T22-12-26Z server /data
+          for _ in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:9000/minio/health/live; then
+              exit 0
+            fi
+            sleep 2
+          done
+          docker logs postgres-backup-drill-minio
+          exit 1
+      - name: Build backup image and fixtures
+        run: |
+          docker build -t ikbenimle-backup-drill ./ops/backup
+          docker run --rm --network host --entrypoint psql \
+            -e PGPASSWORD=drill_password ikbenimle-backup-drill \
+            --host 127.0.0.1 --username drill_user --dbname drill_source \
+            --command "CREATE TABLE audit_fixture(id INTEGER PRIMARY KEY, value TEXT); INSERT INTO audit_fixture VALUES (1, 'postgres-restore-ok');"
+          docker run --rm --network host --entrypoint psql \
+            -e PGPASSWORD=drill_password ikbenimle-backup-drill \
+            --host 127.0.0.1 --username drill_user --dbname postgres \
+            --command "CREATE DATABASE drill_restore;"
+          docker run --rm --network host --entrypoint /bin/sh minio/mc -c \
+            "mc alias set local http://127.0.0.1:9000 minioadmin '$DRILL_MINIO_PASSWORD' && mc mb --ignore-existing local/ikbenimle-postgres-backups"
+          mkdir -p drill/uploads drill/status drill/work
+          chmod 0777 drill/status drill/work
+          printf '%s' "$DRILL_RESTIC_PASSWORD" > drill/restic_password
+          printf 'postgres upload fixture\n' > drill/uploads/document.txt
+      - name: Start local healthcheck receiver
+        run: |
+          cat > /tmp/healthcheck.py <<'PY'
+          from http.server import BaseHTTPRequestHandler, HTTPServer
+          class Handler(BaseHTTPRequestHandler):
+              def do_POST(self):
+                  self.send_response(200)
+                  self.end_headers()
+              def log_message(self, *_args):
+                  pass
+          HTTPServer(("0.0.0.0", 18080), Handler).serve_forever()
+          PY
+          python3 /tmp/healthcheck.py &
+      - name: Run encrypted PostgreSQL backup
+        run: |
+          docker run --rm --add-host=host.docker.internal:host-gateway \
+            -e RESTIC_REPOSITORY=s3:http://host.docker.internal:9000/ikbenimle-postgres-backups \
+            -e RESTIC_PASSWORD_FILE=/run/secrets/restic_password \
+            -e AWS_ACCESS_KEY_ID=minioadmin \
+            -e AWS_SECRET_ACCESS_KEY="$DRILL_MINIO_PASSWORD" \
+            -e S3_ENDPOINT=http://host.docker.internal:9000 \
+            -e DB_TYPE=postgres \
+            -e DB_SERVER=host.docker.internal \
+            -e DB_NAME=drill_source \
+            -e BACKUP_DB_USER=drill_user \
+            -e BACKUP_DB_PASSWORD=drill_password \
+            -e BACKUP_HEALTHCHECK_URL=http://host.docker.internal:18080 \
+            -e RESTIC_CHECK_SUBSET=100% \
+            -v "$PWD/drill/uploads:/uploads:ro" \
+            -v "$PWD/drill/status:/status" \
+            -v "$PWD/drill/work:/work" \
+            -v "$PWD/drill/restic_password:/run/secrets/restic_password:ro" \
+            ikbenimle-backup-drill
+          jq -e '.status == "success"' drill/status/status.json
+      - name: Restore PostgreSQL and verify data
+        run: |
+          docker run --rm --add-host=host.docker.internal:host-gateway \
+            --entrypoint /usr/local/bin/restore.sh \
+            -e RESTIC_REPOSITORY=s3:http://host.docker.internal:9000/ikbenimle-postgres-backups \
+            -e RESTIC_PASSWORD_FILE=/run/secrets/restic_password \
+            -e AWS_ACCESS_KEY_ID=minioadmin \
+            -e AWS_SECRET_ACCESS_KEY="$DRILL_MINIO_PASSWORD" \
+            -e S3_ENDPOINT=http://host.docker.internal:9000 \
+            -e DB_TYPE=postgres \
+            -e DB_SERVER=host.docker.internal \
+            -e DB_NAME=drill_source \
+            -e RESTORE_DB_NAME=drill_restore \
+            -e BACKUP_DB_USER=drill_user \
+            -e BACKUP_DB_PASSWORD=drill_password \
+            -v "$PWD/drill/work:/work" \
+            -v "$PWD/drill/restic_password:/run/secrets/restic_password:ro" \
+            ikbenimle-backup-drill
+          docker run --rm --network host --entrypoint psql \
+            -e PGPASSWORD=drill_password ikbenimle-backup-drill \
+            --host 127.0.0.1 --username drill_user --dbname drill_restore \
+            --tuples-only --no-align \
+            --command "SELECT value FROM audit_fixture WHERE id = 1;" \
+            | grep -qx 'postgres-restore-ok'
+          test "$(cat drill/work/restore/uploads/document.txt)" = "postgres upload fixture"
+      - name: Verify PostgreSQL production-target protection
+        run: |
+          if docker run --rm --entrypoint /usr/local/bin/restore.sh \
+            -e RESTIC_REPOSITORY=s3:http://example.invalid/repository \
+            -e RESTIC_PASSWORD_FILE=/run/secrets/restic_password \
+            -e AWS_ACCESS_KEY_ID=test \
+            -e AWS_SECRET_ACCESS_KEY="$DRILL_MINIO_PASSWORD" \
+            -e S3_ENDPOINT=http://example.invalid \
+            -e DB_TYPE=postgres \
+            -e DB_SERVER=host.docker.internal \
+            -e DB_NAME=drill_source \
+            -e RESTORE_DB_NAME=drill_source \
+            -e BACKUP_DB_USER=drill_user \
+            -e BACKUP_DB_PASSWORD=drill_password \
+            -v "$PWD/drill/restic_password:/run/secrets/restic_password:ro" \
+            ikbenimle-backup-drill; then
+            echo "Restore unexpectedly accepted the production database."
+            exit 1
+          fi

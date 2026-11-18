@@ -1,0 +1,454 @@
+/* Polivalans çalışma alanı: compact tables and a shared evaluation workspace. */
+.poly-workspace {
+  --poly-title-size: 28px;
+  --poly-section-size: 16px;
+  --poly-body-size: 14px;
+  --poly-caption-size: 13px;
+  --poly-label-size: 12px;
+  --poly-inset: 24px;
+  gap: 24px;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+  font-size: var(--poly-body-size);
+  line-height: 1.5;
+}
+.poly-workspace-heading { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; flex-wrap: wrap; }
+.poly-workspace-heading h1 { margin: 0 0 0.4rem; font-size: clamp(1.45rem, 2.6vw, 1.9rem); font-weight: 750; line-height: 1.2; letter-spacing: -0.025em; }
+.poly-workspace-heading h2 { margin: 0 0 0.35rem; font-size: 1.5rem; }
+.poly-workspace-heading p { margin: 0; color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+.poly-workspace-nav { display: flex; gap: 0.25rem; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+.poly-workspace-nav button { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 46px; padding: 0.65rem 1rem; border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--text-muted); font: inherit; font-size: 0.9rem; font-weight: 650; cursor: pointer; }
+.poly-workspace-nav button[aria-current="page"] { border-bottom-color: var(--primary); color: var(--primary); }
+.poly-management-nav { margin-top: -0.3rem; }
+.poly-workspace :is(button, select, input, textarea, summary, [tabindex]):focus-visible,
+.poly-form :is(button, select, input, textarea, summary):focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+.poly-workspace button:disabled { cursor: not-allowed; opacity: 0.55; }
+.poly-field { display: flex; flex-direction: column; gap: 0.35rem; min-width: 0; color: var(--text-muted); font-size: 0.8rem; font-weight: 650; }
+.poly-field select { min-height: 44px; min-width: 190px; max-width: 100%; padding: 0.6rem 2rem 0.6rem 0.75rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); font: inherit; font-size: 0.9rem; }
+.poly-surface { min-width: 0; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); overflow-wrap: anywhere; }
+.poly-surface h2 { margin: 0 0 0.5rem; font-size: 1rem; font-weight: 750; line-height: 1.5; }
+.poly-surface-body { padding: 1.25rem; }
+.poly-surface-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 1rem 1.25rem; background: var(--bg-card); }
+.poly-surface-toolbar:first-child { border-radius: 8px 8px 0 0; border-bottom: 1px solid var(--border); }
+.poly-surface-toolbar:last-child { border-top: 1px solid var(--border); border-radius: 0 0 8px 8px; }
+.poly-muted { margin: 0.35rem 0; color: var(--text-muted); font-size: 0.84rem; line-height: 1.6; }
+.poly-notice { display: flex; align-items: flex-start; gap: 0.6rem; margin: 0; padding: 0.85rem 1rem; border-radius: 6px; background: var(--status-info-bg); color: var(--status-info-text); font-size: 0.85rem; line-height: 1.6; }
+.poly-notice svg { flex-shrink: 0; margin-top: 2px; }
+.poly-notice-success { background: var(--status-success-bg); color: var(--status-success-text); }
+.poly-catalog-layout { display: grid; grid-template-columns: minmax(0, 1fr) 235px; align-items: start; gap: 1rem; }
+.poly-position-summary { padding: 1.25rem; }
+.poly-position-summary > strong { display: block; margin: 1.25rem 0; }
+.poly-position-summary dl { margin: 0 0 1rem; }
+.poly-position-summary dl > div { display: flex; justify-content: space-between; gap: 0.7rem; padding: 0.65rem 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+.poly-position-summary dt { color: var(--text-muted); }
+.poly-position-summary dd { margin: 0; font-weight: 750; }
+.poly-table-scroll { min-width: 0; max-width: 100%; overflow: auto; }
+.poly-data-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem; line-height: 1.5; }
+.poly-data-table th { padding: 0.8rem 1rem; background: var(--bg-card); color: var(--text-muted); font-size: 0.78rem; font-weight: 650; white-space: nowrap; }
+.poly-data-table td { padding: 0.95rem 1rem; border-top: 1px solid var(--border); vertical-align: middle; }
+.poly-data-table td:first-child { min-width: 170px; }
+.poly-data-table :is(td, th) { max-width: 330px; }
+.poly-data-table small, .poly-settings-row small { display: block; margin-top: 0.25rem; color: var(--text-muted); font-size: 0.78rem; }
+.poly-data-table tbody > tr:hover { background: var(--bg-card); }
+.poly-archived-row { color: var(--text-muted); }
+.poly-table-actions { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.poly-data-table .poly-table-actions { flex-wrap: nowrap; }
+.poly-data-table .poly-text-button { white-space: nowrap; }
+.poly-tag { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; background: var(--status-neutral-bg); color: var(--status-neutral-text); font-size: 0.75rem; line-height: 1.45; font-weight: 600; }
+.poly-tag-critical { background: var(--status-danger-bg); color: var(--status-danger-text); }
+.poly-tag-success { background: var(--status-success-bg); color: var(--status-success-text); }
+.poly-text-button, .poly-icon-button { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; min-height: 44px; padding: 0.45rem 0.6rem; border: 0; border-radius: 5px; background: transparent; color: var(--primary); font: inherit; font-size: 0.82rem; font-weight: 650; cursor: pointer; }
+.poly-icon-button { min-width: 44px; }
+.poly-text-button:hover, .poly-icon-button:hover { background: var(--primary-dim); }
+.poly-back-link { align-self: flex-start; padding-left: 0; }
+.poly-category-settings > summary, .poly-training-disclosure > summary { display: flex; align-items: center; gap: 0.6rem; min-height: 48px; padding: 1rem 1.25rem; color: var(--text); font-weight: 650; font-size: 0.88rem; cursor: pointer; list-style: none; }
+.poly-category-settings > summary::after, .poly-training-disclosure > summary::after { content: '+'; margin-left: auto; color: var(--primary); font-size: 1.2rem; }
+.poly-category-settings[open] > summary::after, .poly-training-disclosure[open] > summary::after { content: '−'; }
+.poly-category-settings > summary span { color: var(--text-muted); font-size: 0.8rem; font-weight: 500; }
+.poly-settings-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
+.poly-settings-row:last-child { border-bottom: 0; }
+.poly-form-section { min-width: 0; display: grid; gap: 1rem; margin: 0; padding: 1rem; border: 1px solid var(--border); border-radius: 6px; }
+.poly-form-section legend { padding: 0 0.5rem; color: var(--text); font-size: 0.9rem; font-weight: 700; }
+.poly-form-section label { display: grid; gap: 0.4rem; }
+.poly-form .poly-training-disclosure summary { padding: 0.6rem 0; }
+.poly-schedule-details dl { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
+.poly-schedule-details dt { margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.8rem; }
+.poly-schedule-details dd { margin: 0; font-size: 0.95rem; font-weight: 650; }
+.poly-report-filters { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.poly-search-field { display: flex; align-items: center; gap: 0.6rem; min-width: 0; max-width: 100%; min-height: 44px; padding: 0.6rem 0.8rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text-muted); }
+.poly-search-field input { width: 100%; min-width: 0; border: 0; background: transparent; color: var(--text); font: inherit; font-size: 0.88rem; }
+.poly-report-filters > .poly-search-field { flex: 1; max-width: 380px; }
+.poly-progress { display: block; width: 100%; height: 8px; border: 0; border-radius: 99px; overflow: hidden; background: var(--border); accent-color: var(--primary); }
+.poly-progress::-webkit-progress-bar { background: var(--border); border-radius: 99px; }
+.poly-progress::-webkit-progress-value { background: var(--primary); border-radius: 99px; }
+.poly-progress::-moz-progress-bar { background: var(--primary); border-radius: 99px; }
+.poly-data-table .poly-progress { min-width: 130px; margin-top: 0.5rem; }
+.poly-report-completion { display: grid; grid-template-columns: minmax(190px, 1fr) minmax(100px, 1fr) auto auto; gap: 1rem; align-items: center; padding: 1.25rem; border: 1px solid var(--border); border-radius: 6px; background: var(--status-info-bg); color: var(--status-info-text); font-size: 0.85rem; }
+.poly-report-completion small { display: block; margin-top: 0.4rem; }
+.poly-report-completion > span { border-left: 1px solid var(--border); padding-left: 1rem; }
+.poly-calculation-note { padding: 0.5rem 0; font-size: 0.83rem; color: var(--text-muted); line-height: 1.7; }
+.poly-calculation-note summary { width: fit-content; min-height: 32px; color: var(--primary); cursor: pointer; }
+.poly-report-charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.poly-heatmap-table { margin-top: 1rem; }
+.poly-heatmap-table :is(td, th) { padding: 0.65rem; }
+.poly-heatmap-table td { text-align: center; font-weight: 650; }
+.poly-risk-items { display: grid; gap: 0.7rem; }
+.poly-risk-items article { display: flex; align-items: flex-start; gap: 0.65rem; padding: 0.75rem; background: var(--status-warning-bg); color: var(--status-warning-text); border-radius: 6px; }
+.poly-risk-items small { display: block; margin-top: 0.3rem; }
+.poly-employee-result { padding: 0.5rem; }
+.poly-employee-result h3 { margin: 0; font-size: 0.95rem; }
+.poly-employee-result td:last-child { white-space: pre-wrap; }
+.poly-empty { display: grid; justify-items: center; gap: 0.5rem; padding: 2rem 1.25rem; margin: 0; color: var(--text-muted); font-size: 0.9rem; line-height: 1.65; text-align: center; }
+.poly-workspace .poly-command { min-height: 44px; font-size: 0.82rem; box-shadow: none; border-radius: 6px; }
+.poly-workspace .poly-task-card { padding: 1.1rem; border-radius: 8px; box-shadow: none; background: var(--bg); }
+.poly-workspace .poly-task-card-body { gap: 0.5rem; }
+.poly-workspace .poly-task-card-body > strong { font-size: 1rem; font-weight: 700; }
+.poly-workspace .poly-task-card-icon { width: 44px; height: 44px; border-radius: 6px; }
+.poly-completion { display: grid; gap: 0.7rem; min-width: 235px; font-size: 0.85rem; }
+.poly-evaluation-layout { display: grid; grid-template-columns: 270px minmax(0, 1fr); align-items: start; gap: 1rem; }
+.poly-employee-sidebar { position: sticky; top: 1rem; }
+.poly-employee-sidebar > h2 { margin: 1rem; }
+.poly-employee-sidebar > .poly-search-field { margin: 0 0.75rem 0.75rem; }
+.poly-employee-tabs { display: flex; border-bottom: 1px solid var(--border); padding: 0 0.4rem; }
+.poly-employee-tabs button { flex: 1; min-height: 44px; padding: 0.5rem 0.25rem; border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--text-muted); font: inherit; font-size: 0.74rem; cursor: pointer; }
+.poly-employee-tabs button[aria-pressed="true"] { border-bottom-color: var(--primary); color: var(--primary); font-weight: 700; }
+.poly-employee-tabs span { padding: 0.1rem 0.25rem; border-radius: 4px; background: var(--bg-input); }
+.poly-employee-list { display: grid; max-height: 65vh; overflow-y: auto; }
+.poly-employee-list > button { display: grid; gap: 0.4rem; width: 100%; padding: 1rem; border: 0; border-left: 3px solid transparent; border-bottom: 1px solid var(--border); background: transparent; color: var(--text); font: inherit; text-align: left; cursor: pointer; }
+.poly-employee-list > button[aria-current="true"] { border-left-color: var(--primary); background: var(--primary-dim); }
+.poly-employee-list > button:hover { background: var(--bg-card); }
+.poly-employee-list small { color: var(--text-muted); font-size: 0.78rem; }
+.poly-employee-list .poly-tag { justify-self: start; }
+.poly-evaluation-category { margin: 0 1.25rem 1.25rem; }
+.poly-evaluation-category > h3 { margin: 0 0 0.5rem; font-size: 0.95rem; }
+.poly-assessment-row { display: grid; grid-template-columns: minmax(150px, 0.9fr) minmax(0, 1.3fr); gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--border); }
+.poly-assessment-row h4 { margin: 0 0 0.5rem; font-size: 0.9rem; line-height: 1.5; }
+.poly-assessment-inputs { display: grid; gap: 0.65rem; }
+.poly-rating-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.4rem; }
+.poly-rating-options button { display: grid; justify-items: center; gap: 0.3rem; min-width: 0; min-height: 60px; padding: 0.5rem 0.2rem; border: 1px solid var(--border); border-radius: 5px; background: var(--bg); color: var(--text); cursor: pointer; font: inherit; }
+.poly-rating-options button small { font-size: 0.7rem; overflow-wrap: anywhere; }
+.poly-rating-options button[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: white; }
+.poly-rating-options button:hover { border-color: var(--primary); }
+.poly-assessment-secondary { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem; }
+.poly-assessment-secondary .poly-text-button { padding: 0; }
+.poly-inline-checkbox { display: inline-flex; align-items: center; gap: 0.45rem; min-height: 44px; color: var(--text-muted); font-size: 0.78rem; }
+.poly-inline-checkbox input { width: 17px; height: 17px; accent-color: var(--primary); }
+.poly-assessment-note { margin: 0; padding: 0.6rem; border-radius: 5px; background: var(--bg-card); color: var(--text-muted); font-size: 0.8rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+.poly-evaluation-footer { display: grid; gap: 0.75rem; padding: 1rem 1.25rem; border-top: 1px solid var(--border); background: var(--bg-card); }
+.poly-evaluation-footer > .poly-table-actions { justify-content: space-between; }
+.poly-finalize { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem; }
+.poly-workspace .poly-alert { flex-wrap: wrap; }
+.poly-workspace .poly-alert button { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 44px; }
+.poly-workspace .poly-level-definition { min-height: 75px; border-radius: 0; box-shadow: none; }
+.poly-workspace .poly-level-definition:last-child { border-radius: 0 0 8px 8px; }
+
+/* Shared type scale and alignment; keep legacy module styles from drifting. */
+.poly-workspace :is(h1, h2, h3, h4) { color: var(--text); font-weight: 600; text-wrap: pretty; }
+.poly-workspace-heading h1 { font-size: var(--poly-title-size); line-height: 1.2; letter-spacing: -0.025em; margin-bottom: 8px; }
+.poly-workspace-heading h2 { font-size: 22px; line-height: 1.3; letter-spacing: -0.02em; margin-bottom: 8px; }
+.poly-workspace .poly-surface h2, .poly-workspace .poly-toolbar h3 { font-size: var(--poly-section-size); line-height: 1.4; letter-spacing: -0.01em; }
+.poly-workspace :is(.poly-workspace-heading p, .poly-muted, .poly-notice, .poly-data-table, .poly-text-button, .poly-command, .poly-search-field input, .poly-field select) { font-size: var(--poly-body-size); }
+.poly-workspace :is(.poly-workspace-heading p, .poly-muted) { line-height: 1.6; }
+.poly-workspace :is(.poly-field, .poly-data-table th, .poly-settings-row small, .poly-data-table small, .poly-employee-list small) { font-size: var(--poly-caption-size); }
+.poly-workspace :is(.poly-surface-body, .poly-surface-toolbar, .poly-position-summary) { padding: var(--poly-inset); }
+.poly-workspace .poly-surface { border-radius: 10px; }
+.poly-workspace .poly-surface-toolbar { background: transparent; }
+.poly-workspace .poly-surface-toolbar:first-child { border-radius: 10px 10px 0 0; }
+.poly-workspace .poly-surface-toolbar:last-child { border-radius: 0 0 10px 10px; }
+.poly-workspace .poly-surface-toolbar h2 { margin-bottom: 4px; }
+.poly-workspace .poly-surface-toolbar .poly-muted { margin: 0; }
+.poly-workspace .poly-section-stack { gap: 24px; }
+.poly-workspace :is(.poly-workspace-nav button, .poly-text-button, .poly-command) { font-weight: 500; }
+.poly-workspace .poly-workspace-nav button { font-size: var(--poly-body-size); padding: 12px 16px; }
+.poly-workspace .poly-workspace-nav button:first-child { padding-left: 0; }
+.poly-workspace .poly-workspace-nav button[aria-current="page"] { font-weight: 600; }
+.poly-workspace :is(.poly-command, .export-excel-button) { height: 44px; min-height: 44px; padding: 0 16px; border-radius: 8px; box-shadow: none; line-height: 1.2; white-space: nowrap; }
+.poly-workspace .export-excel-button { width: auto; gap: 8px; background: var(--bg); border: 1px solid var(--border); color: var(--text); font-size: var(--poly-body-size); font-weight: 500; }
+.poly-workspace .export-excel-button:hover { background: var(--bg-card); border-color: var(--text-muted); transform: none; box-shadow: none; }
+.poly-workspace .poly-field { gap: 8px; font-weight: 500; }
+.poly-workspace .poly-field select { height: 44px; border-radius: 8px; }
+.poly-workspace .poly-search-field { height: 44px; border-radius: 8px; }
+.poly-workspace .poly-data-table th { text-transform: none; letter-spacing: normal; text-align: left; font-weight: 500; }
+.poly-workspace .poly-data-table :is(td, th) { padding: 14px 16px; }
+.poly-workspace .poly-data-table :is(td, th):first-child { padding-left: var(--poly-inset); }
+.poly-workspace .poly-data-table :is(td, th):last-child { padding-right: var(--poly-inset); }
+.poly-workspace .poly-data-table td strong { font-weight: 600; }
+.poly-workspace .poly-data-table .poly-table-actions { justify-content: flex-end; }
+.poly-workspace .poly-data-table th:last-child { text-align: right; }
+.poly-workspace .poly-data-table td:last-child > .poly-text-button { display: flex; width: fit-content; margin-left: auto; }
+.poly-workspace .poly-heatmap-table th:last-child { text-align: center; }
+.poly-workspace .poly-heatmap-table td { font-variant-numeric: tabular-nums; }
+.poly-workspace .poly-notice { background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border); padding: 12px 16px; }
+.poly-workspace .poly-notice > svg { color: var(--primary); }
+.poly-workspace .poly-notice-success { color: var(--status-success-text); }
+.poly-workspace .poly-notice-success > svg { color: currentColor; }
+.poly-workspace .poly-report-completion { background: var(--bg-card); color: var(--text); padding: var(--poly-inset); border-radius: 10px; }
+.poly-workspace .poly-report-completion small { color: var(--text-muted); font-size: var(--poly-caption-size); }
+.poly-workspace .poly-report-completion > span { color: var(--text-muted); }
+.poly-workspace .poly-report-charts { gap: 16px; align-items: stretch; }
+.poly-workspace .poly-employee-result .poly-data-table th:last-child { text-align: left; }
+.poly-workspace .poly-position-summary > strong { font-size: var(--poly-body-size); font-weight: 600; margin: 20px 0; }
+.poly-workspace .poly-position-summary dl > div { font-size: var(--poly-caption-size); padding: 12px 0; }
+.poly-workspace .poly-position-summary dd { font-weight: 600; font-variant-numeric: tabular-nums; }
+.poly-workspace .poly-employee-sidebar > h2 { margin: 20px; }
+.poly-workspace .poly-employee-sidebar > .poly-search-field { margin: 0 20px 16px; }
+.poly-workspace .poly-employee-tabs { padding: 0 12px; }
+.poly-workspace .poly-employee-tabs button { display: inline-flex; align-items: center; justify-content: center; gap: 4px; flex: 1 1 auto; font-size: var(--poly-label-size); white-space: nowrap; padding: 8px 4px; }
+.poly-workspace .poly-employee-tabs span { font-variant-numeric: tabular-nums; }
+.poly-workspace .poly-employee-list > button { border-left: 0; padding: 16px 20px; gap: 6px; font-size: var(--poly-body-size); }
+.poly-workspace .poly-employee-list > button[aria-current="true"] { box-shadow: inset 3px 0 var(--primary); }
+.poly-workspace .poly-employee-list > button > strong { font-weight: 600; }
+.poly-workspace .poly-completion { font-size: var(--poly-caption-size); gap: 8px; }
+.poly-workspace .poly-evaluation-category { margin: 0 var(--poly-inset) 24px; }
+.poly-workspace .poly-evaluation-category > h3 { font-size: var(--poly-section-size); font-weight: 600; margin-bottom: 12px; }
+.poly-workspace .poly-assessment-row { padding: 20px 0; gap: 20px; align-items: start; }
+.poly-workspace .poly-assessment-row h4 { font-size: var(--poly-body-size); font-weight: 600; margin-bottom: 6px; }
+.poly-workspace .poly-assessment-row .poly-muted { font-size: var(--poly-caption-size); }
+.poly-workspace .poly-rating-options { gap: 8px; align-items: stretch; }
+.poly-workspace .poly-rating-options button { grid-template-rows: 20px 1fr; align-items: start; gap: 8px; min-height: 80px; padding: 12px 4px; border-radius: 8px; }
+.poly-workspace .poly-rating-options button strong { font-weight: 600; font-size: var(--poly-body-size); line-height: 20px; font-variant-numeric: tabular-nums; }
+.poly-workspace .poly-rating-options button small { align-self: start; font-size: var(--poly-label-size); line-height: 1.35; overflow-wrap: normal; word-break: normal; }
+.poly-workspace :is(.poly-tag, .poly-completion, .poly-schedule-details dd) { font-variant-numeric: tabular-nums; }
+.poly-workspace .poly-status { font-size: var(--poly-label-size); font-weight: 500; line-height: 1.4; }
+.poly-workspace .poly-assessment-inputs { gap: 8px; }
+.poly-workspace .poly-assessment-secondary { gap: 8px; }
+.poly-workspace .poly-inline-checkbox { font-size: var(--poly-label-size); }
+.poly-workspace .poly-evaluation-footer { padding: 16px var(--poly-inset); border-radius: 0 0 10px 10px; }
+.poly-workspace .poly-evaluation-footer > .poly-table-actions { justify-content: flex-end; gap: 8px; }
+.poly-workspace .poly-evaluation-footer > .poly-table-actions > button:first-child { margin-right: auto; }
+.poly-workspace .poly-category-settings > summary { padding: 16px var(--poly-inset); font-size: var(--poly-body-size); font-weight: 600; }
+.poly-workspace .poly-task-card { min-height: 112px; transform: none; }
+.poly-workspace .poly-task-card-body > strong { font-weight: 600; }
+.poly-workspace .poly-task-card-status { font-size: var(--poly-label-size); font-weight: 500; }
+.poly-workspace .poly-task-card-body > small { font-size: var(--poly-caption-size); font-weight: 400; }
+.poly-workspace .poly-level-definition { padding: 20px var(--poly-inset); }
+.poly-workspace .poly-level-definition strong { font-size: var(--poly-body-size); font-weight: 600; }
+.poly-workspace .poly-level-definition small { font-size: var(--poly-caption-size); line-height: 1.5; }
+.poly-workspace .poly-toolbar p { font-size: var(--poly-body-size); }
+.poly-workspace .poly-member-list > article { border-radius: 10px; box-shadow: none; background: var(--bg); }
+.poly-workspace .poly-member-list :is(strong, small) { font-size: var(--poly-caption-size); }
+.poly-workspace .poly-member-list strong { font-weight: 600; }
+.poly-workspace .poly-member-list small { line-height: 1.5; }
+.poly-modal, .poly-assessment-modal { font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; font-size: 14px; }
+.poly-modal .poly-modal-header h3, .poly-assessment-modal .poly-modal-header h3 { font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -0.02em; }
+.poly-form :is(label, legend), .poly-assessment-modal .poly-editor-note { font-size: 13px; font-weight: 500; line-height: 1.5; }
+.poly-form :is(input, select, textarea), .poly-assessment-modal textarea { font-size: 14px; border-radius: 8px; }
+.poly-form .poly-command, .poly-assessment-modal .poly-command { min-height: 44px; border-radius: 8px; font-size: 14px; font-weight: 500; }
+.poly-modal .admin-modal-close, .poly-assessment-modal .admin-modal-close { min-width: 44px; min-height: 44px; border: 0; border-radius: 8px; background: transparent; color: var(--text-muted); box-shadow: none; }
+.poly-modal .admin-modal-close:hover, .poly-assessment-modal .admin-modal-close:hover { background: var(--bg-input); color: var(--text); transform: none; }
+.poly-modal .poly-modal-actions .btn-cancel, .poly-assessment-modal .poly-modal-actions .btn-cancel { min-height: 44px; padding: 0 16px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); box-shadow: none; font-size: 14px; font-weight: 500; }
+.poly-form select, .poly-form input:not([type="checkbox"]):not([type="color"]) { min-height: 44px; }
+
+/* Management stays in one large dialog while the report keeps its context. */
+.poly-settings-overlay { padding: 24px; }
+.poly-settings-modal { width: min(1280px, 100%); height: min(880px, calc(100dvh - 48px)); max-height: calc(100dvh - 48px); min-width: 0; display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: 16px; background: var(--bg); box-shadow: 0 24px 80px rgba(15, 23, 42, 0.18); overflow: hidden; }
+.poly-settings-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; flex-shrink: 0; padding: 24px 24px 16px; }
+.poly-settings-heading h2 { margin: 0 0 8px; font-size: 22px; font-weight: 600; line-height: 1.3; letter-spacing: -0.02em; }
+.poly-settings-heading p { margin: 0; color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+.poly-settings-heading .poly-icon-button { flex-shrink: 0; color: var(--text-muted); }
+.poly-settings-modal .poly-settings-nav { margin: 0 24px; flex-shrink: 0; }
+.poly-settings-content { display: flex; flex-direction: column; gap: 24px; min-height: 0; padding: 24px; overflow-y: auto; overscroll-behavior: contain; }
+.poly-settings-context { display: flex; align-items: center; }
+.poly-settings-context .poly-field { min-width: 240px; }
+.poly-settings-modal .poly-catalog-layout { grid-template-columns: minmax(0, 1fr) 235px; }
+
+@media (max-width: 1200px) {
+  .poly-catalog-layout { grid-template-columns: minmax(0, 1fr); }
+  .poly-position-summary dl { display: flex; gap: 2rem; flex-wrap: wrap; }
+  .poly-position-summary dl > div { gap: 1rem; }
+  .poly-evaluation-layout { grid-template-columns: 240px minmax(0, 1fr); }
+  .poly-assessment-row { grid-template-columns: minmax(0, 1fr); }
+  .poly-report-completion { grid-template-columns: minmax(0, 1fr) minmax(80px, 1fr) auto; }
+  .poly-report-completion > span { grid-column: 1 / -1; border-left: 0; padding-left: 0; }
+  .poly-settings-modal .poly-catalog-layout { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .poly-workspace { --poly-title-size: 24px; --poly-inset: 20px; gap: 20px; }
+  .poly-workspace-heading { align-items: stretch; gap: 1rem; }
+  .poly-workspace-heading > .poly-field, .poly-workspace-heading > div { width: 100%; }
+  .poly-field select { min-width: 0; width: 100%; }
+  .poly-workspace-nav button { padding: 0.55rem 0.65rem; font-size: 0.8rem; }
+  .poly-workspace-nav { row-gap: 0.25rem; }
+  .poly-report-charts, .poly-evaluation-layout { grid-template-columns: minmax(0, 1fr); }
+  .poly-evaluation-layout { gap: 1rem; }
+  .poly-employee-sidebar { position: static; }
+  .poly-employee-list { max-height: 250px; }
+  .poly-employee-list > button { padding: 0.8rem 1rem; }
+  .poly-completion { min-width: 0; }
+  .poly-report-filters > .poly-field, .poly-report-filters > .poly-search-field { width: 100%; max-width: none; }
+  .poly-surface-body, .poly-surface-toolbar { padding: 1rem; }
+  .poly-surface-toolbar > .poly-field { width: 100%; }
+  .poly-schedule-details dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+  .poly-evaluation-category { margin: 0 1rem 1rem; }
+  .poly-evaluation-footer { padding: 1rem; }
+  .poly-finalize { flex-direction: column; align-items: stretch; }
+  .poly-settings-row { align-items: flex-start; flex-wrap: wrap; }
+  .poly-report-completion { padding: 1rem; }
+  .poly-report-completion > div { grid-column: 1 / -1; }
+  .poly-report-completion > .poly-progress { grid-column: 1 / 3; }
+  .poly-workspace .poly-open-gap-list article { align-items: flex-start; flex-wrap: wrap; }
+  .poly-workspace .poly-section-stack { gap: 20px; }
+  .poly-workspace .poly-workspace-nav { flex-wrap: nowrap; overflow-x: auto; }
+  .poly-workspace .poly-workspace-nav button { flex-shrink: 0; font-size: 13px; padding: 12px; white-space: nowrap; }
+  .poly-workspace .poly-workspace-nav button:first-child { padding-left: 0; }
+  .poly-workspace .poly-evaluation-footer > .poly-table-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .poly-workspace .poly-evaluation-footer > .poly-table-actions > button { width: 100%; margin: 0; padding: 0 12px; }
+  .poly-workspace .poly-evaluation-footer > .poly-table-actions > button:first-child { margin: 0; }
+  .poly-workspace .poly-evaluation-footer > .poly-table-actions > button:nth-child(3) { grid-column: 1 / -1; }
+  .poly-workspace .poly-rating-options { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .poly-workspace .poly-rating-options button { min-height: 84px; }
+  .poly-settings-overlay { padding: 0; }
+  .poly-settings-modal { width: 100%; height: 100dvh; max-height: 100dvh; border: 0; border-radius: 0; }
+  .poly-settings-heading { padding: 20px 20px 12px; gap: 12px; }
+  .poly-settings-heading h2 { font-size: 20px; }
+  .poly-settings-heading p { font-size: 13px; }
+  .poly-settings-modal .poly-settings-nav { margin: 0 20px; }
+  .poly-settings-content { padding: 20px; gap: 20px; }
+  .poly-settings-context, .poly-settings-context .poly-field { width: 100%; min-width: 0; }
+}
+
+.poly-accordion-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 16px 20px; }
+.poly-accordion-toolbar h2 { margin: 0; font-size: 16px; }
+.poly-accordion-toolbar p { margin: 4px 0 0; }
+.poly-accordion-toolbar > .poly-search-field { flex: 0 1 320px; }
+.poly-evaluation-accordion .poly-employee-tabs { justify-content: flex-start; flex-wrap: wrap; }
+.poly-evaluation-accordion .poly-employee-tabs button { flex: 0 1 auto; min-width: 100px; }
+.poly-accordion-member + .poly-accordion-member { border-top: 1px solid var(--border); }
+.poly-accordion-member-heading { margin: 0; }
+.poly-accordion-member-heading > button { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 64px; padding: 12px 20px; border: 0; background: transparent; color: var(--text); font: inherit; text-align: left; cursor: pointer; }
+.poly-accordion-member-heading > button:hover, .poly-accordion-member.is-open > h3 > button { background: var(--primary-dim); }
+.poly-accordion-member-heading > button > svg { flex-shrink: 0; }
+.poly-accordion-member-heading > button[aria-expanded="true"] > svg { transform: rotate(180deg); }
+.poly-accordion-member-copy { flex: 1; min-width: 0; display: grid; gap: 3px; }
+.poly-accordion-member-copy strong { font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
+.poly-accordion-member-copy small { font-size: 12px; font-weight: 400; color: var(--text-muted); overflow-wrap: anywhere; }
+.poly-accordion-member-heading .poly-tag { font-size: 12px; font-weight: 500; white-space: nowrap; }
+.poly-compact-skills { max-height: min(60dvh, 640px); overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; padding: 0 20px; }
+.poly-compact-category > h4 { position: sticky; top: 0; z-index: 1; margin: 0; padding: 8px 0; background: var(--bg-card); border-bottom: 1px solid var(--border); font-size: 13px; font-weight: 600; }
+.poly-compact-assessment { display: grid; grid-template-columns: minmax(0, 1fr) 188px minmax(44px, 200px); align-items: center; gap: 4px 16px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.poly-compact-skill-name { min-width: 0; }
+.poly-compact-skill-name h5 { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.4; overflow-wrap: anywhere; }
+.poly-compact-skill-name small { display: block; margin-top: 2px; font-size: 12px; line-height: 1.4; }
+.poly-workspace .poly-compact-rating { grid-template-columns: repeat(4, 44px); gap: 4px; }
+.poly-workspace .poly-compact-rating button { display: flex; align-items: center; justify-content: center; grid-template-rows: none; min-height: 44px; height: 44px; width: 44px; padding: 0; gap: 0; border-radius: 6px; }
+.poly-compact-tools { display: flex; align-items: center; gap: 8px; }
+.poly-workspace .poly-compact-comment { width: 44px; min-width: 44px; height: 44px; padding: 0; display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; }
+.poly-compact-tools .poly-inline-checkbox { font-size: 12px; white-space: nowrap; }
+.poly-compact-note { grid-column: 1 / -1; font-size: 12px; color: var(--text-muted); }
+.poly-compact-note summary { padding: 6px 0; cursor: pointer; }
+.poly-compact-note p { margin: 4px 0 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+@media (max-width: 1100px) {
+  .poly-compact-assessment { grid-template-columns: minmax(0, 1fr) 188px 44px; gap: 4px 8px; }
+  .poly-compact-tools { display: contents; }
+  .poly-compact-comment { grid-column: 3; grid-row: 1; }
+  .poly-compact-tools .poly-inline-checkbox { grid-column: 1 / -1; justify-self: end; }
+}
+
+@media (max-width: 760px) {
+  .poly-accordion-toolbar { padding: 12px; }
+  .poly-accordion-toolbar > .poly-search-field { flex-basis: 100%; }
+  .poly-evaluation-accordion .poly-employee-tabs button { flex: 1; min-width: 0; }
+  .poly-accordion-member-heading > button { padding: 12px; gap: 8px; flex-wrap: wrap; }
+  .poly-accordion-member-copy { flex-basis: calc(100% - 32px); }
+  .poly-accordion-member-heading .poly-tag { order: 1; }
+  .poly-compact-skills { padding: 0 12px; }
+  .poly-compact-assessment { grid-template-columns: minmax(0, 1fr) 44px; gap: 6px 8px; padding: 10px 0; }
+  .poly-compact-skill-name { grid-column: 1 / -1; }
+  .poly-compact-comment { grid-column: 2; grid-row: 2; }
+  .poly-compact-tools .poly-inline-checkbox { justify-self: start; }
+}
+
+/* Report detail: lavender canvas, readable chart labels and scoped color accents. */
+.poly-report-modern {
+  --poly-violet: #6d35e8;
+  --poly-teal: #008b80;
+  --poly-track: #ece8f5;
+  padding: clamp(12px, 2vw, 24px);
+  border-radius: 20px;
+  background: #f5f3fc;
+  color: #201a3d;
+}
+.poly-report-modern .poly-surface { background: #fff; border-color: #e5e0f1; border-radius: 18px; box-shadow: 0 3px 12px #35206408; min-width: 0; }
+.poly-report-modern .poly-surface-body { padding: 22px; }
+.poly-report-modern .poly-muted, .poly-report-modern .poly-calculation-note { color: #645c78; }
+.poly-report-modern .poly-surface h2 { color: #241a40; line-height: 1.4; }
+.poly-report-modern .poly-workspace-heading h2 { font-size: clamp(24px, 2.5vw, 32px); letter-spacing: -0.035em; }
+.poly-report-modern .poly-workspace-heading p { color: #645c78; line-height: 1.6; }
+.poly-workspace .poly-report-modern .poly-report-completion { border-radius: 16px; padding: 18px 22px; background: #fff; border-color: #e5e0f1; }
+.poly-report-modern .poly-report-completion .poly-progress { --primary: var(--poly-teal); }
+.poly-workspace .poly-report-modern .poly-report-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; border: 0; background: transparent; overflow: visible; }
+.poly-workspace .poly-report-modern .poly-report-metrics article { display: grid; align-content: start; position: relative; border: 0; border-radius: 18px; padding: 24px; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr; gap: 10px; overflow: hidden; }
+.poly-report-modern .poly-metric-violet { background: linear-gradient(120deg, #7943ee, #5924d3); color: #fff; }
+.poly-report-modern .poly-metric-teal { background: linear-gradient(120deg, #d8faf3, #b9eee5); color: #084f49; }
+.poly-report-modern .poly-metric-coral { background: linear-gradient(120deg, #ffebe3, #ffdbcf); color: #7c2d20; }
+.poly-workspace .poly-report-modern .poly-report-metrics article > span,
+.poly-workspace .poly-report-modern .poly-report-metrics small { color: inherit; }
+.poly-workspace .poly-report-modern .poly-report-metrics article > span { font-size: var(--poly-body-size); padding-right: 48px; font-weight: 600; }
+.poly-workspace .poly-report-modern .poly-report-metrics article > strong { font-size: 44px; line-height: 1.2; letter-spacing: -0.025em; font-variant-numeric: tabular-nums; font-weight: 750; }
+.poly-report-modern .poly-report-metrics small { font-size: var(--poly-label-size); line-height: 1.5; }
+.poly-report-modern .poly-metric-icon { position: absolute; right: 20px; top: 20px; width: 38px; height: 38px; opacity: 0.7; }
+.poly-report-overview { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr); gap: 16px; }
+.poly-report-modern .poly-donut-layout { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 20px; margin-top: 20px; }
+.poly-report-modern .poly-donut { position: relative; width: 160px; flex: 0 0 160px; }
+.poly-report-modern .poly-donut svg { display: block; width: 100%; transform: rotate(-90deg); }
+.poly-report-modern .poly-donut circle { fill: none; stroke-width: 15; }
+.poly-report-modern .poly-donut-track { stroke: var(--poly-track); }
+.poly-report-modern .poly-donut-value { stroke: var(--poly-violet); }
+.poly-report-modern .poly-donut > strong { position: absolute; inset: 0; display: grid; place-items: center; font-size: 30px; letter-spacing: -0.04em; }
+.poly-report-modern .poly-donut-legend { display: grid; gap: 14px; font-size: 13px; flex: 1 1 130px; }
+.poly-report-modern .poly-donut-legend span { display: grid; grid-template-columns: 12px 1fr; gap: 5px 8px; align-items: start; }
+.poly-report-modern .poly-donut-legend b { grid-column: 2; }
+.poly-report-modern .poly-donut-legend i { width: 12px; height: 12px; border-radius: 4px; margin-top: 3px; }
+.poly-report-modern .poly-legend-met { background: var(--poly-violet); }
+.poly-report-modern .poly-legend-unmet { background: var(--poly-track); border: 1px solid #c2b5e0; }
+.poly-report-modern .poly-comparison-list, .poly-report-modern .poly-ranking-list { display: grid; gap: 1.25rem; margin-top: 1.25rem; }
+.poly-report-modern .poly-comparison-list small, .poly-report-modern .poly-ranking-list small { display: block; margin-top: 0.3rem; font-size: 0.75rem; font-weight: 400; }
+.poly-report-modern .poly-comparison-list article > b { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+.poly-workspace .poly-report-modern .poly-comparison-list article { display: grid; align-items: center; font-size: var(--poly-caption-size); grid-template-columns: minmax(0, 1fr) 45px; gap: 8px 12px; }
+.poly-report-modern .poly-comparison-list article > strong { font-weight: 500; grid-column: 1 / -1; overflow-wrap: anywhere; }
+.poly-report-modern .poly-comparison-list article:nth-child(4n + 1), .poly-report-modern .poly-ranking-list article:nth-child(4n + 1) { --primary: var(--poly-violet); }
+.poly-report-modern .poly-comparison-list article:nth-child(4n + 2), .poly-report-modern .poly-ranking-list article:nth-child(4n + 2) { --primary: var(--poly-teal); }
+.poly-report-modern .poly-comparison-list article:nth-child(4n + 3), .poly-report-modern .poly-ranking-list article:nth-child(4n + 3) { --primary: #3586cf; }
+.poly-report-modern .poly-comparison-list article:nth-child(4n + 4), .poly-report-modern .poly-ranking-list article:nth-child(4n + 4) { --primary: #d98027; }
+.poly-report-modern .poly-progress { --border: var(--poly-track); height: 11px; }
+.poly-report-modern .poly-risk-items { margin-top: 20px; }
+.poly-report-modern .poly-risk-items article { border-radius: 10px; background: #fff3e2; color: #81470f; }
+.poly-report-modern .poly-risk-items svg { flex-shrink: 0; margin-top: 2px; }
+.poly-report-modern .poly-risk-items small { line-height: 1.6; }
+.poly-report-modern .poly-heatmap-table { border-collapse: separate; border-spacing: 5px; }
+.poly-workspace .poly-report-modern .poly-heatmap-table td { border: 0; border-radius: 8px; padding: 12px; }
+.poly-report-modern .poly-heat-low { background: #ffddcf; color: #792b1c; }
+.poly-report-modern .poly-heat-medium { background: #ffece2; color: #803e1e; }
+.poly-report-modern .poly-heat-good { background: #e1d4ff; color: #4d278a; }
+.poly-report-modern .poly-heat-strong { background: #7340df; color: #fff; }
+.poly-report-modern .poly-heat-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 16px; font-size: 12px; }
+.poly-report-modern .poly-heat-legend span { padding: 5px 8px; border-radius: 6px; }
+.poly-workspace .poly-report-modern .poly-ranking-list article { display: grid; align-items: center; font-size: var(--poly-body-size); grid-template-columns: 40px minmax(0, 1fr) minmax(80px, 110px); gap: 12px; }
+.poly-report-modern .poly-ranking-list .poly-avatar { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #ede5ff; color: #5423b6; font-size: 14px; }
+.poly-report-modern .poly-ranking-list article:nth-child(2n) .poly-avatar { background: #cff5ed; color: #095e53; }
+.poly-report-modern .poly-ranking-list small, .poly-report-modern .poly-comparison-list small { color: #645c78; }
+.poly-report-modern .poly-ranking-score { font-size: 0.8rem; display: grid; gap: 8px; }
+.poly-report-modern .poly-ranking-list strong { overflow-wrap: anywhere; }
+.poly-report-modern .poly-report-development .poly-comparison-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 32px; }
+@media (max-width: 1200px) {
+  .poly-report-overview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .poly-report-overview > section:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 768px) {
+  .poly-workspace .poly-report-modern .poly-report-metrics { grid-template-columns: minmax(0, 1fr); }
+  .poly-report-overview, .poly-report-modern .poly-report-charts { grid-template-columns: minmax(0, 1fr); }
+  .poly-workspace .poly-report-modern .poly-report-metrics article { padding: 20px; }
+  .poly-report-modern .poly-surface-body { padding: 18px; }
+  .poly-report-modern .poly-report-development .poly-comparison-list { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  .poly-report-modern { padding: 10px; border-radius: 14px; }
+  .poly-workspace .poly-report-modern .poly-ranking-list article { grid-template-columns: 36px minmax(0, 1fr); }
+  .poly-report-modern .poly-ranking-score { grid-column: 2; }
+}
+.poly-workspace .poly-report-modern .poly-command { color: #5423b6; background: #fff; border-color: #d9ceed; }
+.poly-workspace .poly-report-modern .poly-command:hover:not(:disabled) { background: #eee6fc; }
+.poly-workspace .poly-report-modern { gap: 18px; }
+.poly-report-modern .poly-back-link { min-height: 32px; }
+.poly-workspace .poly-report-modern .poly-workspace-heading { margin: 0; }

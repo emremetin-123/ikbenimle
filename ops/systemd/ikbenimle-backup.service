@@ -1,0 +1,13 @@
+[Unit]
+Description=IkBenimle encrypted database and uploads backup
+Requires=docker.service
+After=docker.service network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/ikbenimle
+EnvironmentFile=/opt/ikbenimle/.release.env
+ExecStart=/usr/bin/docker compose -f docker-compose.prod.yml --profile backup run --rm backup
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7

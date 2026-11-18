@@ -1,0 +1,15 @@
+node_modules/
+.env
+dist/
+build/
+backend/uploads/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+backend/data/
+ops/backup/.env.backup
+secrets/
+*.apk
+*.aab
+*.jks
+*.keystore

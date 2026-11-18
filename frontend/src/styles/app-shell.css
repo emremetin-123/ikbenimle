@@ -1,0 +1,449 @@
+/* ── RESET ─────────────────────────────────────── */
+
+/* ── TYPOGRAPHY ────────────────────────────────── */
+
+h1 {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+h4 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+h5 {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+p {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── LAYOUT ────────────────────────────────────── */
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg);
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-8) var(--space-8);
+  overflow-x: hidden;
+}
+
+/* ── SIDEBAR ───────────────────────────────────── */
+
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  flex-shrink: 0;
+  background: var(--sidebar-gradient, var(--sidebar-bg));
+  border-right: 1px solid var(--sidebar-border);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.10);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: var(--space-5) var(--space-4);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1500;
+  color: var(--sidebar-text);
+}
+
+.sidebar.collapsed {
+  width: 72px;
+  min-width: 72px;
+}
+
+.sidebar-brand-mark {
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+}
+
+.sidebar-brand-mark .logo-container {
+  width: 40px;
+}
+
+.sidebar-identity {
+  min-width: 0;
+  flex: 1;
+}
+
+.sidebar-product-name {
+  color: var(--sidebar-text);
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-sidebar-toggle {
+  flex-shrink: 0;
+}
+
+.admin-sidebar-profile {
+  display: flex;
+  margin-bottom: 1.75rem;
+  padding: 1rem 0.875rem;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid rgb(255 255 255 / 8%);
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 5%);
+}
+
+.admin-sidebar-avatar {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 4px 12px rgb(59 130 246 / 35%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.admin-sidebar-avatar.is-collapsed {
+  width: 40px;
+  height: 40px;
+  font-size: 0.875rem;
+}
+
+.admin-sidebar-profile-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.admin-sidebar-profile-name {
+  margin: 0;
+  overflow: hidden;
+  color: var(--sidebar-text);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-sidebar-profile-role {
+  margin: 0.2rem 0 0;
+  color: var(--sidebar-text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.admin-sidebar-profile-collapsed {
+  display: flex;
+  margin-bottom: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.admin-sidebar-nav {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin-nav-icon {
+  min-width: 20px;
+  flex-shrink: 0;
+}
+
+.admin-sidebar-logout {
+  display: flex;
+  width: 100%;
+  margin-top: auto;
+  padding: 0.75rem;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  border: 1px solid var(--error);
+  border-radius: 0.5rem;
+  background: var(--error-hover);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.2);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.admin-sidebar-logout:hover {
+  border-color: var(--error);
+  background: var(--error);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.28);
+}
+
+.admin-sidebar-logout:focus-visible,
+.employee-sidebar-logout:focus-visible,
+.session-timeout-logout:focus-visible {
+  outline: 3px solid rgba(239, 68, 68, 0.28);
+  outline-offset: 2px;
+}
+
+.admin-sidebar-logout.is-centered {
+  justify-content: center;
+}
+
+.admin-main.is-embedded {
+  padding: 0;
+}
+
+.admin-main-title {
+  margin-bottom: 1.75rem;
+}
+
+
+/* ── BOTTOM NAV BASE (Hidden on Desktop) ─────── */
+
+.bottom-nav {
+  display: none;
+}
+
+.app-root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.app-route-frame {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.logo-container {
+  display: flex;
+  width: var(--logo-size, 180px);
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: block;
+}
+
+.employee-sidebar-nav {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nav-link.is-centered {
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+.employee-sidebar-footer {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.employee-sidebar-footer .employee-sidebar-logout {
+  color: #fff;
+  border: 1px solid var(--error);
+  background: var(--error-hover);
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.18);
+}
+
+.employee-sidebar-footer .employee-sidebar-logout:hover {
+  color: #fff;
+  border-color: var(--error);
+  background: var(--error);
+}
+
+.employee-sidebar-footer .employee-sidebar-logout.is-centered {
+  justify-content: center;
+}
+
+.dashboard-content-frame {
+  min-height: calc(100vh - 120px);
+}
+
+@media (min-width: 769px) {
+  .dashboard-content-frame :is(
+    .home-dashboard,
+    .announcements-page,
+    .career-page,
+    .career-detail-page,
+    .ai-settings-card,
+    .directory-page,
+    .documents-page,
+    .employee-trainings-page,
+    .employee-feedback-page,
+    .leave-requests-page,
+    .poly-admin-page,
+    .poly-member-overview-page,
+    .poly-member-evaluation-page,
+    .profile-page,
+    .survey-list-page,
+    .survey-detail-page,
+    .admin-surveys-page,
+    .knowledge-portal-container
+  ) {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .dashboard-content-frame .knowledge-portal-container {
+    padding-inline: 0;
+  }
+}
+
+.session-timeout-overlay {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  animation: session-fade-in 0.3s ease;
+}
+
+.session-timeout-card {
+  max-width: 400px;
+  margin: var(--space-4);
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.25);
+  text-align: center;
+}
+
+.session-timeout-icon {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-4);
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--primary);
+  background: var(--primary-dim);
+}
+
+.session-timeout-title {
+  margin-bottom: var(--space-2);
+}
+
+.session-timeout-message {
+  margin-bottom: var(--space-6);
+  font-size: var(--text-base);
+}
+
+.session-timeout-countdown {
+  color: var(--primary);
+  font-size: var(--text-lg);
+}
+
+.session-timeout-actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+}
+
+.session-timeout-stay {
+  padding: var(--space-3) var(--space-8);
+}
+
+.session-timeout-actions .session-timeout-logout {
+  padding: var(--space-3) var(--space-4);
+  color: var(--error-hover);
+  border: 1.5px solid var(--error);
+  background: #fff;
+  font-weight: 700;
+}
+
+.session-timeout-actions .session-timeout-logout:hover {
+  color: #fff;
+  border-color: var(--error-hover);
+  background: var(--error-hover);
+}
+
+@keyframes session-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .session-timeout-actions {
+    flex-direction: column;
+  }
+
+  .session-timeout-actions button {
+    width: 100%;
+  }
+}

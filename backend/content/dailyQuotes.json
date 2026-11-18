@@ -1,0 +1,2301 @@
+{
+  "version": 1,
+  "sources": {
+    "wikiquote-A": {
+      "title": "Vikisöz — Türkçe atasözleri/A",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FA&oldid=235878"
+    },
+    "wikiquote-B": {
+      "title": "Vikisöz — Türkçe atasözleri/B",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FB&oldid=234337"
+    },
+    "wikiquote-C": {
+      "title": "Vikisöz — Türkçe atasözleri/C",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FC&oldid=232473"
+    },
+    "wikiquote-Ç": {
+      "title": "Vikisöz — Türkçe atasözleri/Ç",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2F%C3%87&oldid=228563"
+    },
+    "wikiquote-D": {
+      "title": "Vikisöz — Türkçe atasözleri/D",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FD&oldid=232474"
+    },
+    "wikiquote-E": {
+      "title": "Vikisöz — Türkçe atasözleri/E",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FE&oldid=232475"
+    },
+    "wikiquote-F": {
+      "title": "Vikisöz — Türkçe atasözleri/F",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FF&oldid=232476"
+    },
+    "wikiquote-G": {
+      "title": "Vikisöz — Türkçe atasözleri/G",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FG&oldid=232477"
+    },
+    "wikiquote-H": {
+      "title": "Vikisöz — Türkçe atasözleri/H",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FH&oldid=232698"
+    },
+    "wikiquote-I": {
+      "title": "Vikisöz — Türkçe atasözleri/I",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FI&oldid=232479"
+    },
+    "wikiquote-K": {
+      "title": "Vikisöz — Türkçe atasözleri/K",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FK&oldid=232480"
+    },
+    "wikiquote-M": {
+      "title": "Vikisöz — Türkçe atasözleri/M",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FM&oldid=232482"
+    },
+    "wikiquote-N": {
+      "title": "Vikisöz — Türkçe atasözleri/N",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FN&oldid=237984"
+    },
+    "wikiquote-S": {
+      "title": "Vikisöz — Türkçe atasözleri/S",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FS&oldid=237829"
+    },
+    "wikiquote-O": {
+      "title": "Vikisöz — Türkçe atasözleri/O",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FO&oldid=232484"
+    },
+    "wikiquote-Y": {
+      "title": "Vikisöz — Türkçe atasözleri/Y",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FY&oldid=232491"
+    },
+    "wikiquote-U": {
+      "title": "Vikisöz — Türkçe atasözleri/U",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FU&oldid=232489"
+    },
+    "wikiquote-Ü": {
+      "title": "Vikisöz — Türkçe atasözleri/Ü",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2F%C3%9C&oldid=232497"
+    },
+    "wikiquote-T": {
+      "title": "Vikisöz — Türkçe atasözleri/T",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FT&oldid=232823"
+    },
+    "wikiquote-P": {
+      "title": "Vikisöz — Türkçe atasözleri/P",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FP&oldid=232485"
+    },
+    "wikiquote-Ö": {
+      "title": "Vikisöz — Türkçe atasözleri/Ö",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2F%C3%96&oldid=232493"
+    },
+    "wikiquote-V": {
+      "title": "Vikisöz — Türkçe atasözleri/V",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FV&oldid=232490"
+    },
+    "wikiquote-Ş": {
+      "title": "Vikisöz — Türkçe atasözleri/Ş",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2F%C5%9E&oldid=232496"
+    },
+    "wikiquote-R": {
+      "title": "Vikisöz — Türkçe atasözleri/R",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FR&oldid=232650"
+    },
+    "wikiquote-L": {
+      "title": "Vikisöz — Türkçe atasözleri/L",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FL&oldid=232481"
+    },
+    "wikiquote-Z": {
+      "title": "Vikisöz — Türkçe atasözleri/Z",
+      "url": "https://tr.wikiquote.org/w/index.php?title=T%C3%BCrk%C3%A7e_atas%C3%B6zleri%2FZ&oldid=232492"
+    }
+  },
+  "quotes": [
+    {
+      "id": "tr-60937238ca47",
+      "text": "Damlaya damlaya göl olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-01fd8042c829",
+      "text": "Baş sağ olursa börk çok bulunur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-021e356fcf7e",
+      "text": "Bir söz ara bozar, bir söz ara düzer.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-028c7ff94f2e",
+      "text": "Bir kılın bir örmeye faydası var.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-033d3993d172",
+      "text": "Ucuz etin yahnisi tatsız olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-U"
+    },
+    {
+      "id": "tr-03e274768aea",
+      "text": "Seyrek git sen dostuna, kalksın ayak üstüne.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-073f90df08b9",
+      "text": "Ağaç yaşken eğilir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-082e19302468",
+      "text": "Kimi köprü bulamaz geçmeye, kimi su bulamaz içmeye.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-0893fb12875f",
+      "text": "Bir avuç altının olacağına bir avuç toprağın olsun.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-09086305019a",
+      "text": "Mum yanmayınca pervane dönmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-M"
+    },
+    {
+      "id": "tr-0a2adfe95d79",
+      "text": "Arpa ekip buğday bekleme.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-0c15bbb6608e",
+      "text": "Çanağa ne doğrarsan kaşığında o çıkar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ç"
+    },
+    {
+      "id": "tr-0c7adb66fa88",
+      "text": "Arı kahrını çekmeyen balın kadrini ne bilir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-0ce8169d7121",
+      "text": "Atı zorla çeşmeye götürürsün ama, zorla su içiremezsin.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-0d656e1411c6",
+      "text": "Meyve veren ağaç taşlanır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-M"
+    },
+    {
+      "id": "tr-0e54a6316cdc",
+      "text": "Kaz gelen yerden tavuk esirgenmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-0f2f2df0469a",
+      "text": "Mart yağar, nisan övünür; nisan yağar, insan övünür.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-M"
+    },
+    {
+      "id": "tr-0fdc0d462f8f",
+      "text": "Kaya uçmazsa dere dolmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-1018c9c79d34",
+      "text": "Balta değmedik ağaç olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-1074f9453223",
+      "text": "Akıllı, söylemeden düşünür, akılsız düşünmeden söyler.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-1111658aa7e0",
+      "text": "Otuz iki dişten çıkan, otuz iki mahalleye yayılır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-O"
+    },
+    {
+      "id": "tr-1151cd3e21ad",
+      "text": "Ata malı mal olmaz, kendin kazanmak gerek.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-11ad9f37a910",
+      "text": "Zahmetsiz rahmet olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Z"
+    },
+    {
+      "id": "tr-11e6805fc7ba",
+      "text": "Gönül ummadığı yere küser.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-11f9aecb2bad",
+      "text": "Ardıcın közü olmaz, yalancının sözü olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-12800e0dd212",
+      "text": "Damdan düşen, damdan düşenin halini bilir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-153e0845aefd",
+      "text": "Ata eyer gerek, eyere er gerek.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-16b41c994557",
+      "text": "Yerdeki yüze basılmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-16f4f67aae03",
+      "text": "Herkesin tenceresi kapalı kaynar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-181240ad5b7c",
+      "text": "Av avlayanın, kemer bağlayanın.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-19ab5b3fe251",
+      "text": "Zarar kârın kardeşidir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Z"
+    },
+    {
+      "id": "tr-1c146cf81768",
+      "text": "Baca eğri de olsa duman doğru çıkar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-1cfdbd4fc9ab",
+      "text": "Tatlı ye, tatlı söyle.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-T"
+    },
+    {
+      "id": "tr-1d0a24071383",
+      "text": "Borç ödemekle, yol yürümekle tükenir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-1e5a26d353c7",
+      "text": "Nerede hareket, orada bereket.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-N"
+    },
+    {
+      "id": "tr-1edf155685cc",
+      "text": "Bin merak, bir borç ödemez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-1fca1ad9cfa6",
+      "text": "Her şeyin vakti var, horoz bile vaktinde öter.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-1ff3f3b7b180",
+      "text": "Sarı altının olacağına sarı samanın olsun.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-20478506a0ea",
+      "text": "Az ada, çok öde.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-211900abebdd",
+      "text": "Bir ambar buğdayın örneği bir avuçtur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-21751679a5d0",
+      "text": "Acıkan doymam, susayan kanmam sanır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-21e7c77e18f0",
+      "text": "Dene altını mihenk taşında, dene insanı bir başında.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-2291ea6f1359",
+      "text": "Ağaç yaprağıyla gürler.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-22d0cb149761",
+      "text": "Buğday ekmeğin yoksa buğday dilin de mi yok.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-2390c9ef9334",
+      "text": "Paranın gittiğine bakma, işinin bittiğine bak.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-P"
+    },
+    {
+      "id": "tr-24278c9acc8b",
+      "text": "Kem söz, kalp akça sahibinindir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-249500328c03",
+      "text": "Su bulanmayınca durulmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-25202e235ace",
+      "text": "Dağ dağa kavuşmaz, insan insana kavuşur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-2532e36f3910",
+      "text": "Çağrılan yere erinme, çağrılmayan yere görünme.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ç"
+    },
+    {
+      "id": "tr-2591d13417ea",
+      "text": "Yalancının mumu yatsıya kadar yanar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-26569c69893a",
+      "text": "Ağır git ki yol alasın.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-26e743ae34b9",
+      "text": "Danışan dağı aşmış, danışmayan yolu şaşmış.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-2731cdc2395c",
+      "text": "Buğday başak verince, orak pahaya çıkar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-2753ff43d588",
+      "text": "Aç doymam, tok acıkmam sanır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-28da3080828d",
+      "text": "Atılan ok geri dönmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-29383b436619",
+      "text": "Arabanın ön tekerleği nereden geçerse art tekerleği de oradan geçer.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-2a44d6ad1dd5",
+      "text": "Adamak kolay, ödemek güçtür.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-2a4655783494",
+      "text": "Sana taşla vurana sen aşla vur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-2a61481f9503",
+      "text": "Rüzgâr esmeyince yaprak oynamaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-R"
+    },
+    {
+      "id": "tr-2c6b6416c0a9",
+      "text": "Akıl akıldan üstündür.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-2d9feed59957",
+      "text": "Alim unutmuş, kalem unutmamış.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-2ead43b8a1ca",
+      "text": "Altın yere düşmekle pul olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-2f1714120d46",
+      "text": "Bir mıh bir nal kurtarır, bir nal bir at kurtarır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-2f284e42ac42",
+      "text": "Ulular köprü olsa basıp geçme.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-U"
+    },
+    {
+      "id": "tr-2f4c357c7eb4",
+      "text": "Dünya Süleyman'a bile kalmamış.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-2facc95a229f",
+      "text": "Bir selam bin hatır yapar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-30eacbc38ed2",
+      "text": "Her ağacın meyvesi olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-3252402a4e9f",
+      "text": "Ak akçe kara gün içindir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-33e88bfa2f0f",
+      "text": "Gözün ile görmediğini söyleme.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-361eba289641",
+      "text": "Açtığın kapıyı selamla aç, selamla kapın açılsın.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-37cd80d47ac6",
+      "text": "Açlık ile tokluğun arası bir dilim ekmek.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-3899d6a72409",
+      "text": "Kimsenin çırası tana kadar yanmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-390eebaafc24",
+      "text": "Ekmeğin büyüğü, hamurun çoğundan olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-E"
+    },
+    {
+      "id": "tr-3931b9e60646",
+      "text": "Gün varken davarını eve götür.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-39d424c02386",
+      "text": "Akla gelmeyen başa gelir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-3a00f1832693",
+      "text": "Çok yaşayan bilmez, çok gezen bilir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ç"
+    },
+    {
+      "id": "tr-3a1febaf75d4",
+      "text": "Çalıştığın ele ise, öğrendiğin kendine.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ç"
+    },
+    {
+      "id": "tr-3acf59101860",
+      "text": "Ak koyun kara koyun geçit başında belli olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-3b6d908bd4a3",
+      "text": "Bir söz yola getirir, bir söz yoldan çıkarır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-3cffc4aa3592",
+      "text": "Dibi görünmeyen sudan geçme.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-3d793a389868",
+      "text": "Kaçanı kovmazlar, yıkılanı vurmazlar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-3e5f8fa334ad",
+      "text": "Gölgesinde oturulacak ağacın dalı kesilmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-3f019fe18ec4",
+      "text": "Adam yanıla yanıla, pehlivan yenile yenile.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-4076401c4d1c",
+      "text": "Kedi uzanamadığı ciğere, pis der.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-40a2cf93e9ed",
+      "text": "Herkesin aklı bir olsa koyuna çoban bulunmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-4150aa9dca90",
+      "text": "Arslan postunda, gönül dostunda.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-41a2ee2ccda5",
+      "text": "Adam adama yük değil, can gövdeye mülk değil.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-41e0d057e8b1",
+      "text": "Yüzü güzele kırk günde doyulur; huyu güzele kırk yılda doyulmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-421326b01df9",
+      "text": "Arşın malı kantar ile satılmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-42fc10fd1ee8",
+      "text": "Başak büyüdükçe boynunu eğer.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-433a0a0834cc",
+      "text": "Kediyi sıkıştırırsan üstüne atılır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-43da178a15a8",
+      "text": "Diken battığı yerden çıkar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-450dd421b598",
+      "text": "Gülü seven dikenine katlanır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-45bf36d06542",
+      "text": "Sakla beni varken, bulunayım sana yokken.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-46d050dcbe2b",
+      "text": "Ata binen nalını, mıhını arar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-479153dd1366",
+      "text": "Herkes kendi ayıbını bilmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-481b498dea98",
+      "text": "Az sabırda, çok keramet vardır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-482568c5be2c",
+      "text": "Sütten ağzı yanan, ayranı üfleyerek içer.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-4a3ef5bbe5b6",
+      "text": "Sağlık varlıktan yeğdir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-4b0cbc794125",
+      "text": "Ayağını yorganına göre uzat.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-4bbb621b248a",
+      "text": "Evli evinde köylü köyünde gerek.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-E"
+    },
+    {
+      "id": "tr-4c6aaaa721ba",
+      "text": "Gürültü istemeyen kazancı dükkanına girmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-4d8c049cc00e",
+      "text": "Büyük başın derdi büyük olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-4e901dd9a3e3",
+      "text": "Dünya dört kulplu bir kazan, bir kulpundan tut da kazan.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-4f156a21e8d6",
+      "text": "Arkadaşını söyle, kim olduğunu söyleyeyim.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-4f8bc94f2a6d",
+      "text": "Bakarsan bağ, bakmazsan dağ.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-4fdfc01ad425",
+      "text": "Demir nemden, insan gamdan çürür.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-5151de03bc3d",
+      "text": "Bir senden büyüğün, bir de senden küçüğün sözünü dinle.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-52ee856665ff",
+      "text": "Herkesin hamuru ekmeğine göredir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-5334291fb5c9",
+      "text": "Sen işlersen mal işler, insan öyle genişler.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-5366ce5560f0",
+      "text": "Akan su yosun tutmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-53a644cf05f4",
+      "text": "Delilsiz cennete bile girilmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-5483e79186a3",
+      "text": "Son gülen iyi güler.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-54a49e060690",
+      "text": "Göğe direk, denize kapak olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-5503fe74819d",
+      "text": "Şimşek çakmadan gök gürlemez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ş"
+    },
+    {
+      "id": "tr-55d35ac70499",
+      "text": "Olmaz olmaz deme, olmaz olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-O"
+    },
+    {
+      "id": "tr-56b4dcb6ae85",
+      "text": "Yol sormakla bulunur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-5759967bbf94",
+      "text": "Evdeki hesap çarşıya uymaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-E"
+    },
+    {
+      "id": "tr-584140bacfe3",
+      "text": "Sanat altın bileziktir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-586998fa51e6",
+      "text": "Deveye bindikten sonra çalı ardına gizlenilmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-589c8295a4a2",
+      "text": "Ayın on beşi karanlık, on beşi aydınlıktır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-589fc1fa4afd",
+      "text": "Altın anahtar her kapıyı açar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-58ec35912a22",
+      "text": "Acemi marangozun talaşı tahtasından çok olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-5984b641f26b",
+      "text": "Ağır taş yerinden oynamaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-598614769c39",
+      "text": "Bugünkü işini yarına bırakma.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-59b0a7d5af21",
+      "text": "Söz gümüşse sükut altındır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-5adcbeaed73c",
+      "text": "Baba malı tez tükenir, evlat gerek kazana.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-5b0fa79556cc",
+      "text": "Yazın yanmayan kışın ısınmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-5b77b8e74adb",
+      "text": "Merdiven ayak ayak çıkılır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-M"
+    },
+    {
+      "id": "tr-5b9376d713de",
+      "text": "Ne oldum dememeli, ne olacağım demeli.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-N"
+    },
+    {
+      "id": "tr-5cabee71b07f",
+      "text": "Ne doğrarsan aşına, o çıkar karşına.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-N"
+    },
+    {
+      "id": "tr-5d9b93ca3b4e",
+      "text": "Dereyi görmeden paçayı sıvama.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-5fb0f4ebb450",
+      "text": "Yalnız taş, duvar olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-607ea3938ff3",
+      "text": "Sabanın tutağına yapışan el aç kalmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-60c6c9e59447",
+      "text": "Altın ateşte, insan mihnette belli olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-6178c16d479d",
+      "text": "Tavşan dağa küsmüş, dağın haberi olmamış.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-T"
+    },
+    {
+      "id": "tr-61af8cf752c6",
+      "text": "Az veren candan, çok veren maldan.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-61c9182c0ad7",
+      "text": "Öfke ile kalkan zararla oturur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ö"
+    },
+    {
+      "id": "tr-622a6710f242",
+      "text": "Bir sürçen atın başı kesilmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-638d3c473605",
+      "text": "Acele işe şeytan karışır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-63a8a8062d5c",
+      "text": "Her şey incelikten insan kabalıktan kırılır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-63d330903eca",
+      "text": "Evceğizim evceğizim, saklar benim halceğizim.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-E"
+    },
+    {
+      "id": "tr-6413369648ef",
+      "text": "Ana gibi yar olmaz, Bağdat gibi diyar olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-65051d478f45",
+      "text": "Sabrın sonu selamettir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-6518146ba214",
+      "text": "Derdini söylemeyen derman bulamaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-660adfcfac1a",
+      "text": "Biri bilmeyen bini hiç bilmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-6628a4191e52",
+      "text": "Al malın iyisini, çekme kaygısını.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-663a08828014",
+      "text": "Sabah ola, hayır ola.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-66705bdcf688",
+      "text": "Dünya bir gemi, akıl yelkeni, fikir dümeni, kolla kendini, göreyim seni.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-66e6b3247ce7",
+      "text": "Ağacın kurdu içinde olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-6aaf35d670d4",
+      "text": "Balcının var bal tası, oduncunun var baltası.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-6b7883570f90",
+      "text": "Gemisini kurtaran kaptan.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-6c9d61e9837a",
+      "text": "Akıl para ile satılmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-6ca2d678a924",
+      "text": "At bulunur meydan bulunmaz, meydan bulunur at bulunmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-6d958152ea07",
+      "text": "Gök gürlemeden yağmur yağmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-6e08f3c12864",
+      "text": "En kolay iş yemek, çiğnemeden yutulmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-E"
+    },
+    {
+      "id": "tr-6e47352bfd20",
+      "text": "Gel demek kolay, git demek güçtür.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-6ec6bfae4833",
+      "text": "Altın yerde paslanmaz, taş yağmurdan ıslanmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-6f35cd314bf9",
+      "text": "Atalar sözünü tutmayanı yabana atarlar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-6fc8fe4e18b7",
+      "text": "Çam sakızı, çoban armağanı.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ç"
+    },
+    {
+      "id": "tr-6fee3b22ebaf",
+      "text": "Yiyen bilmez, doğrayan bilir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-6ffe738e14bb",
+      "text": "Yarım elma, gönül alma.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-70468d70ef2d",
+      "text": "Arı, bal alacak çiçeği bilir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-726ac6b372de",
+      "text": "Geniş günün de dar gezen, dar günün de geniş gezer.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-727d7836e467",
+      "text": "Taş altında olmasın da dağ ardında olsun.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-T"
+    },
+    {
+      "id": "tr-727d8ed94a34",
+      "text": "Fırsat her vakit ele geçmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-F"
+    },
+    {
+      "id": "tr-749407a176e8",
+      "text": "El ile gelen düğün, bayram.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-E"
+    },
+    {
+      "id": "tr-75b37ad16d7a",
+      "text": "Düğün el ile, harman yel ile.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-75bb932be486",
+      "text": "Her yiğidin bir yoğurt yiyişi vardır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-77dcc6d4c744",
+      "text": "Kavun, karpuz yata yata büyür.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-781b70f21556",
+      "text": "Dostluk kantarla, hesap miskalle.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-78706f9d8ff1",
+      "text": "Dut yaprağı açtı, soyun; döktü giyin.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-78aac8d55df8",
+      "text": "Söz verme, verdinse dönme.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-78fb65a54eb2",
+      "text": "Gülme komşuna, gelir başına.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-7ab47b62337e",
+      "text": "Zorla güzellik olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Z"
+    },
+    {
+      "id": "tr-7b4be564be27",
+      "text": "Su akarken testiyi doldurmalı.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-7b9b7aa070b8",
+      "text": "Çubuk iken çıtlamayan, hezen iken kütlemez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ç"
+    },
+    {
+      "id": "tr-7bccff0a8e22",
+      "text": "Tandır başında bağ dikmek kolaydır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-T"
+    },
+    {
+      "id": "tr-7cfc3d9d2390",
+      "text": "At olacak tay yürüyüşünden belli olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-7dee4ce9217e",
+      "text": "Sev beni, seveyim seni.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-7e098e3f7e3e",
+      "text": "Malın iyisi boğazdan geçer.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-M"
+    },
+    {
+      "id": "tr-7e473dbe7482",
+      "text": "Soran yanılmamış.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-7e53dba40b8f",
+      "text": "Akçanın iyisi kesede duran, bahçanın iyisi eve yakın olan.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-7e85df81d71f",
+      "text": "Her inişin bir yokuşu vardır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-7e9e796107e6",
+      "text": "Şer işi uzat hayra dönsün, hayır işi uzatma şerre dönmesin.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ş"
+    },
+    {
+      "id": "tr-7ea37ae85dfc",
+      "text": "Sayılı günler tez geçer.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-7f9f97839581",
+      "text": "Görünen köy kılavuz istemez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-80a27f3f8ba1",
+      "text": "Sayılı koyunu kurt kapmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-818e9d88d36b",
+      "text": "Irmaktan geçerken at değiştirilmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-I"
+    },
+    {
+      "id": "tr-820f0f3061c5",
+      "text": "Yel gelen deliği kapamalı.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-828aef139c0d",
+      "text": "Toprağı işleyen, ekmeği dişler.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-T"
+    },
+    {
+      "id": "tr-82c6e78cc93c",
+      "text": "Üç göç, bir yangın yerini tutar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ü"
+    },
+    {
+      "id": "tr-82d7b3c3d624",
+      "text": "Karıncadan ibret al, yazdan kışı karşılar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-838eba56cc03",
+      "text": "Yoldan kal, yoldaştan kalma.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-8485f6c4e937",
+      "text": "Elifin hecesi var, gündüzün gecesi var.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-E"
+    },
+    {
+      "id": "tr-84e15f215474",
+      "text": "Kalem kılıçtan keskindir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-86aff1a29e75",
+      "text": "Dervişin fikri ne ise zikri de odur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-872dda161153",
+      "text": "Aza kanaat etmeyen çoğu hiç bulamaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-875f4e3e154c",
+      "text": "Dağda gez; belde gez insafı elden bırakma.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-888a68081024",
+      "text": "Aklına geleni işleme, her ağacı taşlama.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-88f6868c7f9c",
+      "text": "Kazanmayanın kazanı kaynamaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-88fca8ab7cb9",
+      "text": "Maşa varken elini ateşe sokma.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-M"
+    },
+    {
+      "id": "tr-8a226c40fdac",
+      "text": "Aceleci sinek süte düşer.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-8aae24e5fae3",
+      "text": "Bağ bayırda, tarla çayırda.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-8acc5becdab8",
+      "text": "Elmas çamura düşse yine elmas.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-E"
+    },
+    {
+      "id": "tr-8bb708b9175e",
+      "text": "Ağustosta beyni kaynayanın zemheride kazanı kaynar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-8bf5dc4ccefd",
+      "text": "Söyleyenden dinleyen arif gerek.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-8c51fc642ef1",
+      "text": "Ağaca beşikten mezara kadar muhtacız.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-8cd9ba28ce06",
+      "text": "Taş, yerinde ağırdır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-T"
+    },
+    {
+      "id": "tr-8d61ee9db85b",
+      "text": "Geçtiğin köprüleri yakma.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-8da006a1ae21",
+      "text": "Yiğit ekmeğiyle yiğit beslenir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-8f3e7ce2dcaf",
+      "text": "Darı unundan baklava, incir ağacından oklava olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-8fd85d8ee7e7",
+      "text": "Arpa verilmeyen at, kamçı zoruyla yürümez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-9010ccad35da",
+      "text": "Herkesin yorulduğu yere han yapmazlar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-9083a4d05c7b",
+      "text": "Üzüm üzüme baka baka kararır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ü"
+    },
+    {
+      "id": "tr-91385efc4a3e",
+      "text": "Su akar yatağını bulur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-91462534fbbb",
+      "text": "Herkes kaşık yapar ama sapını ortaya getiremez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-915c877375eb",
+      "text": "Gönül bir sırça saraydır, kırılırsa yapılmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-919abda8e152",
+      "text": "Atın varken yol tanı ağan varken el tanı.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-924ecf37c4aa",
+      "text": "Söz var, dağa çıkarır; söz var, dağdan indirir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-93ac624a7680",
+      "text": "Dağ dumansız insan hatasız olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-945f02e1f7bf",
+      "text": "Söz var, iş bitirir; söz var, baş yitirir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-94880341c770",
+      "text": "Yuvarlanan taş, yosun tutmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-94e98006895f",
+      "text": "Ağırlık altın kale, hafiflik başa bela.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-950f510163c0",
+      "text": "Ne verirsen elinle, o gider seninle.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-N"
+    },
+    {
+      "id": "tr-9612e4f2ad28",
+      "text": "Bir elin nesi var, iki elin sesi var.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-966d40636381",
+      "text": "Sirkesini, sarmısağını sayan paçayı yiyemez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-967ee42439d0",
+      "text": "Ay görmüşün yıldıza minneti yoktur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-980d5836d1ec",
+      "text": "Varsa hünerin, her yerde vardır yerin.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-V"
+    },
+    {
+      "id": "tr-982dcf26764d",
+      "text": "Lafla peynir gemisi yürümez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-L"
+    },
+    {
+      "id": "tr-983f9ff927f4",
+      "text": "Adam adama gerek olmasa her biri bir dağ başında olurdu.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-9923584cf300",
+      "text": "Tavuk gelen yerden yumurta esirgenmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-T"
+    },
+    {
+      "id": "tr-995d0d322825",
+      "text": "Sel gider kum kalır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-99683f150757",
+      "text": "Ucuzdur vardır illeti, pahalıdır vardır hikmeti.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-U"
+    },
+    {
+      "id": "tr-9b3086d094cd",
+      "text": "Bir ağızdan çıkan bin ağıza yayılır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-9b85d25ce7fd",
+      "text": "Alet işler, el övünür.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-9b87346f1b07",
+      "text": "Peynir ekmek, hazır yemek.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-P"
+    },
+    {
+      "id": "tr-9cf9bb0487a1",
+      "text": "Bilmemek ayıp değil, sormamak ayıp.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-9d0e1d35da00",
+      "text": "Sel ile gelen yel ile gider.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-9db023efcf7b",
+      "text": "Ek tohumun hasını, çekme yiyecek yasını.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-E"
+    },
+    {
+      "id": "tr-9dc4cf60c463",
+      "text": "Her yiğidin gönlünde bir arslan yatar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-9dd1eb6f4762",
+      "text": "Her işte bir hayır vardır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-9ddf8bb2b925",
+      "text": "Hekimsiz, hakimsiz memlekette oturma.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-9df1633984cb",
+      "text": "El el ile, değirmen yel ile.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-E"
+    },
+    {
+      "id": "tr-9ec503191361",
+      "text": "Aş taşınca kepçeye paha olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-9f2f57ad11b7",
+      "text": "Ya işten artar, ya dişten.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-9f72a72c7a4a",
+      "text": "Önce düşün, sonra söyle.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ö"
+    },
+    {
+      "id": "tr-9fd41a2e80ad",
+      "text": "Azıcık aşım, kaygısız başım.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-a0ae2fe9c35b",
+      "text": "Bak bana bir gözle, bakayım sana iki gözle.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-a0e03e2e5c3f",
+      "text": "Bir pire için bir yorgan yakılmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-a18615c8a41e",
+      "text": "Yüksek dağın başı dumanlı olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-a1b9b64319fe",
+      "text": "Demircinin canı demirden berk gerek.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-a2b416d1d470",
+      "text": "Sabahın kızıllığı akşamı kış eder; akşamın kızıllığı sabahı güz eder.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-a4ad62182918",
+      "text": "Dünya malı dünyada kalır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-a4d315b75b4d",
+      "text": "Alacağını alamayan, vereceğini veremez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-a4f42920b129",
+      "text": "Ev sahibi mülk sahibi, hani bunun ilk sahibi.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-E"
+    },
+    {
+      "id": "tr-a67e8cdb7e41",
+      "text": "Ay var yılı besler, yıl var ayı beslemez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-aa2a032a3a54",
+      "text": "Sözünü bil, pişir; ağzını der, devşir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-aace68b8cec9",
+      "text": "Anlayana sivrisinek saz, anlamayana davul zurna az.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-ab617d4fa9f7",
+      "text": "Eski kaçmış; iğne iplik geri getirmiş.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-E"
+    },
+    {
+      "id": "tr-ab90c77742b2",
+      "text": "Açık yerde tepecik kendini dağ sanır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-abf9977854fc",
+      "text": "Tarlanın iyisi suya yakın, daha iyisi eve yakın.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-T"
+    },
+    {
+      "id": "tr-ac135560b070",
+      "text": "Almak kolay ödemek zordur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-acd72bf7df92",
+      "text": "Çürük iple kuyuya inilmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ç"
+    },
+    {
+      "id": "tr-ad968ed57aad",
+      "text": "Emek olmadan yemek olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-E"
+    },
+    {
+      "id": "tr-ae94742324bb",
+      "text": "Geç olsun da güç olmasın.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-b0a75b8271f3",
+      "text": "Gidilmeyen yer senin olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-b0b5b3d99990",
+      "text": "Bir elinin verdiğini öbür elin görmesin.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-b1f30a76d91b",
+      "text": "Akan çay her zaman kütük getirmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-b2569359d9b0",
+      "text": "Değirmene gelen nöbet bekler.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-b2598ebd2bcb",
+      "text": "Her kapının bir anahtarı vardır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-b2902af52f91",
+      "text": "Akıl yaşta değil, baştadır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-b35c6fc218d3",
+      "text": "Ne ekersen onu biçersin.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-N"
+    },
+    {
+      "id": "tr-b37a5adddfeb",
+      "text": "Harman döven öküzün ağzı bağlanmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-b3d37718bec1",
+      "text": "Una dökülen yağın zararı yok.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-U"
+    },
+    {
+      "id": "tr-b407f86821df",
+      "text": "Hayır dile eşine, hayır gele başına.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-b43ec5eb5bda",
+      "text": "Başın sağlığı, dünya varlığı.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-b65eab3ee690",
+      "text": "Adam iş başında belli olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-b6b3373665c1",
+      "text": "Dost kara günde belli olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-b86a1e5c7d5a",
+      "text": "Tebdil-i mekanda ferahlık vardır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-T"
+    },
+    {
+      "id": "tr-b86c1d63fe37",
+      "text": "Yanık yerin otu tez biter.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-b87e7b760e47",
+      "text": "Yolcu yolunda gerek.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-b923c64a5613",
+      "text": "Altının kıymetini sarraf bilir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-b9a74a4daa80",
+      "text": "Bağa bak üzüm olsun, yemeye yüzün olsun.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-b9dfb28b4a7d",
+      "text": "Çanakta balın olsun, Yemen'den arı gelir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ç"
+    },
+    {
+      "id": "tr-ba9095d34e03",
+      "text": "Açılan solar, ağlayan güler.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-bb859d89ec43",
+      "text": "Tek kanatla kuş uçmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-T"
+    },
+    {
+      "id": "tr-bbd618ea0bed",
+      "text": "Kedinin boynuna ciğer asılmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-bc0331073a02",
+      "text": "Terazi var, tartı var; her bir şeyin vakti var.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-T"
+    },
+    {
+      "id": "tr-bd72155267f9",
+      "text": "Az söyle, çok dinle.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-bdb4e49a98ca",
+      "text": "Bağ babadan, zeytin dededen kalmalı.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-be2082b57689",
+      "text": "Sanatı ustadan görmeyen öğrenmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-c01c753378e2",
+      "text": "Al gününde al; ver gününde ver.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-c14f94e2e07a",
+      "text": "Ağaç ne kadar yüksek olsa da yaprakları yere düşer.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-c3402e5f397d",
+      "text": "Bekleyen derviş muradına ermiş.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-c40fe8b8d678",
+      "text": "Ateş alev ile söndürülmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-c417792f1382",
+      "text": "Ağılda oğlak doğsa, dere boyunda otu biter.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-c4c068c7c521",
+      "text": "Yalancının evi yanmış, kimse inanmamış.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-c679023e42c8",
+      "text": "Bir fincan kahvenin kırk yıl hatırı vardır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-c6be10b15b14",
+      "text": "Büyük lokma ye büyük söyleme.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-c6f377cb0255",
+      "text": "Çivi çıkar ama yeri kalır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ç"
+    },
+    {
+      "id": "tr-c73ec331af28",
+      "text": "Yağına kıymayan çöreğini yoz yer.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-ca2e760aaa70",
+      "text": "Dağ başına kış gelir, insanın başına iş gelir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-ca6bb08f028f",
+      "text": "Bal bal demekle ağız tatlanmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-cbda1f84a769",
+      "text": "Az yiyen az uyur, çok yiyen güç uyur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-cc1a29e01af0",
+      "text": "Deniz dalgasız olmaz, gönül sevdasız olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-cc3093b04775",
+      "text": "Varını veren utanmamış.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-V"
+    },
+    {
+      "id": "tr-cce208221504",
+      "text": "Ekmeği ekmekçiye ver, bir ekmek de üste ver.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-E"
+    },
+    {
+      "id": "tr-cd02b26fa1b9",
+      "text": "Acele yürüyen yolda kalır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-ce202288e191",
+      "text": "Sabır acıdır, meyvesi tatlıdır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-ce328d4aa08f",
+      "text": "Acıkan ne olsa yer, acıyan ne olsa söyler.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-d1529154f2e9",
+      "text": "Bin bilsen de bir bilene danış.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-d33f94e5d49f",
+      "text": "Tavşanı tazı tutar, çalımı avcı satar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-T"
+    },
+    {
+      "id": "tr-d3bc5c234ac4",
+      "text": "Yaprağa yapış, atlas olsun; toprağa yapış, altın olsun.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Y"
+    },
+    {
+      "id": "tr-d6966e0ccde5",
+      "text": "Malı mala canı cana ölçmeli.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-M"
+    },
+    {
+      "id": "tr-d69d82e99e3a",
+      "text": "Vakit, nakittir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-V"
+    },
+    {
+      "id": "tr-d7ab9924d9dd",
+      "text": "Tencere yuvarlanmış kapağını bulmuş.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-T"
+    },
+    {
+      "id": "tr-d85fd5ee59e6",
+      "text": "Keskin sirke kabına zarar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-d8930129af7f",
+      "text": "Kazma elin kuyusunu, kazarlar kuyunu.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-d8a49a48975f",
+      "text": "Az tamah çok ziyan getirir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-d8d76114c09a",
+      "text": "Garibe bir selam bin altın değer.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-d9fe957dd335",
+      "text": "Karpuz kabuğunu görmeden denize girme.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-da2280830d23",
+      "text": "Araba devrilince yol gösteren çok olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-db32a32a12e7",
+      "text": "Ağaç ne kadar meyve verirse, dalı o kadar yere eğilir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-db58270509e9",
+      "text": "Tarlada izi olmayanın harmanında yüzü olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-T"
+    },
+    {
+      "id": "tr-db65b87818fc",
+      "text": "Mahkeme kadıya mülk değil.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-M"
+    },
+    {
+      "id": "tr-dbc595869d44",
+      "text": "He demek de iş bitirir, yok demek de.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-ddad437f3523",
+      "text": "Görünen dağın uzağı olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-ddf6f788e77f",
+      "text": "Eski diye atma kürkünü; gerek olur bürünürsün bir günü.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-E"
+    },
+    {
+      "id": "tr-de18f0725d22",
+      "text": "Islanmışın yağmurdan korkusu olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-I"
+    },
+    {
+      "id": "tr-e03d19a888ce",
+      "text": "Bezi herkesin arşınına göre vermezler.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-e0650c6e0acc",
+      "text": "Kanaat gibi devlet olmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-e0ea01a2c9ef",
+      "text": "Pilav yiyen, kaşığı belinde gerek.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-P"
+    },
+    {
+      "id": "tr-e414a1c1e231",
+      "text": "Kedinin usluluğu sıçan görünceye kadar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-e4615514e2d0",
+      "text": "Misafir üç gün misafirdir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-M"
+    },
+    {
+      "id": "tr-e4ec14d95564",
+      "text": "Düşüne düşüne görmeli işi, sonra pişman olmamalı kişi.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-e576d6f8084c",
+      "text": "Borçtan korkan kapısını büyük açmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-e60e29256e96",
+      "text": "Her şakanın altında bir gerçek yatar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-H"
+    },
+    {
+      "id": "tr-e79a14f7795e",
+      "text": "Değirmen iki taştan, muhabbet iki baştan.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-D"
+    },
+    {
+      "id": "tr-e8885f582602",
+      "text": "Keseye danış, pazarlığa sonra giriş.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-e9c160ee8ca7",
+      "text": "Ununu elemiş eleğini duvara asmış.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-U"
+    },
+    {
+      "id": "tr-ea9d609f690c",
+      "text": "Ağustosun yarısı yaz, yarısı kıştır.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-eacf13136c8e",
+      "text": "Sen işten korkma, iş senden korksun.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-eaf4dcc4cc8b",
+      "text": "Çaydaki balığa yağ kızartma.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-Ç"
+    },
+    {
+      "id": "tr-ebd25736eca4",
+      "text": "Bugünkü tavuk yarınki kazdan iyidir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-ec6fc57cc595",
+      "text": "Gençlikte para kazan, kocalıkta kur kazan.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-ec7f8b6825f4",
+      "text": "Acele ile menzil alınmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-ecceb0245604",
+      "text": "Fazla aş, ya karın ağrıtır ya baş.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-F"
+    },
+    {
+      "id": "tr-eec293e3e667",
+      "text": "Bir dönüm güzlük on dönüm yazlığa bedeldir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-eef768adc0ff",
+      "text": "Kavak, yaprağını tepeden dökerse kış çok olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-K"
+    },
+    {
+      "id": "tr-f0426866e119",
+      "text": "At at oluncaya kadar sahibi mat olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-f19468edaf7f",
+      "text": "Gün doğmadan neler doğar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-G"
+    },
+    {
+      "id": "tr-f1ca35b586f6",
+      "text": "Sakla samanı, gelir zamanı.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-f47eeddae8c1",
+      "text": "Az olsun, uz olsun.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-f4b39b11b04b",
+      "text": "Balık ağa girdikten sonra aklı başına gelir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-f718753bc18d",
+      "text": "Attığın taş ürküttüğün kuşa değmez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-f74eed7517b8",
+      "text": "Cana gelecek mala gelsin.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-C"
+    },
+    {
+      "id": "tr-f9c813786d04",
+      "text": "Nerede birlik, orada dirlik.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-N"
+    },
+    {
+      "id": "tr-fa0e89932dc9",
+      "text": "Umut fakirin ekmeğidir.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-U"
+    },
+    {
+      "id": "tr-fc4b6098f6ef",
+      "text": "Atına bakan ardına bakmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-fc86b4d34f0a",
+      "text": "Irmak kenarına çeşme yapılmaz.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-I"
+    },
+    {
+      "id": "tr-fdf0b0cd48cb",
+      "text": "Bir el bir eli yıkar, iki el bir yüzü yıkar.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-B"
+    },
+    {
+      "id": "tr-ff1055045735",
+      "text": "Sabırla koruk helva olur, dut yaprağı atlas.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-S"
+    },
+    {
+      "id": "tr-ff58525d5385",
+      "text": "Adamın iyisi alışverişte belli olur.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    },
+    {
+      "id": "tr-ffb453be279e",
+      "text": "Ağaç ne kadar uzasa göğe ermez.",
+      "author": "Türk atasözü",
+      "source": "wikiquote-A"
+    }
+  ]
+}

@@ -1,0 +1,465 @@
+.documents-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.documents-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.documents-page-title,
+.admin-documents-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+}
+
+.documents-page-title {
+  font-size: 2rem;
+}
+
+.admin-documents-title {
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.documents-page-description {
+  margin: 0.5rem 0 0;
+  color: var(--text-muted);
+}
+
+.documents-page-tabs {
+  margin-bottom: 1.5rem;
+}
+
+.documents-loading,
+.documents-empty-state {
+  padding: 4rem;
+  text-align: center;
+}
+
+.document-muted-text,
+.documents-empty-text,
+.document-payroll-date,
+.document-request-date {
+  color: var(--text-muted);
+}
+
+.documents-empty-icon {
+  margin: 0 auto 1.5rem;
+  opacity: 0.2;
+}
+
+.documents-empty-text {
+  font-size: 1.1rem;
+}
+
+.document-payroll-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.75rem;
+}
+
+.document-payroll-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.document-payroll-icon {
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.document-payroll-content {
+  flex: 1;
+}
+
+.document-payroll-title {
+  margin: 0 0 0.4rem;
+  color: var(--text-main);
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.document-payroll-date {
+  margin: 0;
+  font-size: 0.8125rem;
+}
+
+.document-payroll-download {
+  margin-top: auto;
+}
+
+.document-request-form {
+  display: grid;
+  gap: 1.25rem;
+  padding: 2rem;
+}
+
+.document-section-title {
+  margin: 0 0 0.5rem;
+}
+
+.document-reset-margin {
+  margin: 0;
+}
+
+.document-form-field {
+  margin-bottom: 0;
+}
+
+.document-request-submit {
+  justify-self: flex-end;
+}
+
+.document-requests-list,
+.document-request-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.document-requests-empty {
+  padding: 3rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.document-request-card {
+  padding: 1.5rem;
+}
+
+.document-request-card-header,
+.admin-document-request-header,
+.admin-document-panel-header,
+.admin-document-type-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.document-request-title {
+  margin: 0 0 0.35rem;
+}
+
+.document-request-date {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.document-status-badge {
+  align-self: flex-start;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.document-status-badge.is-completed {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--success);
+}
+
+.document-status-badge.is-rejected {
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--error);
+}
+
+.document-status-badge.is-preparing {
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--primary);
+}
+
+.document-status-badge.is-pending {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+}
+
+.document-request-note {
+  padding: 0.9rem;
+  border: 1px solid var(--border-light);
+  border-radius: 0.75rem;
+  background: var(--bg);
+  color: var(--text-muted);
+}
+
+.document-response-download {
+  justify-self: flex-start;
+}
+
+.admin-documents-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.admin-document-panel {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.admin-document-panel-header {
+  align-items: center;
+}
+
+.admin-document-request-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.admin-document-request-meta {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.admin-document-request-meta.has-top-margin {
+  margin-top: 0.25rem;
+}
+
+.admin-document-request-badges,
+.admin-document-payroll-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-document-request-badges {
+  margin-top: 0.75rem;
+}
+
+.admin-document-empty-state {
+  padding: 2rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.admin-document-payroll-panel {
+  padding: 2.5rem;
+}
+
+.admin-document-payroll-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.admin-document-payroll-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.admin-document-payroll-description {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.admin-document-payroll-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.admin-document-file-input {
+  padding: 0.65rem;
+}
+
+.admin-document-payroll-actions {
+  gap: 1rem;
+}
+
+.admin-document-upload-status {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.admin-document-type-row {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+
+.admin-document-modal-content,
+.admin-document-type-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.admin-document-answer-list {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: 0.75rem;
+  background: var(--bg);
+}
+
+.admin-document-open-file {
+  margin-top: 0.75rem;
+}
+
+.admin-document-checkbox,
+.admin-document-required-field {
+  display: flex;
+  align-items: center;
+}
+
+.admin-document-checkbox {
+  gap: 0.6rem;
+}
+
+.admin-document-fields {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.admin-document-required-field {
+  gap: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.admin-document-add-field {
+  justify-self: flex-start;
+}
+
+.document-tab-bar {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.document-tab-button,
+.document-action-button,
+.document-secondary-button,
+.document-danger-button {
+  width: auto;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.document-tab-button {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+}
+
+.document-tab-button.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.18);
+  color: #fff;
+}
+
+.document-action-button {
+  padding: 0.75rem 1.05rem;
+  border: 1px solid rgba(59, 130, 246, 0.24);
+  background: linear-gradient(135deg, var(--primary), #2563eb);
+  color: #fff;
+}
+
+.document-action-button:hover,
+.document-tab-button:hover,
+.document-secondary-button:hover,
+.document-danger-button:hover {
+  transform: translateY(-1px);
+}
+
+.document-action-button:disabled,
+.document-secondary-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.document-secondary-button {
+  padding: 0.72rem 1rem;
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  background: rgba(59, 130, 246, 0.08);
+  color: var(--primary);
+}
+
+.document-danger-button {
+  min-width: 42px;
+  padding: 0.72rem;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  background: rgba(239, 68, 68, 0.08);
+  color: var(--error);
+}
+
+.document-request-row {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.875rem;
+  background: var(--bg-card);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.document-request-row:hover {
+  border-color: rgba(59, 130, 246, 0.35);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+  transform: translateY(-1px);
+}
+
+.document-field-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.2fr) minmax(140px, 0.8fr) auto 46px;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (max-width: 720px) {
+  .documents-page-title {
+    font-size: 1.5rem;
+  }
+
+  .documents-loading,
+  .documents-empty-state {
+    padding: 2.5rem 1rem;
+  }
+
+  .document-request-form,
+  .admin-document-payroll-panel {
+    padding: 1.25rem;
+  }
+
+  .document-tab-button,
+  .document-action-button,
+  .document-secondary-button {
+    width: 100%;
+  }
+
+  .document-field-row {
+    grid-template-columns: 1fr;
+  }
+
+  .document-danger-button {
+    width: 100%;
+  }
+}

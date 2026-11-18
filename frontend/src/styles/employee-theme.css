@@ -1,0 +1,58 @@
+.employee-sidebar-nav,
+.dashboard-layout--personal,
+.training-admin-page,
+.leave-requests-page,
+.home-news-modal,
+.meal-rating-modal {
+  --employee-accent: #6d35e8;
+}
+
+/* Shared palette for employee pages and their dialogs. */
+.dashboard-layout--personal,
+.training-admin-page,
+.leave-requests-page,
+.home-news-modal,
+.meal-rating-modal {
+  --employee-accent-hover: #5726c3;
+  --employee-canvas: #f5f3fc;
+  --employee-surface: #fff;
+  --employee-text: #201a3d;
+  --employee-muted: #645c78;
+  --employee-border: #e5e0f1;
+  --employee-violet-soft: #eee7ff;
+  --employee-teal-accent: #08766c;
+  --employee-coral-accent: #a64030;
+  --employee-violet-gradient: linear-gradient(120deg, #7943ee, #5924d3);
+  --employee-teal-gradient: linear-gradient(120deg, #d8faf3, #b9eee5);
+  --employee-coral-gradient: linear-gradient(120deg, #ffebe3, #ffdbcf);
+  --primary: var(--employee-accent);
+  --primary-hover: var(--employee-accent-hover);
+  --primary-dim: var(--employee-violet-soft);
+  --text: var(--employee-text);
+  --text-muted: var(--employee-muted);
+  --border: var(--employee-border);
+  --border-light: var(--employee-border);
+}
+
+.employee-sidebar-nav .nav-group-toggle.open {
+  background: color-mix(in srgb, var(--employee-accent) 22%, transparent);
+}
+
+.employee-sidebar-nav :is(.nav-link, .nav-sublink):is(:hover, :focus-visible) {
+  background: color-mix(in srgb, var(--employee-accent) 38%, transparent);
+  color: var(--sidebar-text);
+}
+
+.employee-sidebar-nav :is(.nav-link, .nav-sublink).active {
+  background: var(--employee-accent);
+  color: #fff;
+}
+
+.employee-sidebar-nav .nav-link.active {
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--employee-accent) 30%, transparent);
+}
+
+.employee-sidebar-nav :is(.nav-link, .nav-sublink):focus-visible {
+  outline-color: #c4b5fd;
+  outline-offset: -3px;
+}

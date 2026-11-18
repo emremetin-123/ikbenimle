@@ -1,0 +1,491 @@
+@media (max-width: 640px) {
+  .poly-admin-page {
+    gap: 0.58rem;
+  }
+
+  .poly-tabs {
+    margin: 0.1rem 0.3rem 0.45rem;
+  }
+
+  .poly-tabs button {
+    min-height: 48px;
+    gap: 0.18rem;
+    padding: 0.35rem 0.25rem;
+    font-size: 0.56rem;
+  }
+
+  .poly-tabs button svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .poly-report-dashboard {
+    max-width: none;
+    gap: 0.58rem;
+    padding: 0.55rem 0.72rem 5.8rem;
+  }
+
+  .poly-report-dashboard-head {
+    gap: 0.62rem;
+    align-items: center;
+  }
+
+  .poly-report-dashboard-head .btn-icon-round {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    box-shadow: none;
+  }
+
+  .poly-report-dashboard-head h2 {
+    font-size: 1.45rem;
+    line-height: 1.05;
+  }
+
+  .poly-report-dashboard-head p {
+    margin-top: 0.08rem;
+    font-size: 0.82rem;
+  }
+
+  .poly-report-scope-tabs {
+    gap: 0.42rem;
+    margin-right: -0.72rem;
+    padding-right: 0.72rem;
+  }
+
+  .poly-report-scope-tabs button {
+    min-height: 38px;
+    padding: 0 0.72rem;
+    font-size: 0.78rem;
+    border-radius: 14px;
+    box-shadow: 0 7px 16px rgba(15, 23, 42, 0.04);
+  }
+
+  .poly-report-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .poly-report-actions .export-excel-button,
+  .poly-report-actions button {
+    min-height: 42px;
+    width: 100%;
+    padding: 0.48rem 0.55rem;
+    border-radius: 13px;
+    font-size: 0.84rem;
+  }
+
+  .poly-report-kpis {
+    gap: 0.5rem;
+  }
+
+  .poly-report-kpis article {
+    min-height: 82px;
+    gap: 0.28rem;
+    padding: 0.68rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.045);
+  }
+
+  .poly-report-kpis span {
+    font-size: 0.76rem;
+    line-height: 1.25;
+  }
+
+  .poly-report-kpis strong {
+    font-size: 1.42rem;
+  }
+
+  .poly-report-kpis small {
+    font-size: 0.72rem;
+    line-height: 1.25;
+  }
+
+  .poly-operation-risk-card,
+  .poly-report-card {
+    padding: 0.72rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+  }
+
+  .poly-operation-risk-card {
+    gap: 0.6rem;
+  }
+
+  .poly-operation-risk-card header {
+    gap: 0.52rem;
+  }
+
+  .poly-operation-risk-card header svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .poly-operation-risk-card header strong {
+    font-size: 0.92rem;
+  }
+
+  .poly-operation-risk-card header p {
+    margin-top: 0.16rem;
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .poly-operation-risk-card > div {
+    gap: 0.42rem;
+  }
+
+  .poly-operation-risk-card article {
+    min-height: 44px;
+    gap: 0.48rem;
+    padding: 0.56rem 0.62rem;
+    border-radius: 11px;
+  }
+
+  .poly-operation-risk-card article span {
+    width: 8px;
+    height: 8px;
+  }
+
+  .poly-operation-risk-card article strong {
+    font-size: 0.82rem;
+  }
+
+  .poly-operation-risk-card article small {
+    font-size: 0.68rem;
+  }
+
+  .poly-operation-risk-card button,
+  .poly-development-card button {
+    min-height: 42px;
+    border-radius: 13px;
+    font-size: 0.86rem;
+  }
+
+  .poly-report-card h3 {
+    margin-bottom: 0.22rem;
+    font-size: 1rem;
+  }
+
+  .poly-report-card > p {
+    margin-bottom: 0.62rem;
+    font-size: 0.78rem;
+    line-height: 1.34;
+  }
+
+  .poly-heatmap-grid {
+    gap: 0.28rem;
+  }
+
+  .poly-heatmap-grid > b,
+  .poly-heatmap-grid > strong {
+    font-size: 0.68rem;
+  }
+
+  .poly-heatmap-grid > span:not(:empty) {
+    min-width: 44px;
+    min-height: 34px;
+    border-radius: 9px;
+    font-size: 0.76rem;
+  }
+
+  .poly-heatmap-legend {
+    gap: 0.35rem;
+    margin-top: 0.62rem;
+    font-size: 0.72rem;
+  }
+
+  .poly-heatmap-legend span {
+    width: 8px;
+    height: 8px;
+  }
+
+  .poly-department-bars,
+  .poly-top-employee-list,
+  .poly-development-card {
+    gap: 0.55rem;
+  }
+
+  .poly-department-bars article {
+    grid-template-columns: minmax(64px, 0.42fr) minmax(0, 1fr) auto;
+    gap: 0.5rem;
+  }
+
+  .poly-department-bars strong,
+  .poly-department-bars b {
+    font-size: 0.78rem;
+  }
+
+  .poly-department-bars span,
+  .poly-development-card article > span {
+    height: 10px;
+  }
+
+  .poly-top-employee-list article {
+    gap: 0.48rem;
+  }
+
+  .poly-top-employee-list em {
+    width: 26px;
+    height: 26px;
+    font-size: 0.75rem;
+  }
+
+  .poly-top-employee-list article > span {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    font-size: 0.78rem;
+  }
+
+  .poly-top-employee-list strong {
+    font-size: 0.84rem;
+  }
+
+  .poly-top-employee-list small {
+    font-size: 0.68rem;
+  }
+
+  .poly-top-employee-list b {
+    font-size: 0.86rem;
+  }
+
+  .poly-development-card article {
+    gap: 0.38rem;
+  }
+
+  .poly-development-card article strong {
+    font-size: 0.88rem;
+  }
+
+  .poly-development-card article b,
+  .poly-development-card article small {
+    font-size: 0.72rem;
+  }
+
+  .poly-task-page.poly-member-overview-page,
+  .poly-task-page.poly-member-evaluation-page {
+    gap: 0.58rem;
+    padding: 0.58rem 0.72rem 5.8rem;
+  }
+
+  .poly-detail-back {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0.05rem;
+    box-shadow: none;
+  }
+
+  .poly-detail-overview {
+    gap: 0.72rem;
+    padding: 0.95rem;
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.055);
+  }
+
+  .poly-detail-overview h1 {
+    font-size: 1.48rem;
+    line-height: 1.06;
+  }
+
+  .poly-detail-overview p {
+    margin-top: 0.18rem;
+    font-size: 0.9rem;
+  }
+
+  .poly-detail-overview-progress {
+    gap: 0.48rem;
+  }
+
+  .poly-detail-overview-progress > span {
+    height: 10px;
+  }
+
+  .poly-detail-overview-progress footer {
+    align-items: center;
+  }
+
+  .poly-detail-overview-progress strong {
+    font-size: 0.82rem;
+  }
+
+  .poly-detail-overview-progress b {
+    font-size: 1.2rem;
+  }
+
+  .poly-detail-overview > .poly-command {
+    min-height: 44px;
+    justify-self: stretch;
+    width: 100%;
+    max-width: none;
+    border-radius: 13px;
+    font-size: 0.9rem;
+  }
+
+  .poly-task-search,
+  .poly-member-search {
+    min-height: 48px;
+    gap: 0.58rem;
+    padding: 0 0.82rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.045);
+  }
+
+  .poly-task-search svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .poly-task-search input {
+    font-size: 0.92rem;
+    font-weight: 750;
+  }
+
+  .poly-member-filter-tabs,
+  .poly-skill-filter-tabs {
+    gap: 0.42rem;
+    margin-right: -0.72rem;
+    padding-right: 0.72rem;
+    padding-bottom: 0.05rem;
+  }
+
+  .poly-member-filter-tabs button,
+  .poly-skill-filter-tabs button {
+    min-height: 39px;
+    padding: 0 0.68rem;
+    border-radius: 14px;
+    font-size: 0.78rem;
+    box-shadow: 0 7px 16px rgba(15, 23, 42, 0.04);
+  }
+
+  .poly-member-card-list {
+    gap: 0.55rem;
+  }
+
+  .poly-member-card {
+    min-height: 72px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.62rem;
+    padding: 0.68rem 0.78rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+  }
+
+  .poly-member-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    font-size: 0.82rem;
+  }
+
+  .poly-member-card-body {
+    gap: 0.08rem;
+  }
+
+  .poly-member-card-body strong {
+    font-size: 0.96rem;
+    line-height: 1.16;
+  }
+
+  .poly-member-card-body small {
+    font-size: 0.76rem;
+    line-height: 1.25;
+  }
+
+  .poly-member-card-score {
+    grid-column: 2 / 3;
+    gap: 0.24rem;
+  }
+
+  .poly-member-card-score strong {
+    font-size: 0.88rem;
+  }
+
+  .poly-member-card-score i {
+    width: min(150px, 74%);
+    height: 6px;
+  }
+
+  .poly-member-card > svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .poly-selected-member-hero {
+    gap: 0.62rem;
+    padding: 0.72rem 0.78rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+  }
+
+  .poly-selected-member-hero h1 {
+    font-size: 1.06rem;
+  }
+
+  .poly-selected-member-hero p {
+    font-size: 0.78rem;
+  }
+
+  .poly-selected-member-hero > strong {
+    font-size: 0.92rem;
+  }
+
+  .poly-quick-hint {
+    margin: 0.1rem 0 0.18rem;
+    font-size: 0.74rem;
+    line-height: 1.45;
+  }
+
+  .poly-quick-assessment-list {
+    gap: 0.55rem;
+  }
+
+  .poly-quick-category {
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+  }
+
+  .poly-quick-category > header {
+    min-height: 46px;
+    padding: 0.6rem 0.72rem;
+  }
+
+  .poly-quick-category > header strong {
+    font-size: 0.96rem;
+  }
+
+  .poly-quick-category > header b {
+    font-size: 0.9rem;
+  }
+
+  .poly-quick-row {
+    gap: 0.48rem;
+    padding: 0.64rem 0.72rem;
+  }
+
+  .poly-quick-skill {
+    gap: 0.1rem;
+  }
+
+  .poly-quick-skill strong {
+    font-size: 0.9rem;
+    line-height: 1.18;
+  }
+
+  .poly-quick-skill small {
+    font-size: 0.66rem;
+  }
+
+  .poly-quick-controls {
+    gap: 0.36rem;
+  }
+
+  .poly-quick-controls button {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    font-size: 0.82rem;
+  }
+}

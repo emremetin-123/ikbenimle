@@ -1,0 +1,462 @@
+.training-certificate-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgb(15 23 42 / 75%);
+}
+
+.training-certificate-modal {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 1100px);
+  max-height: calc(100dvh - 3rem);
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--bg-card);
+}
+
+.training-certificate-header,
+.training-certificate-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.training-certificate-header > div { flex: 1; min-width: 0; }
+.training-certificate-header h2 { margin: 0; font-size: 1.25rem; }
+.training-certificate-header p { margin: 0.25rem 0 0; overflow-wrap: anywhere; }
+.training-certificate-header button { flex-shrink: 0; min-width: 44px; min-height: 44px; }
+.training-certificate-toolbar p { flex: 1 1 240px; margin: 0; }
+.training-certificate-toolbar a { min-height: 44px; text-decoration: none; }
+.training-certificate-state { padding: 2rem; text-align: center; }
+.training-certificate-preview { width: 100%; height: 65dvh; min-height: 0; border: 0; }
+
+@media (max-width: 768px) {
+  .training-certificate-overlay { padding: 0.75rem; }
+  .training-certificate-modal { max-height: calc(100dvh - 1.5rem); }
+  .training-certificate-header,
+  .training-certificate-toolbar { padding: 0.75rem; }
+  .training-certificate-toolbar a { flex: 1 1 auto; justify-content: center; }
+}
+
+.employee-trainings-page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.employee-trainings-page > .employee-page-title {
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+}
+
+.employee-training-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
+  gap: var(--space-3);
+  margin: -1rem 0 2rem;
+}
+
+.employee-training-search,
+.employee-training-sort {
+  min-width: 0;
+}
+
+.employee-training-section {
+  margin-bottom: 4rem;
+}
+
+.employee-training-section.completed {
+  padding-top: 3rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.employee-training-section-title {
+  display: flex;
+  margin-bottom: 1.75rem;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.employee-training-section-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+}
+
+.employee-training-section-dot.is-pending {
+  background: var(--primary);
+}
+
+.employee-training-section-dot.is-completed {
+  background: var(--success);
+}
+
+.employee-training-count {
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 5%);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.employee-training-card {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 0.875rem;
+  border-color: var(--border);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.employee-training-card:not(.completed, .is-expired):hover {
+  transform: translateY(-2px);
+  border-color: rgba(59, 130, 246, 0.35);
+  box-shadow: var(--shadow-lg);
+}
+
+.employee-training-card.is-expired {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.employee-training-card.is-expired:not(.completed):hover {
+  transform: none;
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+}
+
+.employee-training-media {
+  position: relative;
+  flex: 0 0 auto;
+  overflow: hidden;
+  background: var(--bg-input);
+}
+
+.employee-training-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.employee-training-cover-placeholder {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  place-content: center;
+  justify-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  background: var(--bg-input);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.employee-training-card.completed .employee-training-media img,
+.employee-training-card.completed .employee-training-cover-placeholder {
+  opacity: 0.8;
+}
+
+.employee-training-expired-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0 0 0 / 75%);
+  backdrop-filter: blur(3px);
+}
+
+.employee-training-expired-overlay span {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--error);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.employee-training-body {
+  display: flex;
+  min-width: 0;
+  padding: 1.5rem;
+  flex: 1;
+  flex-direction: column;
+}
+
+.employee-training-meta {
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.employee-training-category {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.employee-training-category.is-pending {
+  color: var(--primary);
+}
+
+.employee-training-category.is-completed {
+  color: var(--success);
+}
+
+.employee-training-title {
+  margin-bottom: 0.75rem;
+  overflow-wrap: anywhere;
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.employee-training-description {
+  display: -webkit-box;
+  min-height: 2.8em;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.employee-training-details {
+  display: flex;
+  margin-top: auto;
+  padding-top: 1rem;
+  flex-direction: column;
+  gap: 0.6rem;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+}
+
+.employee-training-trainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.employee-training-detail-label {
+  opacity: 0.7;
+}
+
+.employee-training-detail-value {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.employee-training-deadline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.employee-training-deadline .is-expired {
+  color: var(--error);
+}
+
+.employee-training-score {
+  display: flex;
+  margin-bottom: 1.25rem;
+  padding: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(16, 185, 129, 0.16);
+  border-radius: 0.5rem;
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.employee-training-score span {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.employee-training-score strong {
+  color: var(--success);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.employee-training-certificate-button {
+  display: inline-flex;
+  width: 100%;
+  padding: 0.8rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--success);
+}
+
+.employee-training-certificate-state {
+  padding: 0.8rem;
+  border: 1px solid var(--border-light);
+  border-radius: 0.75rem;
+  background: rgb(255 255 255 / 3%);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.employee-training-empty {
+  padding: 2rem;
+  border: 1px dashed var(--border-light);
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 2%);
+  text-align: center;
+}
+
+.employee-training-empty p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .employee-page-title {
+    gap: 0.7rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.35rem;
+    line-height: 1.3;
+  }
+
+  .employee-page-title svg {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+  }
+
+  .employee-training-section {
+    margin-bottom: 2.25rem;
+  }
+
+  .employee-training-section.completed {
+    padding-top: 1.75rem;
+  }
+
+  .employee-training-section-title {
+    display: grid;
+    grid-template-columns: 8px minmax(0, 1fr) auto;
+    gap: 0.65rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .employee-training-count {
+    min-width: 30px;
+    margin-left: 0;
+    padding: 0.2rem 0.5rem;
+    text-align: center;
+    background: var(--bg-input);
+  }
+
+  .employee-training-card {
+    border-radius: 0.8rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .employee-training-media,
+  .employee-training-media img,
+  .employee-training-cover-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 8.5;
+  }
+
+  .employee-training-media img {
+    object-fit: cover;
+  }
+
+  .employee-training-body {
+    padding: 1rem;
+  }
+
+  .employee-training-meta {
+    gap: 0.65rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .employee-training-meta .badge {
+    min-height: 26px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.6rem;
+    white-space: nowrap;
+  }
+
+  .employee-training-meta>span:last-child {
+    min-width: 0;
+    max-width: 52%;
+    overflow: hidden;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .employee-training-title {
+    margin-bottom: 0.55rem;
+    font-size: 1.05rem;
+    line-height: 1.35;
+  }
+
+  .employee-training-description {
+    min-height: 0;
+    margin-bottom: 0.9rem;
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+
+  .employee-training-details {
+    gap: 0.5rem;
+    padding-top: 0.8rem;
+    font-size: 0.78rem;
+  }
+
+  .employee-training-details>div {
+    min-width: 0;
+    gap: 0.5rem;
+  }
+
+  .employee-training-score {
+    min-height: 48px;
+    margin-bottom: 0.9rem;
+    padding: 0.7rem 0.8rem;
+    border-radius: 0.65rem;
+  }
+
+  .employee-training-score strong {
+    font-size: 1.1rem;
+  }
+
+  .employee-training-card .btn-primary {
+    min-height: 46px;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .employee-training-toolbar {
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: 1.5rem;
+  }
+}

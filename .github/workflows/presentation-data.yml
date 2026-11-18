@@ -1,0 +1,48 @@
+name: Manage Presentation Data
+
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: Presentation data operation
+        required: true
+        default: seed
+        type: choice
+        options:
+          - seed
+          - clean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-presentation-data
+  cancel-in-progress: false
+
+jobs:
+  manage:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Run presentation data operation on VPS
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          OPERATION: ${{ inputs.operation }}
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          envs: OPERATION
+          script: |
+            set -eu
+            case "$OPERATION" in
+              seed|clean) ;;
+              *) echo "Invalid operation" >&2; exit 1 ;;
+            esac
+            cd /opt/ikbenimle
+            RELEASE_TAG="$(cat .last-successful-release)"
+            test -n "$RELEASE_TAG"
+            IMAGE_TAG="$RELEASE_TAG" docker compose -f docker-compose.prod.yml run --rm --no-deps \
+              -e ALLOW_PRESENTATION_DATA=true \
+              backend node scripts/presentation-data.js "$OPERATION"
