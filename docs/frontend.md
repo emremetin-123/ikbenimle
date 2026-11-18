@@ -262,7 +262,8 @@ same-origin kullanılır. Yerel geliştirmede varsayılan API adresi
 Giriş ekranı `public/login-ribbons.png` arka planını 3px bulanıklıkla kullanır;
 form paneli 28px backdrop blur ve yarı saydam beyaz katmanla ayrılır. Masaüstünde
 sağda, mobilde ortada yerleşir. Şifre görünürlüğü düğmesi ve gönderim sırasında
-bekleme durumu `Login.tsx` içinde yönetilir. Görselin üretim istemi
+bekleme durumu `Login.tsx` içinde yönetilir. Giriş kartı form ile sona erer.
+Görselin üretim istemi
 [Giriş arka planı](login-background.md) belgesindedir.
 
 - TSX container bütçesi: en fazla 500 satır

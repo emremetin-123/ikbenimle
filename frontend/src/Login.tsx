@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from './AuthContext';
 import { useNavigate } from './router';
-import { Footer } from './Footer';
 import { Logo } from './components/Logo';
 import { ArrowRight, Eye, EyeOff, LockKeyhole, UserRound } from 'lucide-react';
 
-export const Login = ({ onShowLegal }: { onShowLegal: (type: 'tos' | 'privacy' | 'kvkk') => void }) => {
+export const Login = () => {
     const [employeeId, setEmployeeId] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -102,7 +101,6 @@ export const Login = ({ onShowLegal }: { onShowLegal: (type: 'tos' | 'privacy' |
                             <ArrowRight size={20} aria-hidden="true" />
                         </button>
                     </form>
-                    <Footer onShowLegal={onShowLegal} className="login-footer" />
                 </section>
             </main>
         </div>
