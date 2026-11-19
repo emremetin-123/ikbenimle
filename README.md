@@ -9,11 +9,11 @@ sonuçları raporlayabilir.
 
 ## Tanıtım videosu
 
-<a href="docs/media/ikbenimle-tanitim.mp4">
+<a href="https://github.com/emremetin-123/ikbenimle/raw/refs/heads/main/docs/media/ikbenimle-tanitim.mp4">
   <img src="docs/media/ikbenimle-tanitim.jpg" width="640" alt="İKBenimle tanıtım videosu kapağı. Ana sayfa ve profil ekranları yan yana.">
 </a>
 
-[Tanıtım videosunu izle (24 saniye)](docs/media/ikbenimle-tanitim.mp4)
+[Tanıtım videosunu indir (MP4, 24 saniye)](https://github.com/emremetin-123/ikbenimle/raw/refs/heads/main/docs/media/ikbenimle-tanitim.mp4)
 
 Müzik, [Sascha Ende](https://ende.app/en) imzalı *Happy Beats / Business Moves Vol. 11*
 ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)). Parça kısaltıldı ve
