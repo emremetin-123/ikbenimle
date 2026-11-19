@@ -7,6 +7,20 @@ ve izin ya da belge talebi gönderebilir. İK ekipleri ve yöneticiler de yetkil
 dahilinde duyuru yayınlayabilir, eğitim atayabilir, talepleri yanıtlayabilir ve
 sonuçları raporlayabilir.
 
+## Tanıtım videosu
+
+<a href="docs/media/ikbenimle-tanitim.mp4">
+  <img src="docs/media/ikbenimle-tanitim.jpg" width="640" alt="İKBenimle tanıtım videosu kapağı. Ana sayfa ve profil ekranları yan yana.">
+</a>
+
+[Tanıtım videosunu izle (24 saniye)](docs/media/ikbenimle-tanitim.mp4)
+
+Müzik, [Sascha Ende](https://ende.app/en) imzalı *Happy Beats / Business Moves Vol. 11*
+([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)). Parça kısaltıldı ve
+ses düzeyi ayarlandı. Ses efektleri [Kenney](https://kenney.nl/) arşivinden.
+
+## Mobil ekranlar
+
 ![İKBenimle mobil önizlemesi. Ana sayfa, profil, çalışan rehberi, servis güzergahları, eğitimler ve modül menüsü altı telefon çerçevesinde gösteriliyor.](docs/images/mobil-portal.png)
 
 *Mobil önizlemede örnek veriler kullanılmıştır.*
